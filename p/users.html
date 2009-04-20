@@ -91,18 +91,36 @@
 
 <h3 id='authenticated_user_management'>Authenticated User Management</h3>
 
-<p>If you are authenticating, you can update your users information in a few different ways.</p>
+<p>If you are authenticating, you can update your users information by POSTing to in a few different ways.</p>
 
-<pre><code>  /user/:username [POST]
+<pre><code>  /user/show/:username [POST]
+
       :values[key] = value</code></pre>
 
-<p>Where the key values are of :</p>
+<p>Where the POST values are of :</p>
 
 <pre><code>name
 email
 blog
 company
 location</code></pre>
+
+<p>So, you could do this to update your email address:</p>
+
+<pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; https://github.com/api/v2/json/user/show/schacon -F &#39;values[email]=scott@geemail.com&#39;
+{
+  &quot;user&quot;: {
+    &quot;company&quot;: &quot;Logical Awesome&quot;,
+    &quot;name&quot;: &quot;Scott Chacon&quot;,
+    &quot;blog&quot;: &quot;http:\/\/jointheconversation.org&quot;,
+    &quot;disk_usage&quot;: 89352,
+    &quot;collaborators&quot;: 3,
+    ...
+    &quot;email&quot;: &quot;scott@geemail.com&quot;,
+    &quot;location&quot;: &quot;Redwood City, CA&quot;
+    &quot;created_at&quot;: &quot;2008\/01\/27 09:19:28 -0800&quot;,
+  }
+}</code></pre>
 
 <h3 id='following_network'>Following Network</h3>
 

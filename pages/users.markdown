@@ -53,18 +53,37 @@ If you authenticated as that user, you will also get this information:
 	
 ### Authenticated User Management ###
 
-If you are authenticating, you can update your users information in a few different ways.
+If you are authenticating, you can update your users information by POSTing to in a few different ways.
 
-	  /user/:username [POST]
+	  /user/show/:username [POST]
+
 	      :values[key] = value
 
-Where the key values are of :
+Where the POST values are of :
 
 	name
 	email
 	blog
 	company
 	location
+
+So, you could do this to update your email address:
+
+	$ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/user/show/schacon -F 'values[email]=scott@geemail.com'
+	{
+	  "user": {
+	    "company": "Logical Awesome",
+	    "name": "Scott Chacon",
+	    "blog": "http:\/\/jointheconversation.org",
+	    "disk_usage": 89352,
+	    "collaborators": 3,
+	    ...
+	    "email": "scott@geemail.com",
+	    "location": "Redwood City, CA"
+	    "created_at": "2008\/01\/27 09:19:28 -0800",
+	  }
+	}
+
 
 ### Following Network ###
 
