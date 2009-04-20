@@ -41,6 +41,28 @@
 
 <p>The API for GitHub Issues.</p>
 
+<h3 id='search_issues'>Search Issues</h3>
+
+<pre><code>/issues/search/:user/:repo/:state/:search_term</code></pre>
+
+<p>Where &#8216;state&#8217; is the For example, to search for &#8216;test&#8217; in the open issues for defunkt/github-issues repo, you can do this:</p>
+
+<pre><code>$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test 
+{
+  &quot;issues&quot;: [
+    {
+      &quot;user&quot;: &quot;kfl&quot;,
+      &quot;updated_at&quot;: &quot;2009\/04\/20 03:34:48 -0700&quot;,
+      &quot;votes&quot;: 3,
+      &quot;number&quot;: 102,
+      &quot;title&quot;: &quot;Pressing question-mark does not show help&quot;,
+      &quot;body&quot;: &quot;Pressing the &#39;?&#39;-key does not open the help lightbox.\r\n\r\nHowever, at least the &#39;j&#39;, &#39;k&#39;, and &#39;c&#39; works (the only ones I&#39;ve tested).\r\n\r\n* **OS:** Linux, ubuntu 8.04.1\r\n* **Browser:** Firefox 3.08&quot;,
+      &quot;state&quot;: &quot;open&quot;,
+      &quot;created_at&quot;: &quot;2009\/04\/17 12:57:52 -0700&quot;
+    }
+  ]
+}</code></pre>
+
 <h3 id='list_a_projects_issues'>List a Projects Issues</h3>
 
 <p>To see a list of issues for a project,</p>
@@ -171,7 +193,19 @@ labels:
 
 <pre><code>issues/label/remove/:user/:repo/:label/:number</code></pre>
 
-<p>Again, it will return a list of the labels currently on the issue.</p><br/><br/><hr/><div class="span-21 last">&nbsp;</div><hr/>
+<p>Again, it will return a list of the labels currently on the issue.</p>
+
+<h3 id='comment_on_issues'>Comment on Issues</h3>
+
+<p>You can comment on issues at</p>
+
+<pre><code>/issues/comment/:user/:repo/:id </code></pre>
+
+<p>Simply send it a &#8216;comment&#8217; POST variable with the comment you&#8217;d like to make. It will attribute the comment to the user that is authenticated. Here is an example:</p>
+
+<pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; -F &#39;comment=this is amazing&#39; \
+  https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1 
+{&quot;comment&quot;: {&quot;comment&quot;: &quot;this is amazing&quot;, &quot;status&quot;: &quot;saved&quot;}}</code></pre><br/><br/><hr/><div class="span-21 last">&nbsp;</div><hr/>
     </div>
 
     <div id="footer" class="span-21">

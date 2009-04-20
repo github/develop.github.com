@@ -1,7 +1,31 @@
 ## Issues API ##
 
 The API for GitHub Issues.
-  
+
+### Search Issues ###
+
+	/issues/search/:user/:repo/:state/:search_term
+
+Where 'state' is the 
+For example, to search for 'test' in the open issues for defunkt/github-issues repo, you can do this:
+
+	$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test 
+	{
+	  "issues": [
+	    {
+	      "user": "kfl",
+	      "updated_at": "2009\/04\/20 03:34:48 -0700",
+	      "votes": 3,
+	      "number": 102,
+	      "title": "Pressing question-mark does not show help",
+	      "body": "Pressing the '?'-key does not open the help lightbox.\r\n\r\nHowever, at least the 'j', 'k', and 'c' works (the only ones I've tested).\r\n\r\n* **OS:** Linux, ubuntu 8.04.1\r\n* **Browser:** Firefox 3.08",
+	      "state": "open",
+	      "created_at": "2009\/04\/17 12:57:52 -0700"
+	    }
+	  ]
+	}
+
+
 ### List a Projects Issues ###
 
 To see a list of issues for a project,
@@ -135,3 +159,15 @@ To remove a label, run:
 	issues/label/remove/:user/:repo/:label/:number
 
 Again, it will return a list of the labels currently on the issue.
+
+### Comment on Issues ###
+
+You can comment on issues at
+
+	/issues/comment/:user/:repo/:id 
+
+Simply send it a 'comment' POST variable with the comment you'd like to make.  It will attribute the comment to the user that is authenticated.  Here is an example:
+
+	$ curl -F 'login=schacon' -F 'token=XXX' -F 'comment=this is amazing' \
+	  https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1 
+	{"comment": {"comment": "this is amazing", "status": "saved"}}
