@@ -6,12 +6,13 @@ Libraries for accessing the GitHub API from your favorite language
 
 [Dustin Sallings'][dustin] [py-github][py-github] project was the
 first third-party implementation of the v1 API and is tracking the v2
-API in a branch as new API endpoints are published.
+API in a branch as new API endpoints are published. [Fork it][py-github] it and help keep it awesome.
 
-[Fork it][py-github] it and help keep it awesome.
+There is alo a new Python library for the GitHub v2 API called [python-github2][python-github2].  It has nearly the full API feature list.
 
 [dustin]: http://github.com/dustin
 [py-github]: http://github.com/dustin/py-github
+[python-github2]: http://pypi.python.org/pypi/python-github2/0.1.1
 
 ### Ruby - Version 1 API ###
 
@@ -31,9 +32,10 @@ The [octopi][octopi] library is one of the first emerging for the GitHub API v2.
 
 [octopi]: http://github.com/fcoury/octopi/
 
-### Perl - Version 2 API ###
+### Perl ###
 
 The [Net::GitHub][net-perl-github] library for Perl encapsulates much of the functionality of the GitHub v2 API.  You can also download it from [CPAN][net-perl-cpan].
 
 [net-perl-cpan]: http://search.cpan.org/dist/Net-GitHub/
 [net-perl-github]: http://github.com/fayland/perl-net-github/tree/master
+
