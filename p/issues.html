@@ -173,6 +173,20 @@ body</code></pre>
 
 <p>This will overwrite the title or body of the issue, if you are authorized member of the project.</p>
 
+<h3 id='listing_labels'>Listing Labels</h3>
+
+<p>You can list available labels for a projects issues with</p>
+
+<pre><code>issues/labels/:user/:repo</code></pre>
+
+<p>For example,</p>
+
+<pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; https://github.com/api/v2/yaml/issues/labels/schacon/simplegit
+---
+labels:
+- label1
+- label2</code></pre>
+
 <h3 id='add_and_remove_labels'>Add and Remove Labels</h3>
 
 <p>To add a label, run</p>
