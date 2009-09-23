@@ -174,6 +174,10 @@ To remove a label, run:
 
 Again, it will return a list of the labels currently on the issue.
 
+You can also add and remove labels generally by leaving off the Issue number.
+That will add a label to the system but not attach it to an issue, or remove
+an issue from all labels.
+
 ### Comment on Issues ###
 
 You can comment on issues at

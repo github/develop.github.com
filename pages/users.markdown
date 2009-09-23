@@ -142,7 +142,7 @@ For example,
 	  /user/keys
 
 	  /user/key/add [POST]
-	      :name
+	      :title
 	      :key
 
 	  /user/key/remove [POST]
