@@ -271,6 +271,21 @@ network:
   :homepage: http://jointheconversation.org/rubygit/
 ...</code></pre>
 
+<h3 id='language_breakdown'>Language Breakdown</h3>
+
+<p>To see a list of the languages used in a particular repository, you can call the language breakdown API. Values are in bytes calculated.</p>
+
+<pre><code>/repos/show/:user/:repo/languages</code></pre>
+
+<p>You can get the language breakdown for mojombo/grit like this:</p>
+
+<pre><code>$ curl http://github.com/api/v2/yaml/repos/show/mojombo/grit/languages
+--- 
+languages: 
+  Ruby: 35097</code></pre>
+
+<p>Note that this is based on a very simple algorithm and is not perfect. Common large libraries are removed and languages are solely identified by file extension.</p>
+
 <h3 id='repository_refs'>Repository Refs</h3>
 
 <p>To get a list of tags on your repo</p>

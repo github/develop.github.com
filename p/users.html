@@ -142,6 +142,37 @@ location</code></pre>
 
 /user/unfollow/:user [POST]</code></pre>
 
+<h3 id='watched_repos'>Watched Repos</h3>
+
+<p>To see which repositories a user is watching, you can call:</p>
+
+<pre><code>/repos/watched/:user</code></pre>
+
+<p>For example,</p>
+
+<pre><code>$ curl http://github.com/api/v2/yaml/repos/watched/schacon 
+repositories: 
+- :watchers: 42
+  :owner: ddollar
+  :name: git-db
+  :description: CouchDB-based git server
+  :private: false
+  :url: http://github.com/ddollar/git-db
+  :open_issues: 0
+  :fork: false
+  :homepage: http://github.com/ddollar/git-db
+  :forks: 2
+- :watchers: 2
+  :owner: schacon
+  :name: git-db
+  :description: CouchDB-based git server
+  :private: false
+  :url: http://github.com/schacon/git-db
+  :open_issues: 0
+  :fork: true
+  :homepage: http://github.com/ddollar/git-db
+  :forks: 0</code></pre>
+
 <h4 id='public_key_management'>Public Key Management</h4>
 
 <pre><code>  /user/keys
