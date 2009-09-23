@@ -233,6 +233,24 @@ For example, to see all the forks of the ruby-git project, we can GET
 	  :homepage: http://jointheconversation.org/rubygit/
 	...
 
+### Language Breakdown ###
+
+To see a list of the languages used in a particular repository, you can call
+the language breakdown API.  Values are in bytes calculated.
+
+	/repos/show/:user/:repo/languages
+
+You can get the language breakdown for mojombo/grit like this:
+
+	$ curl http://github.com/api/v2/yaml/repos/show/mojombo/grit/languages
+	--- 
+	languages: 
+	  Ruby: 35097
+
+Note that this is based on a very simple algorithm and is not perfect.  Common
+large libraries are removed and languages are solely identified by file 
+extension.
+
 ### Repository Refs ###
 
 To get a list of tags on your repo
