@@ -137,6 +137,20 @@ Where you can provide POST variables:
 
 This will overwrite the title or body of the issue, if you are authorized member of the project.
 
+### Listing Labels ###
+
+You can list available labels for a projects issues with
+
+	issues/labels/:user/:repo
+
+For example,
+
+	$ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/yaml/issues/labels/schacon/simplegit
+	---
+	labels:
+	- label1
+	- label2
+
 ### Add and Remove Labels ###
 
 To add a label, run
