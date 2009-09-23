@@ -106,6 +106,37 @@ If you are authenticated as a user, you can also follow or unfollow users with:
 	/user/unfollow/:user [POST]
 
 
+### Watched Repos ###
+
+To see which repositories a user is watching, you can call:
+
+	/repos/watched/:user
+
+For example,
+
+	$ curl http://github.com/api/v2/yaml/repos/watched/schacon 
+	repositories: 
+	- :watchers: 42
+	  :owner: ddollar
+	  :name: git-db
+	  :description: CouchDB-based git server
+	  :private: false
+	  :url: http://github.com/ddollar/git-db
+	  :open_issues: 0
+	  :fork: false
+	  :homepage: http://github.com/ddollar/git-db
+	  :forks: 2
+	- :watchers: 2
+	  :owner: schacon
+	  :name: git-db
+	  :description: CouchDB-based git server
+	  :private: false
+	  :url: http://github.com/schacon/git-db
+	  :open_issues: 0
+	  :fork: true
+	  :homepage: http://github.com/ddollar/git-db
+	  :forks: 0
+
 #### Public Key Management ####
 
 	  /user/keys
