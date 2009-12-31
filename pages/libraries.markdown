@@ -15,7 +15,7 @@ list.
 
 [dustin]: http://github.com/dustin
 [py-github]: http://github.com/dustin/py-github
-[python-github2]: http://pypi.python.org/pypi/python-github2/0.1.1
+[python-github2]: http://github.com/ask/python-github2
 
 ### Ruby - Version 1 API ###
 
