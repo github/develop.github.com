@@ -86,18 +86,20 @@ To get a list of comments made on an issue, run
 
 So to get all the comments for a issue #1 in our repo, we can run something like this:
 
-	$ curl http://github.com/api/v2/yaml/issues/comments/schacon/simplegit/1
-  --- 
-  comments: 
-  - created_at: 2010-02-08 12:54:54 -08:00
-    body: pretty cool idea
-    updated_at: 2010-02-08 12:54:54 -08:00
-    user: defunkt
-  - created_at: 2010-02-08 12:55:05 -08:00
-    body: is it?
-    updated_at: 2010-02-08 12:55:05 -08:00
-    user: schacon
-    
+    $ curl http://github.com/api/v2/yaml/issues/comments/schacon/simplegit/open
+    --- 
+    comments: 
+    - created_at: 2010-02-08 12:54:54 -08:00
+      body: this is a really great idea
+      updated_at: 2010-02-08 12:54:54 -08:00
+      id: 1
+      user: defunkt
+    - created_at: 2010-02-08 12:55:05 -08:00
+      body: is it?
+      updated_at: 2010-02-08 12:55:05 -08:00
+      id: 2
+      user: schacon
+
 
 ### Open and Close Issues ###
 
