@@ -77,6 +77,28 @@ So to get all the data for a issue #1 in our repo, we can run something like thi
 	  user: schacon
 	  state: open
 
+
+### List an Issue's Comments ###
+
+To get a list of comments made on an issue, run
+
+	issues/comments/:user/:repo/:number
+
+So to get all the comments for a issue #1 in our repo, we can run something like this:
+
+	$ curl http://github.com/api/v2/yaml/issues/comments/schacon/simplegit/1
+  --- 
+  comments: 
+  - created_at: 2010-02-08 12:54:54 -08:00
+    body: pretty cool idea
+    updated_at: 2010-02-08 12:54:54 -08:00
+    user: defunkt
+  - created_at: 2010-02-08 12:55:05 -08:00
+    body: is it?
+    updated_at: 2010-02-08 12:55:05 -08:00
+    user: schacon
+    
+
 ### Open and Close Issues ###
 
 To open a new issue on a project, make a authorized POST to
