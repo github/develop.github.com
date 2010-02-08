@@ -113,6 +113,18 @@ issue:
   user: schacon
   state: open</code></pre>
 
+<h3 id='list_an_issues_comments'>List an Issue&#8217;s Comments</h3>
+
+<p>To get a list of comments made on an issue, run</p>
+
+<pre><code>issues/comments/:user/:repo/:number</code></pre>
+
+<p>So to get all the comments for a issue #1 in our repo, we can run something like this:</p>
+
+<pre><code>$ curl http://github.com/api/v2/yaml/issues/comments/schacon/simplegit/1</code></pre>
+<hr />
+<p>comments: - created_at: 2010-02-08 12:54:54 -08:00 body: pretty cool idea updated_at: 2010-02-08 12:54:54 -08:00 user: defunkt - created_at: 2010-02-08 12:55:05 -08:00 body: is it? updated_at: 2010-02-08 12:55:05 -08:00 user: schacon</p>
+
 <h3 id='open_and_close_issues'>Open and Close Issues</h3>
 
 <p>To open a new issue on a project, make a authorized POST to</p>
