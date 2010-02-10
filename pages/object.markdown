@@ -9,8 +9,8 @@ Can get the contents of a tree by tree SHA
 To get a listing of the root tree for the facebox project from our commit listing, we can call this:
 
 	$ curl http://github.com/api/v2/yaml/tree/show/defunkt/facebox/a47803c9ba26213ff194f042ab686a7749b17476
-	--- 
-	tree: 
+	---
+	tree:
 	- name: .gitignore
 	  sha: e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf
 	  mode: "100644"
@@ -51,11 +51,11 @@ To get a listing of the root tree for the facebox project from our commit listin
 	  sha: dc61a86c3f342b930f0a0447cae33fee812e27d3
 	  mode: "100644"
 	  type: blob
-	
+
 (Output truncated for display purposes).
 
 ### Blobs ###
-	
+
 Can get the data about a blob by tree SHA and path
 
 	blob/show/:user/:repo/:tree_sha/:path
@@ -63,8 +63,8 @@ Can get the data about a blob by tree SHA and path
 For example, to get the README.txt metadata from a specific tree in Facebox:
 
 	$ curl http://github.com/api/v2/yaml/blob/show/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31/README.txt
-	--- 
-	blob: 
+	---
+	blob:
 	  name: README.txt
 	  size: 178
 	  sha: d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
@@ -72,9 +72,48 @@ For example, to get the README.txt metadata from a specific tree in Facebox:
 	  mime_type: text/plain
 	  data: |
 	    Please visit http://famspam.com/facebox/ or open index.html in your favorite browser.
-	    
+
 	    Need help?  Join our Google Groups mailing list:
 	      http://groups.google.com/group/facebox/
+
+You can also get a list of all blobs (their names and shas) for a
+specific SHA:
+
+	blob/all/:user/:repo/:tree_sha
+
+For example, to get all blobs for Facebox:
+
+    $ curl http://github.com/api/v2/yaml/blob/all/defunkt/facebox/master
+    ---
+    blobs:
+      test_programmatic.html: 0249382e
+      stairs.jpg: 63459bb4
+      shadow.gif: e58b35b3
+      screenshots/photo.png: 837cfbd8
+      .gitignore: e43b0f98
+      screenshots/preview.png: e04c5f64
+      screenshots/error.png: c2165a01
+      releases/.gitignore: e69de29b
+      facebox.css: 76e0a30a
+      jquery.js: ebe02bdd
+      faceplant.css: dc61a86c
+      build_tar.sh: 08f6f1fc
+      screenshots/preview_small.png: 4deb6d70
+      screenshots/.DS_Store: 7d8a1d70
+      loading.gif: f864d5fd
+      fbx-border-sprite.png: dc7a9997
+      closelabel.gif: 87b4f8bd
+      README.txt: d4fc2d5e
+      screenshots/success_small.png: dfff54f6
+      logo.png: e41cfe5c
+      test.html: 0a279c66
+      screenshots/error_small.png: ce96ac45
+      index.html: a9d1c235
+      facebox.js: 7695b90e
+      b.png: f184e626
+      screenshots/success.png: b547e7ad
+      screenshots/photo_small.png: 933df8b6
+      remote.html: 98d3e923
 
 
 ### Raw Git Data ###
@@ -89,7 +128,7 @@ Here is an example of getting a README file from Facebox:
 
 	$ curl http://github.com/api/v2/yaml/blob/show/defunkt/facebox/d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
 	Please visit http://famspam.com/facebox/ or open index.html in your favorite browser.
-  
+
 	Need help?  Join our Google Groups mailing list:
 	  http://groups.google.com/group/facebox/
 
