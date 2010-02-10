@@ -86,35 +86,34 @@ For example, to get all blobs for Facebox:
     $ curl http://github.com/api/v2/yaml/blob/all/defunkt/facebox/master
     ---
     blobs:
-      test_programmatic.html: 0249382e
-      stairs.jpg: 63459bb4
-      shadow.gif: e58b35b3
-      screenshots/photo.png: 837cfbd8
-      .gitignore: e43b0f98
-      screenshots/preview.png: e04c5f64
-      screenshots/error.png: c2165a01
-      releases/.gitignore: e69de29b
-      facebox.css: 76e0a30a
-      jquery.js: ebe02bdd
-      faceplant.css: dc61a86c
-      build_tar.sh: 08f6f1fc
-      screenshots/preview_small.png: 4deb6d70
-      screenshots/.DS_Store: 7d8a1d70
-      loading.gif: f864d5fd
-      fbx-border-sprite.png: dc7a9997
-      closelabel.gif: 87b4f8bd
-      README.txt: d4fc2d5e
-      screenshots/success_small.png: dfff54f6
-      logo.png: e41cfe5c
-      test.html: 0a279c66
-      screenshots/error_small.png: ce96ac45
-      index.html: a9d1c235
-      facebox.js: 7695b90e
-      b.png: f184e626
-      screenshots/success.png: b547e7ad
-      screenshots/photo_small.png: 933df8b6
-      remote.html: 98d3e923
-
+      test_programmatic.html: 0249382efbdc741
+      stairs.jpg: 63459bb418f5f6d
+      shadow.gif: e58b35b362ce534
+      screenshots/photo.png: 837cfbd897b1e06
+      .gitignore: e43b0f988953ae3
+      screenshots/preview.png: e04c5f64000c9cf
+      screenshots/error.png: c2165a01e6d1be1
+      releases/.gitignore: e69de29bb2d1d64
+      facebox.css: 76e0a30a0e4ed4b
+      jquery.js: ebe02bdd357c337
+      faceplant.css: dc61a86c3f342b9
+      build_tar.sh: 08f6f1fce2f6a02
+      screenshots/preview_small.png: 4deb6d708a105a3
+      screenshots/.DS_Store: 7d8a1d70403b670
+      loading.gif: f864d5fd38b7466
+      fbx-border-sprite.png: dc7a99978d2d50a
+      closelabel.gif: 87b4f8bd699386e
+      README.txt: d4fc2d5e810d9b4
+      screenshots/success_small.png: dfff54f6443f01a
+      logo.png: e41cfe5c654e8e0
+      test.html: 0a279c66167d358
+      screenshots/error_small.png: ce96ac453c19c66
+      index.html: a9d1c235d08ae38
+      facebox.js: 7695b90efc38931
+      b.png: f184e6269b34301
+      screenshots/success.png: b547e7ad945666d
+      screenshots/photo_small.png: 933df8b638d4ada
+      remote.html: 98d3e92373d1bc5
 
 ### Raw Git Data ###
 
