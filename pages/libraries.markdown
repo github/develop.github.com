@@ -16,10 +16,10 @@ There is alo a new Python library for the GitHub v2 API called [python-github2][
 
 ### Ruby - Version 1 API ###
 
-The [github-control][github-control] library is currently doing work 
-using the v1 API. The aim is to build a library which others can build on top of. 
+The [github-control][github-control] library is currently doing work
+using the v1 API. The aim is to build a library which others can build on top of.
 
-It currently has features which need to be enabled on the v2 API as they were in pre-release when developed. 
+It currently has features which need to be enabled on the v2 API as they were in pre-release when developed.
 
 The [github-party][gh-party] library is also using the v1 API.
 
@@ -39,3 +39,9 @@ The [Net::GitHub][net-perl-github] library for Perl encapsulates much of the fun
 [net-perl-cpan]: http://search.cpan.org/dist/Net-GitHub/
 [net-perl-github]: http://github.com/fayland/perl-net-github/tree/master
 
+
+### PHP5 ###
+
+The [php-github-api][pga] is fully tested and documented.
+
+[pga]: http://github.com/ornicar/php-github-api
