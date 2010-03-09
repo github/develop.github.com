@@ -7,8 +7,8 @@
 To search for repositories that have to do with testing ruby, you could do this:
 
 	$ curl http://github.com/api/v2/yaml/repos/search/ruby+testing
-	--- 
-	repositories: 
+	---
+	repositories:
 	- score: 0.32255203
 	  name: synthesis
 	  actions: 4653
@@ -48,8 +48,8 @@ To look at more in-depth information for a repository, GET this
 For example, to see the information for Grit
 
 	$ curl http://github.com/api/v2/yaml/repos/show/schacon/grit
-	--- 
-	repository: 
+	---
+	repository:
 	  :description: Grit is a Ruby library for extracting information from a
 	 git repository in an object oriented manner - this fork tries to
 	 intergrate as much pure-ruby functionality as possible
@@ -67,14 +67,14 @@ For example, to see the information for Grit
 You can list out all the repositories for a user with
 
 	repos/show/:user
-	
+
 For example, to see all of schacons public repos, we can GET
 
 	$ curl http://github.com/api/v2/yaml/repos/show/schacon
-	--- 
-	repositories: 
-	- :description: Ruby/Git is a Ruby library that can be used to 
-	create, read and manipulate Git repositories by wrapping system 
+	---
+	repositories:
+	- :description: Ruby/Git is a Ruby library that can be used to
+	create, read and manipulate Git repositories by wrapping system
 	calls to the git binary.
 	  :forks: 30
 	  :name: ruby-git
@@ -99,7 +99,7 @@ If you are authenticated as that user, you can see all the private repositories 
 ### Watching Repositories ###
 
 You have to be authenticated for this, but you can watch and unwatch repositories with calls to
-	
+
 	repos/unwatch/:user/:repo
 	repos/watch/:user/:repo
 
@@ -112,8 +112,8 @@ You can also fork a repository with
 Which will return data about your newly forked repository.
 
 	curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/yaml/repos/fork/dim/retrospectiva
-	--- 
-	repository: 
+	---
+	repository:
 	  :description: Retrospectiva is an open source, web-based, project management and bug-tracking tool. It is intended to assist the collaborative aspect of work carried out by software development teams.
 	  :forks: 0
 	  :name: retrospectiva
@@ -131,7 +131,7 @@ To create a new repository, hit this url
 	repos/create
 
 with at least 'name' but it will take any of these as POST args
-	
+
 	name 		=> name of the repository
 	description 	=> repo description
 	homepage	=> homepage url
@@ -148,7 +148,7 @@ which will give you back a token in the 'delete\_token' field of the response, w
 To set a public repository private, you can POST while authenticated to
 
 	repos/set/private/:repo
-	
+
 To make a private repo public, POST while authenticated to
 
 	repos/set/public/:repo
@@ -162,8 +162,8 @@ You can use the API to list, add and remove your deploy keys.  To see which depl
 It will give you a listing of your public keys, like so
 
 	$ curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/yaml/repos/keys/retrospectiva
-	--- 
-	public_keys: 
+	---
+	public_keys:
 	- title: my deploy key
 	  id: 98748
 	  key: ssh-rsa AAAAB3NzaC1cy3EAAAABIwAAAQEAqxtaIQhX9ICzxJw2ct+MuEEo8T6w
@@ -173,7 +173,7 @@ It will give you a listing of your public keys, like so
 	OxFKoCuyauVCnX12N7GUR29L//MWmbL+bDdEg/HHnmZWkwpaZhC/rsqqylZobpZsUcAKZ7f
 	0Daq6H8C1CHf1RB6JriP7CCja8pl+w==
 
-You can also add new keys by POSTing to 
+You can also add new keys by POSTing to
 
 	repos/key/:repo/add
 
@@ -190,7 +190,7 @@ You will need to POST an 'id' variable with the key ID returned from the public 
 
 ### Collaborators ###
 
-To get a list of the collaborators on your project, GET 
+To get a list of the collaborators on your project, GET
 
 	repos/show/:user/:repo/collaborators
 
@@ -198,6 +198,10 @@ To add or remove collaborators, POST to one of these URLs
 
 	repos/collaborators/:repo/add/:user
 	repos/collaborators/:repo/remove/:user
+
+To get a list of repos you can push to that are not your own, GET
+
+	repos/pushable
 
 ### Network ###
 
@@ -208,10 +212,10 @@ We can also look at the full network with
 For example, to see all the forks of the ruby-git project, we can GET
 
 	$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/network
-	--- 
-	network: 
+	---
+	network:
 	- :description: Ruby/Git is a Ruby library that can be used to create,
-	 read and manipulate Git repositories by wrapping system calls to the 
+	 read and manipulate Git repositories by wrapping system calls to the
 	 git binary.
 	  :forks: 30
 	  :name: ruby-git
@@ -243,12 +247,12 @@ the language breakdown API.  Values are in bytes calculated.
 You can get the language breakdown for mojombo/grit like this:
 
 	$ curl http://github.com/api/v2/yaml/repos/show/mojombo/grit/languages
-	--- 
-	languages: 
+	---
+	languages:
 	  Ruby: 35097
 
 Note that this is based on a very simple algorithm and is not perfect.  Common
-large libraries are removed and languages are solely identified by file 
+large libraries are removed and languages are solely identified by file
 extension.
 
 ### Repository Refs ###
@@ -260,8 +264,8 @@ To get a list of tags on your repo
 For example
 
 	$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/tags
-	--- 
-	tags: 
+	---
+	tags:
 	  1.0.3: be47ad8aea4f854fc2d6773456fb28f3e9f519e7
 	  1.0.5: 6c4af60f5fc5193b956a4698b604ad96ef3c51c6
 	  1.0.5.1: ae106e2a3569e5ea874852c613ed060d8e232109
@@ -271,11 +275,11 @@ To get a list of remote branches
 
 	repos/show/:user/:repo/branches
 
-For example 
+For example
 
 	$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/branches
-	--- 
-	branches: 
+	---
+	branches:
 	  master: ee90922f3da3f67ef19853a0759c1d09860fe3b3
 	  internals: 6a9db968e8563bc27b8f56f9d413159a2e14cf67
 	  test: 2d749e3aa69d7bfedf814f59618f964fdbc300d5
