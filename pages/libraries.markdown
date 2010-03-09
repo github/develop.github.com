@@ -55,7 +55,7 @@ The [php-github-api][pga] is fully tested and documented.
 
 [pga]: http://github.com/ornicar/php-github-api
 
-### C# ###
+### C Sharp ###
 
 [GitHubSharp][gs] looks pretty slick - hot off the press.
 
