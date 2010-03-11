@@ -46,8 +46,8 @@
 <p>To search for repositories that have to do with testing ruby, you could do this:</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/repos/search/ruby+testing
---- 
-repositories: 
+---
+repositories:
 - score: 0.32255203
   name: synthesis
   actions: 4653
@@ -86,8 +86,8 @@ repositories:
 <p>For example, to see the information for Grit</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/repos/show/schacon/grit
---- 
-repository: 
+---
+repository:
   :description: Grit is a Ruby library for extracting information from a
  git repository in an object oriented manner - this fork tries to
  intergrate as much pure-ruby functionality as possible
@@ -109,10 +109,10 @@ repository:
 <p>For example, to see all of schacons public repos, we can GET</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/repos/show/schacon
---- 
-repositories: 
-- :description: Ruby/Git is a Ruby library that can be used to 
-create, read and manipulate Git repositories by wrapping system 
+---
+repositories:
+- :description: Ruby/Git is a Ruby library that can be used to
+create, read and manipulate Git repositories by wrapping system
 calls to the git binary.
   :forks: 30
   :name: ruby-git
@@ -150,8 +150,8 @@ repos/watch/:user/:repo</code></pre>
 <p>Which will return data about your newly forked repository.</p>
 
 <pre><code>curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; http://github.com/api/v2/yaml/repos/fork/dim/retrospectiva
---- 
-repository: 
+---
+repository:
   :description: Retrospectiva is an open source, web-based, project management and bug-tracking tool. It is intended to assist the collaborative aspect of work carried out by software development teams.
   :forks: 0
   :name: retrospectiva
@@ -200,8 +200,8 @@ public		=&gt; 1 for public, 0 for private</code></pre>
 <p>It will give you a listing of your public keys, like so</p>
 
 <pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; http://github.com/api/v2/yaml/repos/keys/retrospectiva
---- 
-public_keys: 
+---
+public_keys:
 - title: my deploy key
   id: 98748
   key: ssh-rsa AAAAB3NzaC1cy3EAAAABIwAAAQEAqxtaIQhX9ICzxJw2ct+MuEEo8T6w
@@ -237,6 +237,10 @@ key	=&gt; public key data</code></pre>
 <pre><code>repos/collaborators/:repo/add/:user
 repos/collaborators/:repo/remove/:user</code></pre>
 
+<p>To get a list of repos you can push to that are not your own, GET</p>
+
+<pre><code>repos/pushable</code></pre>
+
 <h3 id='network'>Network</h3>
 
 <p>We can also look at the full network with</p>
@@ -246,10 +250,10 @@ repos/collaborators/:repo/remove/:user</code></pre>
 <p>For example, to see all the forks of the ruby-git project, we can GET</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/network
---- 
-network: 
+---
+network:
 - :description: Ruby/Git is a Ruby library that can be used to create,
- read and manipulate Git repositories by wrapping system calls to the 
+ read and manipulate Git repositories by wrapping system calls to the
  git binary.
   :forks: 30
   :name: ruby-git
@@ -280,8 +284,8 @@ network:
 <p>You can get the language breakdown for mojombo/grit like this:</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/repos/show/mojombo/grit/languages
---- 
-languages: 
+---
+languages:
   Ruby: 35097</code></pre>
 
 <p>Note that this is based on a very simple algorithm and is not perfect. Common large libraries are removed and languages are solely identified by file extension.</p>
@@ -295,8 +299,8 @@ languages:
 <p>For example</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/tags
---- 
-tags: 
+---
+tags:
   1.0.3: be47ad8aea4f854fc2d6773456fb28f3e9f519e7
   1.0.5: 6c4af60f5fc5193b956a4698b604ad96ef3c51c6
   1.0.5.1: ae106e2a3569e5ea874852c613ed060d8e232109
@@ -309,8 +313,8 @@ tags:
 <p>For example</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/branches
---- 
-branches: 
+---
+branches:
   master: ee90922f3da3f67ef19853a0759c1d09860fe3b3
   internals: 6a9db968e8563bc27b8f56f9d413159a2e14cf67
   test: 2d749e3aa69d7bfedf814f59618f964fdbc300d5
@@ -329,7 +333,7 @@ branches:
           <a href="http://status.github.com">Status</a>
         </div>
         <div class="company">
-          GitHub is <a href="http://logicalawesome.com/">Logical Awesome</a> &copy;2009 | <a href="http://github.com/site/terms">Terms of Service</a> | <a href="http://github.com/site/privacy">Privacy Policy</a>
+          &copy; 2010 GitHub Inc. All rights reserved. | <a href="http://github.com/site/terms">Terms of Service</a> | <a href="http://github.com/site/privacy">Privacy Policy</a>
         </div>
       </div>
       <div class="fork span-7">
