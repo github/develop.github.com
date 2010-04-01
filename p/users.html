@@ -63,7 +63,7 @@
 
 <p>will return the something like this:</p>
 
-<pre><code>user: 
+<pre><code>user:
   id: 23
   login: defunkt
   name: Kristopher Walken Wanstrath
@@ -83,7 +83,7 @@
   disk_usage: 50384
   owned_private_repo_count: 1
   private_gist_count: 0
-  plan: 
+  plan:
     name: mega
     collaborators: 60
     space: 20971520
@@ -91,13 +91,13 @@
 
 <h3 id='authenticated_user_management'>Authenticated User Management</h3>
 
-<p>If you are authenticating, you can update your users information by POSTing to in a few different ways.</p>
+<p>If you are authenticated, you can update your users information by POSTing to it in a few different ways.</p>
 
 <pre><code>  /user/show/:username [POST]
 
       :values[key] = value</code></pre>
 
-<p>Where the POST values are of :</p>
+<p>Where the POST values are of:</p>
 
 <pre><code>name
 email
@@ -150,8 +150,8 @@ location</code></pre>
 
 <p>For example,</p>
 
-<pre><code>$ curl http://github.com/api/v2/yaml/repos/watched/schacon 
-repositories: 
+<pre><code>$ curl http://github.com/api/v2/yaml/repos/watched/schacon
+repositories:
 - :watchers: 42
   :owner: ddollar
   :name: git-db

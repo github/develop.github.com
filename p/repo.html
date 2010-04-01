@@ -59,7 +59,7 @@ repositories:
   id: repo-3555
   forks: 1
   fork: false
-  description: Ruby test code analysis tool employing a &quot;Synthesized Testing&quot; strategy, aimed to reduce the volume of slower, coupled, complex wired tests.
+  description: Ruby test code analysis tool employing a &quot;Synthesized ....
   pushed: &quot;2009-01-08T13:45:06Z&quot;
   created: &quot;2008-03-11T23:38:04Z&quot;
 - score: 0.56515217
@@ -98,7 +98,46 @@ repository:
   :url: http://github.com/schacon/grit
   :fork: true
   :owner: schacon
-  :homepage: http://grit.rubyforge.org/</code></pre>
+  :homepage: http://grit.rubyforge.org/
+:has_wiki: true
+:has_issues: false
+:has_downloads: true</code></pre>
+
+<h3 id='set_repo_info'>Set Repo Info</h3>
+
+<p>If you are authenticated, you can update your repo&#8217;s information by POSTing to it.</p>
+
+<pre><code>  /repos/show/:user/:repo [POST]
+
+      :values[key] = value</code></pre>
+
+<p>Where the POST values are of:</p>
+
+<pre><code>description
+homepage
+has_wiki
+has_issues
+has_downloads</code></pre>
+
+<p>So, you could do this to update your repo&#8217;s homepage:</p>
+
+<pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; https://github.com/api/v2/json/repos/show/schacon/grit -F &#39;values[homepage]=http://schacon.github.com/grit&#39;
+---
+repository:
+  :description: Grit is a Ruby library for extracting information from a
+ git repository in an object oriented manner - this fork tries to
+ intergrate as much pure-ruby functionality as possible
+  :forks: 4
+  :name: grit
+  :watchers: 67
+  :private: false
+  :url: http://github.com/schacon/grit
+  :fork: true
+  :owner: schacon
+  :homepage: http://schacon.github.com/grit
+:has_wiki: true
+:has_issues: false
+:has_downloads: true</code></pre>
 
 <h3 id='list_all_repositories'>List All Repositories</h3>
 

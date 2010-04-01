@@ -24,7 +24,7 @@ so the following command
 
 will return the something like this:
 
-	user: 
+	user:
 	  id: 23
 	  login: defunkt
 	  name: Kristopher Walken Wanstrath
@@ -38,28 +38,29 @@ will return the something like this:
 	  public_repo_count: 2
 
 If you authenticated as that user, you will also get this information:
-	
+
 	  total_private_repo_count: 1
 	  collaborators: 3
 	  disk_usage: 50384
 	  owned_private_repo_count: 1
 	  private_gist_count: 0
-	  plan: 
+	  plan:
 	    name: mega
 	    collaborators: 60
 	    space: 20971520
 	    private_repos: 125
 
-	
+
 ### Authenticated User Management ###
 
-If you are authenticating, you can update your users information by POSTing to in a few different ways.
+If you are authenticated, you can update your users information by
+POSTing to it in a few different ways.
 
 	  /user/show/:username [POST]
 
 	      :values[key] = value
 
-Where the POST values are of :
+Where the POST values are of:
 
 	name
 	email
@@ -114,8 +115,8 @@ To see which repositories a user is watching, you can call:
 
 For example,
 
-	$ curl http://github.com/api/v2/yaml/repos/watched/schacon 
-	repositories: 
+	$ curl http://github.com/api/v2/yaml/repos/watched/schacon
+	repositories:
 	- :watchers: 42
 	  :owner: ddollar
 	  :name: git-db
