@@ -48,22 +48,22 @@ To look at more in-depth information for a repository, GET this
 For example, to see the information for Grit
 
 	$ curl http://github.com/api/v2/yaml/repos/show/schacon/grit
-	---
-	repository:
-	  :description: Grit is a Ruby library for extracting information from a
-	 git repository in an object oriented manner - this fork tries to
-	 intergrate as much pure-ruby functionality as possible
-	  :forks: 4
-	  :name: grit
-	  :watchers: 67
-	  :private: false
-	  :url: http://github.com/schacon/grit
-	  :fork: true
-	  :owner: schacon
-	  :homepage: http://grit.rubyforge.org/
-    :has_wiki: true
-    :has_issues: false
-    :has_downloads: true
+    ---
+    repository:
+      :description: Grit is a Ruby library for extracting information from a
+      git repository in an object oriented manner - this fork tries to
+      intergrate as much pure-ruby functionality as possible
+      :forks: 4
+      :name: grit
+      :watchers: 67
+      :private: false
+      :url: http://github.com/schacon/grit
+      :fork: true
+      :owner: schacon
+      :homepage: http://grit.rubyforge.org/
+      :has_wiki: true
+      :has_issues: false
+      :has_downloads: true
 
 ### Set Repo Info ###
 
