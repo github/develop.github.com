@@ -75,7 +75,7 @@ So to get all the data for a issue #1 in our repo, we can run something like thi
       title: new issue
       updated_at: 2009-04-17 14:55:33 -07:00
       user: schacon
-      comments: open
+      comments: 2
       state: open
 
 
