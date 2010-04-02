@@ -107,9 +107,9 @@ repository:
 
 <p>If you are authenticated, you can update your repo&#8217;s information by POSTing to it.</p>
 
-<pre><code>  /repos/show/:user/:repo [POST]
+<pre><code>/repos/show/:user/:repo [POST]
 
-      :values[key] = value</code></pre>
+  :values[key] = value</code></pre>
 
 <p>Where the POST values are of:</p>
 
@@ -124,20 +124,20 @@ has_downloads</code></pre>
 <pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; https://github.com/api/v2/json/repos/show/schacon/grit -F &#39;values[homepage]=http://schacon.github.com/grit&#39;
 ---
 repository:
-  :description: Grit is a Ruby library for extracting information from a
- git repository in an object oriented manner - this fork tries to
- intergrate as much pure-ruby functionality as possible
-  :forks: 4
-  :name: grit
-  :watchers: 67
-  :private: false
-  :url: http://github.com/schacon/grit
-  :fork: true
-  :owner: schacon
-  :homepage: http://schacon.github.com/grit
-:has_wiki: true
-:has_issues: false
-:has_downloads: true</code></pre>
+    :description: Grit is a Ruby library for extracting information from a
+    git repository in an object oriented manner - this fork tries to
+    intergrate as much pure-ruby functionality as possible
+    :forks: 4
+    :name: grit
+    :watchers: 67
+    :private: false
+    :url: http://github.com/schacon/grit
+    :fork: true
+    :owner: schacon
+    :homepage: http://schacon.github.com/grit
+    :has_wiki: true
+    :has_issues: false
+    :has_downloads: true</code></pre>
 
 <h3 id='list_all_repositories'>List All Repositories</h3>
 

@@ -70,37 +70,37 @@ For example, to see the information for Grit
 If you are authenticated, you can update your repo's information by
 POSTing to it.
 
-	  /repos/show/:user/:repo [POST]
+    /repos/show/:user/:repo [POST]
 
-	      :values[key] = value
+      :values[key] = value
 
 Where the POST values are of:
 
-	description
-	homepage
-	has_wiki
-	has_issues
-	has_downloads
+    description
+    homepage
+    has_wiki
+    has_issues
+    has_downloads
 
 So, you could do this to update your repo's homepage:
 
-	$ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/repos/show/schacon/grit -F 'values[homepage]=http://schacon.github.com/grit'
-	---
-	repository:
-	  :description: Grit is a Ruby library for extracting information from a
-	 git repository in an object oriented manner - this fork tries to
-	 intergrate as much pure-ruby functionality as possible
-	  :forks: 4
-	  :name: grit
-	  :watchers: 67
-	  :private: false
-	  :url: http://github.com/schacon/grit
-	  :fork: true
-	  :owner: schacon
-	  :homepage: http://schacon.github.com/grit
-    :has_wiki: true
-    :has_issues: false
-    :has_downloads: true
+    $ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/repos/show/schacon/grit -F 'values[homepage]=http://schacon.github.com/grit'
+    ---
+    repository:
+        :description: Grit is a Ruby library for extracting information from a
+        git repository in an object oriented manner - this fork tries to
+        intergrate as much pure-ruby functionality as possible
+        :forks: 4
+        :name: grit
+        :watchers: 67
+        :private: false
+        :url: http://github.com/schacon/grit
+        :fork: true
+        :owner: schacon
+        :homepage: http://schacon.github.com/grit
+        :has_wiki: true
+        :has_issues: false
+        :has_downloads: true
 
 
 ### List All Repositories ###

@@ -61,22 +61,22 @@ For example, to see all the open issues I have on the schacon/simplegit project,
 
 To get data on an individual issue by number, run
 
-	issues/show/:user/:repo/:number
+    issues/show/:user/:repo/:number
 
 So to get all the data for a issue #1 in our repo, we can run something like this:
 
-	$ curl http://github.com/api/v2/yaml/issues/show/schacon/simplegit/1
-	---
-	issue:
-	  number: 1
-	  votes: 0
-	  created_at: 2009-04-17 14:55:33 -07:00
-	  body: my sweet, sweet issue
-	  title: new issue
-	  updated_at: 2009-04-17 14:55:33 -07:00
-	  user: schacon
-	  state: open
-    comments: 2
+    $ curl http://github.com/api/v2/yaml/issues/show/schacon/simplegit/1
+    ---
+    issue:
+      number: 1
+      votes: 0
+      created_at: 2009-04-17 14:55:33 -07:00
+      body: my sweet, sweet issue
+      title: new issue
+      updated_at: 2009-04-17 14:55:33 -07:00
+      user: schacon
+      comments: open
+      state: open
 
 
 ### List an Issue's Comments ###
