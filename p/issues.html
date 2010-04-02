@@ -47,7 +47,7 @@
 
 <p>Where &#8216;state&#8217; is the For example, to search for &#8216;test&#8217; in the open issues for defunkt/github-issues repo, you can do this:</p>
 
-<pre><code>$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test 
+<pre><code>$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test
 {
   &quot;issues&quot;: [
     {
@@ -74,8 +74,8 @@
 <p>For example, to see all the open issues I have on the schacon/simplegit project, we can run</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/issues/list/schacon/simplegit/open
---- 
-issues: 
+---
+issues:
 - number: 1
   votes: 0
   created_at: 2009-04-17 14:55:33 -07:00
@@ -102,8 +102,8 @@ issues:
 <p>So to get all the data for a issue #1 in our repo, we can run something like this:</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/issues/show/schacon/simplegit/1
---- 
-issue: 
+---
+issue:
   number: 1
   votes: 0
   created_at: 2009-04-17 14:55:33 -07:00
@@ -111,7 +111,8 @@ issue:
   title: new issue
   updated_at: 2009-04-17 14:55:33 -07:00
   user: schacon
-  state: open</code></pre>
+  state: open
+comments: 2</code></pre>
 
 <h3 id='list_an_issues_comments'>List an Issue&#8217;s Comments</h3>
 
@@ -122,8 +123,8 @@ issue:
 <p>So to get all the comments for a issue #1 in our repo, we can run something like this:</p>
 
 <pre><code>$ curl http://github.com/api/v2/yaml/issues/comments/schacon/simplegit/open
---- 
-comments: 
+---
+comments:
 - created_at: 2010-02-08 12:54:54 -08:00
   body: this is a really great idea
   updated_at: 2010-02-08 12:54:54 -08:00
@@ -143,7 +144,7 @@ comments:
 
 <p>Where you can provide POST variables:</p>
 
-<pre><code>title 
+<pre><code>title
 body</code></pre>
 
 <p>It will return the data for the newly created ticket if it is successful. You need to provide your username and token so the system knows who you are and can assign you as the opener of the issue.</p>
@@ -152,8 +153,8 @@ body</code></pre>
 
 <pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; -F &#39;title=new&#39; -F &#39;body=my ticket&#39; \
  	http://github.com/api/v2/yaml/issues/open/schacon/simplegit
---- 
-issue: 
+---
+issue:
   user: schacon
   body: my ticket
   title: new
@@ -171,10 +172,10 @@ issues/reopen/:user/:repo/:number</code></pre>
 
 <pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; \
 	http://github.com/api/v2/yaml/issues/close/schacon/simplegit/1
---- 
-issue: 
+---
+issue:
   user: schacon
-  body: 
+  body:
   title: new
   number: 1
   votes: 0
@@ -190,7 +191,7 @@ issue:
 
 <p>Where you can provide POST variables:</p>
 
-<pre><code>title 
+<pre><code>title
 body</code></pre>
 
 <p>This will overwrite the title or body of the issue, if you are authorized member of the project.</p>
@@ -220,8 +221,8 @@ labels:
 <p>Here is how I would add the label &#8216;testing&#8217; to my first ticket in my simplegit project:</p>
 
 <pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; https://github.com/api/v2/yaml/issues/label/add/schacon/simplegit/testing/1
---- 
-labels: 
+---
+labels:
 - testing
 - test_label</code></pre>
 
@@ -237,12 +238,12 @@ labels:
 
 <p>You can comment on issues at</p>
 
-<pre><code>/issues/comment/:user/:repo/:id </code></pre>
+<pre><code>/issues/comment/:user/:repo/:id</code></pre>
 
 <p>Simply send it a &#8216;comment&#8217; POST variable with the comment you&#8217;d like to make. It will attribute the comment to the user that is authenticated. Here is an example:</p>
 
 <pre><code>$ curl -F &#39;login=schacon&#39; -F &#39;token=XXX&#39; -F &#39;comment=this is amazing&#39; \
-  https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1 
+  https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1
 {&quot;comment&quot;: {&quot;comment&quot;: &quot;this is amazing&quot;, &quot;status&quot;: &quot;saved&quot;}}</code></pre><br/><br/><hr/><div class="span-21 last">&nbsp;</div><hr/>
     </div>
 

@@ -6,10 +6,10 @@ The API for GitHub Issues.
 
 	/issues/search/:user/:repo/:state/:search_term
 
-Where 'state' is the 
+Where 'state' is the
 For example, to search for 'test' in the open issues for defunkt/github-issues repo, you can do this:
 
-	$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test 
+	$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test
 	{
 	  "issues": [
 	    {
@@ -37,8 +37,8 @@ where :state is either 'open' or 'closed'.
 For example, to see all the open issues I have on the schacon/simplegit project, we can run
 
 	$ curl http://github.com/api/v2/yaml/issues/list/schacon/simplegit/open
-	--- 
-	issues: 
+	---
+	issues:
 	- number: 1
 	  votes: 0
 	  created_at: 2009-04-17 14:55:33 -07:00
@@ -59,15 +59,15 @@ For example, to see all the open issues I have on the schacon/simplegit project,
 
 ### View an Issue ###
 
-To get data on an individual issue by number, run 
+To get data on an individual issue by number, run
 
 	issues/show/:user/:repo/:number
 
 So to get all the data for a issue #1 in our repo, we can run something like this:
 
 	$ curl http://github.com/api/v2/yaml/issues/show/schacon/simplegit/1
-	--- 
-	issue: 
+	---
+	issue:
 	  number: 1
 	  votes: 0
 	  created_at: 2009-04-17 14:55:33 -07:00
@@ -76,6 +76,7 @@ So to get all the data for a issue #1 in our repo, we can run something like thi
 	  updated_at: 2009-04-17 14:55:33 -07:00
 	  user: schacon
 	  state: open
+    comments: 2
 
 
 ### List an Issue's Comments ###
@@ -87,8 +88,8 @@ To get a list of comments made on an issue, run
 So to get all the comments for a issue #1 in our repo, we can run something like this:
 
     $ curl http://github.com/api/v2/yaml/issues/comments/schacon/simplegit/open
-    --- 
-    comments: 
+    ---
+    comments:
     - created_at: 2010-02-08 12:54:54 -08:00
       body: this is a really great idea
       updated_at: 2010-02-08 12:54:54 -08:00
@@ -109,7 +110,7 @@ To open a new issue on a project, make a authorized POST to
 
 Where you can provide POST variables:
 
-	title 
+	title
 	body
 
 It will return the data for the newly created ticket if it is successful.  You need to provide your username and token so the system knows who you are and can assign you as the opener of the issue.
@@ -118,8 +119,8 @@ For example, I could open a new issue on my simplegit project like this:
 
 	$ curl -F 'login=schacon' -F 'token=XXX' -F 'title=new' -F 'body=my ticket' \
 	 	http://github.com/api/v2/yaml/issues/open/schacon/simplegit
-	--- 
-	issue: 
+	---
+	issue:
 	  user: schacon
 	  body: my ticket
 	  title: new
@@ -137,10 +138,10 @@ You need to be logged in via token as well.  Here is how I would close the ticke
 
 	$ curl -F 'login=schacon' -F 'token=XXX' \
 		http://github.com/api/v2/yaml/issues/close/schacon/simplegit/1
-	--- 
-	issue: 
+	---
+	issue:
 	  user: schacon
-	  body: 
+	  body:
 	  title: new
 	  number: 1
 	  votes: 0
@@ -156,7 +157,7 @@ To edit an existing issue, you can POST to
 
 Where you can provide POST variables:
 
-	title 
+	title
 	body
 
 This will overwrite the title or body of the issue, if you are authorized member of the project.
@@ -181,13 +182,13 @@ To add a label, run
 
 	issues/label/add/:user/:repo/:label/:number
 
-This will return a list of the labels currently on that issue, your new one included. If the label is not yet in the system, it will be created.  
+This will return a list of the labels currently on that issue, your new one included. If the label is not yet in the system, it will be created.
 
 Here is how I would add the label 'testing' to my first ticket in my simplegit project:
 
 	$ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/yaml/issues/label/add/schacon/simplegit/testing/1
-	--- 
-	labels: 
+	---
+	labels:
 	- testing
 	- test_label
 
@@ -206,10 +207,10 @@ an issue from all labels.
 
 You can comment on issues at
 
-	/issues/comment/:user/:repo/:id 
+	/issues/comment/:user/:repo/:id
 
 Simply send it a 'comment' POST variable with the comment you'd like to make.  It will attribute the comment to the user that is authenticated.  Here is an example:
 
 	$ curl -F 'login=schacon' -F 'token=XXX' -F 'comment=this is amazing' \
-	  https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1 
+	  https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1
 	{"comment": {"comment": "this is amazing", "status": "saved"}}
