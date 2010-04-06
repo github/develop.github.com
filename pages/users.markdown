@@ -90,11 +90,12 @@ So, you could do this to update your email address:
 
 If you want to look at the following network on GitHub, you can request the users that a specific user is following with:
 
-	/user/show/:user/followers
+    /user/show/:user/following
 
 or the users following a specific user with:
 
-	/user/show/:user/following
+
+    /user/show/:user/followers
 
 For example, if you want to see which users are following 'defunkt', you can run this:
 
