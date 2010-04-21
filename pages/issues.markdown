@@ -6,7 +6,8 @@ The API for GitHub Issues.
 
 	/issues/search/:user/:repo/:state/:search_term
 
-Where 'state' is the
+Where 'state' is either 'open' or 'closed'.
+
 For example, to search for 'test' in the open issues for defunkt/github-issues repo, you can do this:
 
 	$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test
