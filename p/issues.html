@@ -45,7 +45,9 @@
 
 <pre><code>/issues/search/:user/:repo/:state/:search_term</code></pre>
 
-<p>Where &#8216;state&#8217; is the For example, to search for &#8216;test&#8217; in the open issues for defunkt/github-issues repo, you can do this:</p>
+<p>Where &#8216;state&#8217; is either &#8216;open&#8217; or &#8216;closed&#8217;.</p>
+
+<p>For example, to search for &#8216;test&#8217; in the open issues for defunkt/github-issues repo, you can do this:</p>
 
 <pre><code>$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test
 {
