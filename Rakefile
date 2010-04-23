@@ -7,4 +7,4 @@ task :gensite do
   end
 end
 
-task :default => [:gensite]
+task :default => :gensite
