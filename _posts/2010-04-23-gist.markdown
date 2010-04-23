@@ -5,13 +5,13 @@ title: Commits API
 
 ## Gist API ##
 
-The API for the [Gist](http://gist.github.com) code paste
+API for the [Gist](http://gist.github.com) code paste
 service. Gist's API is a bit different from GitHub proper's - the
-domain is always `gist.github.com` and we're still on `v1`.
+domain is always **gist.github.com** and we're still on **v1**.
 
 ### Get a Gist's Metadata ###
 
-    http://gist.github.com/api/v1/:format/:gist_id
+    GET http://gist.github.com/api/v1/:format/:gist_id
 
 Example:
 
@@ -26,7 +26,7 @@ Example:
 
 ### Get a Gist's Content ###
 
-    http://gist.github.com/raw/:gist_id/:filename
+    GET http://gist.github.com/raw/:gist_id/:filename
 
 Example:
 
@@ -36,7 +36,7 @@ Example:
 
 ### Another User's Public Gists ###
 
-    http://gist.github.com/api/v1/:format/gists/:login
+    GET http://gist.github.com/api/v1/:format/gists/:login
 
 Example:
 
