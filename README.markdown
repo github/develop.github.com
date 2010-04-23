@@ -19,7 +19,7 @@ Dependencies, Getting Started
 
 Compiling the site requires maruku, which can be installed with:
 
-    sudo gem install maruku
+    gem install maruku
 
 Once you've done that, just run rake to compile the site:
 
@@ -37,11 +37,11 @@ If you want to run the site on GitHub pages for testing you can push your
 changes into the 'gh-pages' branch, rather than the 'master' branch of
 the remote repository.
 
-  $ git push origin master:gh-pages
+    $ git push origin master:gh-pages
 
 That command will push your master branch to the 'gh-pages' branch of
 your fork.  Then Pages will serve the site for you under:
 
-http://schacon.github.com/develop.github.com
+<http://schacon.github.com/develop.github.com>
 
 (Replace 'schacon' with your username)
