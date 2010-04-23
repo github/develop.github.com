@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Develop.GitHub - <%= @title %></title>
+  <title>Develop.GitHub - {{ page.title }}</title>
 	<script type="text/javascript" src="../js/jquery-1.2.6.pack.js"></script>
 	<script type="text/javascript" src="../js/thickbox-compressed.js"></script>
 	<script type="text/javascript" src="../js/jquery.corner.js"></script>
@@ -14,18 +14,18 @@
     <link rel="stylesheet" href="../css/ie.css" type="text/css" media="screen, projection">
   <![endif]-->
 
-	<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8"/>
+	<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen"/>
   <link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen"/>
 </head>
 
 <body>
   <div class="container">
-    <div id="header">
-      <div>
+    <div class="span-21" id="header">
+      <div class="span-10">
         <a href="/"><img src="../images/develop-github.png" alt="github learn logo" /></a>
       </div>
 
-      <div class="last">
+      <div class="span-11 last">
         <div id="links">
           <a href="http://github.com">home</a>
           <a href="http://github.com/login">login</a>
@@ -34,36 +34,27 @@
       </div>
     </div>
 
-    <div class="last content">
-      {% if page.plain == true %}
-          {{ content }}
-      {% else %}
-        <div class="post">
-          <h2><a href="{{ page.url }}">&#8594; {{ page.title }}</a></h2>
-          <div class="date">{{ page.date | date_to_long_string }}</div>
-          <div>
-            {{ content }}
-          </div>
-        </div>
-      {% endif %}
+    <div class="span-21 last content">
+      {{ content }}
     </div>
 
-    <div id="footer">
-      <div class="info">
+    <div id="footer" class="span-21">
+      <div class="info span-12">
         <div class="links">
-          <a href="http://github.com/blog/148-github-shirts-now-available">T-Shirts</a> |
           <a href="http://github.com/blog">Blog</a> |
           <a href="http://support.github.com/">Support</a> |
           <a href="http://github.com/training">Git Training</a> |
           <a href="http://github.com/contact">Contact</a> |
-          <a href="http://groups.google.com/group/github/">Google Group</a> |
-          <a href="http://status.github.com">Status</a>
+          <a href="http://status.github.com">Status</a> |
+          <a href="http://twitter.com/github">Twitter</a> |
+          <a href="http://help.github.com">Help</a> |
+          <a href="http://github.com/security">Security</a>
         </div>
         <div class="company">
           &copy; 2010 GitHub Inc. All rights reserved. | <a href="http://github.com/site/terms">Terms of Service</a> | <a href="http://github.com/site/privacy">Privacy Policy</a>
         </div>
       </div>
-      <div class="fork">
+      <div class="fork span-7">
         This website is <a href="http://github.com/develop/develop.github.com">open source</a>.
         Please help us by forking the project and adding to it.
       </div>
@@ -81,6 +72,5 @@
       document.documentElement.firstChild.appendChild(ga);
     })();
   </script>
-
 </body>
 </html>

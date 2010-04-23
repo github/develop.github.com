@@ -1,3 +1,8 @@
+---
+layout: default
+title: API Libraries
+---
+
 ## API Implementations ##
 
 Libraries for accessing the GitHub API from your favorite language

@@ -1,3 +1,8 @@
+---
+layout: default
+title: Users API
+---
+
 ## Users API ##
 
 API for accessing and modifying user information.

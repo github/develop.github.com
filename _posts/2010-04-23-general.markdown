@@ -1,3 +1,8 @@
+---
+layout: default
+title: General API Information
+---
+
 ## General API Information ##
 
 ### Schema ###

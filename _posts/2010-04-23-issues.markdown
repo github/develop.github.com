@@ -1,3 +1,8 @@
+---
+layout: default
+title: Issues API
+---
+
 ## Issues API ##
 
 The API for GitHub Issues.

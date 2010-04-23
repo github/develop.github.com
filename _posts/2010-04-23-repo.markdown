@@ -1,3 +1,8 @@
+---
+layout: default
+title: Repositories API
+---
+
 ## Repositories API ##
 
 ### Searching Repositories ###

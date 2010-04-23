@@ -1,3 +1,8 @@
+---
+layout: default
+title: Network API
+---
+
 ## Secret Network API ##
 
 This API is sort of an outlier.  It is only available in JSON and does not follow the rest of the routing rules.  It is the API used by our Network Graph and provides a lot of useful information that may be useful.
@@ -37,7 +42,7 @@ This API is sort of an outlier.  It is only available in JSON and does not follo
 	    { "name": "tamtam", "start": 3,  "count": 1 },
 	  ]
 	}
-	
+
 ### Network Data ###
 
 To get network data, you'll need to provide the 'nethash' parameter that you get from the network\_meta call so the data is always consistent.  To get network data, call the network\_data\_chunk URI with the given nethash to get the first 100 commits by branch.
@@ -106,4 +111,4 @@ You can also give it a start and end range, based on the position of the dates i
 		    }
 		  ]
 		}
-		
+
