@@ -1,30 +1,24 @@
 Develop.GitHub.com
 ==================
 
-This is the code and data behind
-[develop.github.com](http://develop.github.com).
-The page content lives in the pages/ directory and is compiled into the HTML
-output in p/. Normally, generated files like these wouldn't be checked into
-source control, but it's required for the
-[GitHub Pages](http://pages.github.com/) hosting.
+This is the code and data behind <http://develop.github.com>.
 
-If you edit a page, please remember to run 'rake' to recompile the site
-and create a single commit including both your source and generated
-files. This makes it as easy as possible for others to work with your
-changes.
+All content can be found in the _posts/ direcotry.
 
 
 Dependencies, Getting Started
 -----------------------------
 
-Compiling the site requires maruku, which can be installed with:
+Install [Jekyll][jk] an rake (both require Ruby):
 
-    gem install maruku
+    gem install jekyll rake
 
-Once you've done that, just run rake to compile the site:
+Once you've done that, run `rake` to compile the site:
 
     rake
 
+This should start a web server at <http://localhost:3000> which is now
+serving your site, updating whenever you make changes.
 
 Contributing
 ------------
