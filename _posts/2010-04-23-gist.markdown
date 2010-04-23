@@ -1,29 +1,77 @@
+---
+layout: default
+title: Commits API
+---
+
 ## Gist API ##
 
-The API for the Gist code paste service.
-  
-### Find A Gist ###
+The API for the [Gist](http://gist.github.com) code paste
+service. Gist's API is a bit different from GitHub proper's - the
+domain is always `gist.github.com` and we're still on `v1`.
 
+### Get a Gist's Metadata ###
 
-### My Public/Private Gists ###
+    http://gist.github.com/api/v1/:format/:gist_id
 
+Example:
 
-### Another Users Public Gists ###
+    $ curl http://gist.github.com/api/v1/yaml/374130
+    ---
+    gists:
+    - :description: List what ports are in use on OS X
+      :repo: "374130"
+      :public: true
+      :created_at: 2010-04-21 10:24:32 -07:00
+      :files: ["ports.sh"]
 
+### Get a Gist's Content ###
+
+    http://gist.github.com/raw/:gist_id/:filename
+
+Example:
+
+    $ curl http://gist.github.com/raw/374130/ports.sh
+    # List what ports are in use on OS X
+    sudo lsof -iTCP -sTCP:LISTEN -P
+
+### Another User's Public Gists ###
+
+    http://gist.github.com/api/v1/:format/gists/:login
+
+Example:
+
+    $ curl http://gist.github.com/api/v1/yaml/gists/defunkt
+    ---
+    gists:
+    - :description: List what ports are in use on OS X
+      :repo: "374130"
+      :public: true
+      :created_at: 2010-04-21 10:24:32 -07:00
+    - :description: A list of Gist clients.
+      :repo: "370230"
+      :public: true
+      :created_at: 2010-04-18 07:09:27 -07:00
+    - :description: Awesome option parsing.
+      :repo: "359895"
+      :public: true
+      :created_at: 2010-04-08 01:09:29 -07:00
+
+### My Public & Private Gists ###
+
+Coming soon
 
 ### Create a New Gist ###
 
+Coming soon.
 
 ### Fork a Gist ###
 
+Coming soon.
 
 ### Delete a Gist ###
 
+Coming soon.
 
 ### Edit a Gist ###
 
-(description)
-
-(files)
-
-
+Coming soon.
