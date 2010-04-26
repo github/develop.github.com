@@ -61,7 +61,7 @@ If you authenticate, you can also get your own information by leaving your usern
 
 You can use the following command to get your information:
 
-  $ curl -F 'login=defunkt' -F 'token=XXX' http://github.com/api/v2/yaml/user/show
+    $ curl -F 'login=defunkt' -F 'token=XXX' http://github.com/api/v2/yaml/user/show
 
 ### Authenticated User Management ###
 
