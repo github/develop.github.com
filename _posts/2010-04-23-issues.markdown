@@ -101,11 +101,13 @@ So to get all the comments for a issue #1 in our repo, we can run something like
       updated_at: 2010-02-08 12:54:54 -08:00
       id: 1
       user: defunkt
+      gravatar_id: b8dbb1987e8e5318584865f880036796
     - created_at: 2010-02-08 12:55:05 -08:00
       body: is it?
       updated_at: 2010-02-08 12:55:05 -08:00
       id: 2
       user: schacon
+      gravatar_id: 9375a9529679f1b42b567a640d775e7d
 
 
 ### Open and Close Issues ###
