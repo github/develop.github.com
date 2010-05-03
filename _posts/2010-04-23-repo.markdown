@@ -249,6 +249,36 @@ To get a list of repos you can push to that are not your own, GET
 
 	repos/pushable
 
+### Contributors ###
+
+To get a list of the contributors on your project, GET
+
+    repos/show/:user/:repo/contributors
+
+The data comes back as an array of [login, count], sorted by the biggest contributors to the repository.
+
+    $ curl http://github.com/api/v2/yaml/repos/show/mxcl/homebrew/contributors
+    --- 
+    contributors: 
+    - - mxcl
+      - 742
+    - - adamv
+      - 552
+    - - "0xffea"
+      - 172
+    - - mikearthur
+      - 44
+    - - afh
+      - 38
+
+By default, the list only shows GitHub users.  You can include non-users too:
+
+    $ curl http://github.com/api/v2/yaml/repos/show/mxcl/homebrew/contributors/anon
+    --- 
+    contributors: 
+    - - mxcl
+      - 742
+
 ### Network ###
 
 We can also look at the full network with

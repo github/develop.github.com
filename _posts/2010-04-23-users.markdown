@@ -55,6 +55,13 @@ If you authenticated as that user, you will also get this information:
 	    space: 20971520
 	    private_repos: 125
 
+If you authenticate, you can also get your own information by leaving your username out.
+
+    /user/show [GET]
+
+You can use the following command to get your information:
+
+    $ curl -F 'login=defunkt' -F 'token=XXX' http://github.com/api/v2/yaml/user/show
 
 ### Authenticated User Management ###
 
