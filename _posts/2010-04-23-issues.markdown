@@ -221,4 +221,6 @@ Simply send it a 'comment' POST variable with the comment you'd like to make.  I
 
     $ curl -F 'login=schacon' -F 'token=XXX' -F 'comment=this is amazing' \
     https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1
-    {"comment": {"comment": "this is amazing", "status": "saved"}}
+    {"comment": {"gravatar_id": "9375a9529679f1b42b567a640d775e7d",
+    "user": "schacon", "body": "this is amazing", id: 17,
+    created_at: TIMESTAMP, updated_at: TIMESTAMP}
