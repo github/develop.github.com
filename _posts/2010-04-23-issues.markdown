@@ -24,6 +24,7 @@ For example, to search for 'test' in the open issues for defunkt/github-issues r
           "updated_at": "2009\/04\/20 03:34:48 -0700",
           "votes": 3,
           "number": 102,
+          "position": 1.0,
           "title": "Pressing question-mark does not show help",
           "body": "Pressing the '?'-key does not open the help lightbox.\r\n\r\nHowever, at least the 'j', 'k', and 'c' works (the only ones I've tested).\r\n\r\n* **OS:** Linux, ubuntu 8.04.1\r\n* **Browser:** Firefox 3.08",
           "state": "open",
@@ -54,6 +55,7 @@ For example, to see all the open issues I have on the schacon/simplegit project,
       updated_at: 2009-04-17 14:55:33 -07:00
       user: schacon
       gravatar_id: 9375a9529679f1b42b567a640d775e7d
+      position: 0.0
       state: open
     - number: 2
       votes: 0
@@ -63,6 +65,7 @@ For example, to see all the open issues I have on the schacon/simplegit project,
       updated_at: 2009-04-17 15:16:47 -07:00
       user: schacon
       gravatar_id: 9375a9529679f1b42b567a640d775e7d
+      position: 1.0
       state: open
 
 
@@ -78,6 +81,7 @@ So to get all the data for a issue #1 in our repo, we can run something like thi
     ---
     issue:
       number: 1
+      position: 0.0
       votes: 0
       created_at: 2009-04-17 14:55:33 -07:00
       body: my sweet, sweet issue
