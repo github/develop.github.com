@@ -43,6 +43,13 @@ To search for repositories that have to do with testing ruby, you could do this:
 	  pushed: "2009-04-01T16:23:58Z"
 	  created: "2008-08-08T18:52:54Z"
 
+You can pass a custom page number and/or a language to narrow the search:
+
+    $ curl http://github.com/api/v2/yaml/repos/search/ruby+testing?start_page=2
+    $ curl http://github.com/api/v2/yaml/repos/search/ruby+testing?language=Ruby
+
+Language searching is done with the capitalized format of the name: "Ruby", not "ruby".
+It takes the same values as the language drop down on [http://github.com/search](http://github.com/search).
 
 ### Show Repo Info ###
 
