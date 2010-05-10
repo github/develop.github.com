@@ -55,20 +55,25 @@ For example, to see the information for Grit
 	$ curl http://github.com/api/v2/yaml/repos/show/schacon/grit
     ---
     repository:
+      :name: grit
+      :owner: schacon
+      :source: mojombo/grit # The original repo at top of the pyramid
+      :parent: defunkt/grit # This repo's direct parent
       :description: Grit is a Ruby library for extracting information from a
       git repository in an object oriented manner - this fork tries to
       intergrate as much pure-ruby functionality as possible
       :forks: 4
-      :name: grit
       :watchers: 67
       :private: false
       :url: http://github.com/schacon/grit
       :fork: true
-      :owner: schacon
       :homepage: http://grit.rubyforge.org/
       :has_wiki: true
       :has_issues: false
       :has_downloads: true
+
+Some keys, such as `source` and `parent` are only available on the show repo
+action.  They won't show up on repo lists or searches.
 
 ### Set Repo Info ###
 
