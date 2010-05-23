@@ -272,24 +272,34 @@ The data comes back as an array of [login, count], sorted by the biggest contrib
     $ curl http://github.com/api/v2/yaml/repos/show/mxcl/homebrew/contributors
     --- 
     contributors: 
-    - - mxcl
-      - 742
-    - - adamv
-      - 552
-    - - "0xffea"
-      - 172
-    - - mikearthur
-      - 44
-    - - afh
-      - 38
+    - :location: London, UK
+      :blog: http://www.methylblue.com
+      :company: TweetDeck
+      :login: mxcl
+      :contributions: 742
+      :name: Max Howell
+      :email: max@methylblue.com
+    - :location: Issaquah, WA
+      :blog: http://adamv.com/
+      :login: adamv
+      :contributions: 607
+      :name: Adam Vandenberg
+      :email: flangy@gmail.com
 
 By default, the list only shows GitHub users.  You can include non-users too:
 
     $ curl http://github.com/api/v2/yaml/repos/show/mxcl/homebrew/contributors/anon
     --- 
     contributors: 
-    - - mxcl
-      - 742
+    - :location: London, UK
+      :blog: http://www.methylblue.com
+      :company: TweetDeck
+      :login: mxcl
+      :contributions: 742
+      :name: Max Howell
+      :email: max@methylblue.com
+    - :contributions: 1
+      :name: Bart Janssen
 
 ### Network ###
 
