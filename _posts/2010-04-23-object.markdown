@@ -154,6 +154,25 @@ If you want to get the metadata of each blob (including sha, name, and mime type
 	  mode: "100644"
 	  mime_type: text/plain
 
+You can also get the metadata of each tree and blob object:
+
+  tree/full/:user/:repo/:tree_sha
+
+	$ curl http://github.com/api/v2/yaml/tree/full/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31
+	---
+	tree:
+	- name: README.txt
+	  sha: d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
+	  mode: "100644"
+	  mime_type: text/plain
+	- name: releases
+	  size: 0
+	  sha: 82e3a754b6a0fcb238b03c0e47d05219fbf9cf89
+	  mode: "040000"
+	  mime_type: text/plain
+	  type: tree
+
+
 ### Raw Git Data ###
 
 You can get the contents of a blob with the blob's SHA via:
