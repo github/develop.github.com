@@ -81,6 +81,17 @@ For example, to get the README.txt metadata from a specific tree in Facebox:
 	    Need help?  Join our Google Groups mailing list:
 	      http://groups.google.com/group/facebox/
 
+If you want just the meta data and not the blob data, pass a `?code` parameter:
+
+	$ curl http://github.com/api/v2/yaml/blob/show/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31/README.txt?meta=1
+	---
+	blob:
+	  name: README.txt
+	  size: 178
+	  sha: d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
+	  mode: "100644"
+	  mime_type: text/plain
+
 You can also get a list of all blobs (their names and shas) for a
 specific SHA:
 
@@ -119,6 +130,18 @@ For example, to get all blobs for Facebox:
       screenshots/success.png: b547e7ad945666d
       screenshots/photo_small.png: 933df8b638d4ada
       remote.html: 98d3e92373d1bc5
+
+If you want to get the metadata of each blob (including sha, name, and mime type), use:
+
+  blob/full/:user/:repo/:tree_sha
+
+	$ curl http://github.com/api/v2/yaml/blob/full/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31
+	---
+	blobs:
+	- name: README.txt
+	  sha: d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
+	  mode: "100644"
+	  mime_type: text/plain
 
 ### Raw Git Data ###
 
