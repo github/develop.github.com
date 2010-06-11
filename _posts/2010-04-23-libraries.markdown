@@ -77,3 +77,8 @@ with the github API. Currently supports a large portion of V2, with more to
 come. Tries to map directly to the HTTP API, but in a JS style.
 
 [ghjs]: http://github.com/fitzgen/github-api
+
+The [node-github][ng] library is a port of [php-github-api][pga] to JavaScript for [node.js][node]. It provides an asynchronous object oriented API and is fully tested.
+
+[ng]: http://github.com/ajaxorg/node-github
+[node]: http://nodejs.org/
