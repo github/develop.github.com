@@ -69,3 +69,11 @@ The [php-github-api][pga] is fully tested and documented.
 [GitHubSharp][gs] looks pretty slick - hot off the press.
 
 [gs]: http://github.com/erikzaadi/GithubSharp
+
+### Javascript ###
+
+[github-api][ghjs] is a a Javascript library with no dependencies for interop
+with the github API. Currently supports a large portion of V2, with more to
+come. Tries to map directly to the HTTP API, but in a JS style.
+
+[ghjs]: http://github.com/fitzgen/github-api
