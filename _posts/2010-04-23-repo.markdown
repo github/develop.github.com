@@ -301,6 +301,21 @@ By default, the list only shows GitHub users.  You can include non-users too:
     - :contributions: 1
       :name: Bart Janssen
 
+
+### Watchers ###
+
+To get a list of the watchers on your project, GET
+
+    repos/show/:user/:repo/watchers
+
+The data comes back as an array of watchers, sorted by the date they started watching the repository.
+
+    $ curl http://github.com/api/v2/yaml/repos/show/claudiob/csswaxer/watchers
+    --- 
+    watchers: 
+    - claudiob
+    - vlex
+
 ### Network ###
 
 We can also look at the full network with
