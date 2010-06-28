@@ -5,7 +5,42 @@ title: API Libraries
 
 ## API Implementations ##
 
-Libraries for accessing the GitHub API from your favorite language
+Libraries for accessing the GitHub API from your favorite language.
+
+### C Sharp ###
+
+[GitHubSharp][gs] looks pretty slick - hot off the press.
+
+### Javascript ###
+
+[github-api][ghjs] is a a Javascript library with no dependencies for interop
+with the github API. Currently supports a large portion of V2, with more to
+come. Tries to map directly to the HTTP API, but in a JS style.
+
+[ghjs]: http://github.com/fitzgen/github-api
+
+The [node-github][ng] library is a port of [php-github-api][pga] to JavaScript for [node.js][node]. It provides an asynchronous object oriented API and is fully tested.
+
+[ng]: http://github.com/ajaxorg/node-github
+[node]: http://nodejs.org/
+
+### Perl ###
+
+The [Net::GitHub][net-perl-github] library for Perl encapsulates much
+of the functionality of the GitHub v2 API.  You can also download it
+from [CPAN][net-perl-cpan].
+
+[net-perl-cpan]: http://search.cpan.org/dist/Net-GitHub/
+[net-perl-github]: http://github.com/fayland/perl-net-github/tree/master
+
+
+### PHP5 ###
+
+The [php-github-api][pga] is fully tested and documented.
+
+[pga]: http://github.com/ornicar/php-github-api
+
+[gs]: http://github.com/erikzaadi/GithubSharp
 
 ### Python ###
 
@@ -49,38 +84,3 @@ GitHub API v2. There's also [octopussy][op]:
 
 [octopi]: http://github.com/fcoury/octopi/
 [op]: http://github.com/pengwynn/octopussy
-
-### Perl ###
-
-The [Net::GitHub][net-perl-github] library for Perl encapsulates much
-of the functionality of the GitHub v2 API.  You can also download it
-from [CPAN][net-perl-cpan].
-
-[net-perl-cpan]: http://search.cpan.org/dist/Net-GitHub/
-[net-perl-github]: http://github.com/fayland/perl-net-github/tree/master
-
-
-### PHP5 ###
-
-The [php-github-api][pga] is fully tested and documented.
-
-[pga]: http://github.com/ornicar/php-github-api
-
-### C Sharp ###
-
-[GitHubSharp][gs] looks pretty slick - hot off the press.
-
-[gs]: http://github.com/erikzaadi/GithubSharp
-
-### Javascript ###
-
-[github-api][ghjs] is a a Javascript library with no dependencies for interop
-with the github API. Currently supports a large portion of V2, with more to
-come. Tries to map directly to the HTTP API, but in a JS style.
-
-[ghjs]: http://github.com/fitzgen/github-api
-
-The [node-github][ng] library is a port of [php-github-api][pga] to JavaScript for [node.js][node]. It provides an asynchronous object oriented API and is fully tested.
-
-[ng]: http://github.com/ajaxorg/node-github
-[node]: http://nodejs.org/
