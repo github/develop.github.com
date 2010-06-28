@@ -26,7 +26,9 @@ list.
 [python-github2]: http://github.com/ask/python-github2
 [gistapi]: http://github.com/kennethreitz/gistapi.py
 
-### Ruby - Version 1 API ###
+### Ruby ###
+
+#### API Version 1 ####
 
 The [github-control][github-control] library is currently doing work
 using the v1 API. The aim is to build a library which others can build
@@ -40,7 +42,7 @@ The [github-party][gh-party] library is also using the v1 API.
 [github-control]: http://github.com/halorgium/github-control
 [gh-party]: http://github.com/technicalpickles/github-party
 
-### Ruby - Version 2 API ###
+#### API Version 2 ####
 
 The [octopi][octopi] library is one of the first emerging for the
 GitHub API v2. There's also [octopussy][op]:
