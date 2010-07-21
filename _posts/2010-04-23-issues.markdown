@@ -34,13 +34,15 @@ For example, to search for 'test' in the open issues for defunkt/github-issues r
     }
 
 
-### List a Projects Issues ###
+### List a Project's Issues ###
 
 To see a list of issues for a project,
 
     issues/list/:user/:repo/:state
 
-where :state is either 'open' or 'closed'.
+where :state is either 'open' or 'closed'.  You can also search with a label:
+
+    issues/list/:user/:repo/label/:label
 
 For example, to see all the open issues I have on the schacon/simplegit project, we can run
 
@@ -68,6 +70,26 @@ For example, to see all the open issues I have on the schacon/simplegit project,
       position: 1.0
       state: open
 
+Here's a sample query of all issues labeled "2.0" in defunkt/resque:
+
+    $ curl http://github.com/api/v2/yaml/issues/list/defunkt/resque/label/2.0
+    --- 
+    issues:
+      - gravatar_id: b8dbb1987e8e5318584865f880036796
+        position: 4.0
+        number: 5
+        votes: 1
+        created_at: 2009-11-03 11:58:19 -08:00
+        comments: 2
+        body: You know you want it.
+        title: ERB => Mustache
+        updated_at: 2010-05-13 13:57:53 -07:00
+        closed_at: 
+        user: defunkt
+        labels: 
+        - "2.0"
+        - feature
+        state: open
 
 ### View an Issue ###
 
