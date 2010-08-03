@@ -13,6 +13,13 @@ Libraries for accessing the GitHub API from your favorite language.
 
 [gs]: http://github.com/erikzaadi/GithubSharp
 
+### Java ###
+
+[ghapi][ghj] is a Java library implementing much of v2 API and is
+constantly being developed.
+
+[ghj]: http://github.com/eddieringle/ghapi
+
 ### Javascript ###
 
 [github-api][ghjs] is a a Javascript library with no dependencies for interop
