@@ -11,6 +11,8 @@ Libraries for accessing the GitHub API from your favorite language.
 
 [GitHubSharp][gs] looks pretty slick - hot off the press.
 
+[gs]: http://github.com/erikzaadi/GithubSharp
+
 ### Javascript ###
 
 [github-api][ghjs] is a a Javascript library with no dependencies for interop
@@ -39,8 +41,6 @@ from [CPAN][net-perl-cpan].
 The [php-github-api][pga] is fully tested and documented.
 
 [pga]: http://github.com/ornicar/php-github-api
-
-[gs]: http://github.com/erikzaadi/GithubSharp
 
 ### Python ###
 
