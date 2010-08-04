@@ -18,7 +18,7 @@ for every API call.
 
 ### Authentication ###
 
-You can use HTTP Basic Auth to authentication as a GitHub user.
+You can use HTTP Basic Auth to authentication as a GitHub user.  If you want to pass your API token instead, add "/token" to the Basic Auth username.
 
 You may also pass `login` and `token` to any URL. Note that this method
 of authentication is deprecated.
@@ -28,7 +28,7 @@ as a user that owns the repository or has access to it as a
 collaborator.  For example, a call to get information on one of your
 private repositories would be:
 
-    $ curl -F 'login=schacon' -F 'token=6ef8395fecf207165f1a82178ae1b984'
+    $ curl -u "schacon:PASSWORD" \
       http://github.com/api/v2/json/user/show/schacon | jsonpretty
     {
       "user": {
@@ -57,6 +57,13 @@ private repositories would be:
         "location": "Redwood City, CA"
       }
     }
+
+Here's a Basic Auth example using the API Token:
+
+    $ curl -u "schacon/token:6ef8395fecf207165f1a82178ae1b984" \
+      http://github.com/api/v2/json/user/show/schacon | jsonpretty
+    {
+      "user": {...
 
 ### Secure Access ###
 
