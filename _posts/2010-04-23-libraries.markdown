@@ -20,6 +20,11 @@ constantly being developed.
 
 [ghj]: http://github.com/eddieringle/ghapi
 
+[github-java-sdk][ghjsdk] is a Java library implementing all of v2 API plus 
+some additional support for OAuth and ATOM feeds. Its actively under development.
+
+[ghjsdk]: http://github.com/nabeelmukhtar/github-java-sdk
+
 ### Javascript ###
 
 [github-api][ghjs] is a Javascript library with no dependencies for interop
