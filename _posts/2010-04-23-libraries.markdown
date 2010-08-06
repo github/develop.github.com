@@ -20,7 +20,7 @@ constantly being developed.
 
 [ghj]: http://github.com/eddieringle/ghapi
 
-[github-java-sdk][ghjsdk] is a strongly-typed Java implementation of the whole v2 API and has 
+[github-java-sdk][ghjsdk] is a type-safe Java implementation of the whole v2 API and has 
 some additional support for OAuth authentication and reading ATOM feeds. Its actively under development.
 
 [ghjsdk]: http://github.com/nabeelmukhtar/github-java-sdk
