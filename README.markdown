@@ -3,7 +3,7 @@ Develop.GitHub.com
 
 This is the code and data behind <http://develop.github.com>.
 
-All content can be found in the _posts/ direcotry.
+All content can be found in the _posts/ directory.
 
 
 Dependencies, Getting Started
