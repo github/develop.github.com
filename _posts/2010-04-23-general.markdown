@@ -18,7 +18,7 @@ for every API call.
 
 ### Authentication ###
 
-You can use HTTP Basic Auth to authentication as a GitHub user.  If you want to pass your API token instead, add "/token" to the Basic Auth username.
+You can use HTTP Basic Auth to authenticate as a GitHub user.  If you want to pass your API token instead, add "/token" to the Basic Auth username.
 
 You may also pass `login` and `token` to any URL. Note that this method
 of authentication is deprecated.
