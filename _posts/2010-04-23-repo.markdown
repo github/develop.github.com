@@ -197,7 +197,8 @@ with at least 'name' but it will take any of these as POST args
 
 You can also delete a repository with a POST to
 
-	repos/delete/:repo
+	repos/delete/:user/:repo
+	repos/delete/:repo (DEPRECATED)
 
 which will give you back a token in the 'delete\_token' field of the response, which you then have to post back to the same url again (in the 'delete\_token' POST var) to complete the deletion.
 
@@ -205,21 +206,24 @@ which will give you back a token in the 'delete\_token' field of the response, w
 
 To set a public repository private, you can POST while authenticated to
 
-	repos/set/private/:repo
+	repos/set/private/:user/:repo
+	repos/set/private/:repo (DEPRECATED)
 
 To make a private repo public, POST while authenticated to
 
-	repos/set/public/:repo
+	repos/set/public/:user/:repo
+	repos/set/public/:repo (DEPRECATED)
 
 ### Deploy Keys ###
 
 You can use the API to list, add and remove your deploy keys.  To see which deploy keys you have setup for a specific repository, GET this URL
 
-	repos/keys/:repo
+	repos/keys/:user/:repo
+	repos/keys/:repo (DEPRECATED)
 
 It will give you a listing of your public keys, like so
 
-	$ curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/yaml/repos/keys/retrospectiva
+	$ curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/yaml/repos/keys/bob/retrospectiva
 	---
 	public_keys:
 	- title: my deploy key
@@ -233,7 +237,8 @@ It will give you a listing of your public keys, like so
 
 You can also add new keys by POSTing to
 
-	repos/key/:repo/add
+	repos/key/:user/:repo/add
+	repos/key/:repo/add (DEPRECATED)
 
 which takes the following POST variables
 
@@ -242,7 +247,8 @@ which takes the following POST variables
 
 You can also POST to this removal URL to remove a key
 
-	repos/key/:repo/remove
+	repos/key/:user/:repo/remove
+	repos/key/:repo/remove (DEPRECATED)
 
 You will need to POST an 'id' variable with the key ID returned from the public listing or key creation.
 
@@ -254,8 +260,10 @@ To get a list of the collaborators on your project, GET
 
 To add or remove collaborators, POST to one of these URLs
 
-	repos/collaborators/:repo/add/:user
-	repos/collaborators/:repo/remove/:user
+	repos/collaborators/:user/:repo/add/:collaborator (DEPRECATED)
+	repos/collaborators/:user/:repo/remove/:collaborator (DEPRECATED)
+	repos/collaborators/:repo/add/:collaborator (DEPRECATED)
+	repos/collaborators/:repo/remove/:collaborator (DEPRECATED)
 
 To get a list of repos you can push to that are not your own, GET
 
