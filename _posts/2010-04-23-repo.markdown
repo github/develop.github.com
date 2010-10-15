@@ -324,6 +324,15 @@ The data comes back as an array of watchers, sorted by the date they started wat
     - claudiob
     - vlex
 
+You can receive the full public user profile by adding `?full=1` to requests:
+
+    $ curl http://github.com/api/v2/yaml/repos/show/claudiob/csswaxer/watchers?full=1
+    --- 
+    watchers: 
+    - :type: User
+      :login: claudiob
+    ...
+
 ### Network ###
 
 We can also look at the full network with
