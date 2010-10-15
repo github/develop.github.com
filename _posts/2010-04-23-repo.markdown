@@ -260,8 +260,8 @@ To get a list of the collaborators on your project, GET
 
 To add or remove collaborators, POST to one of these URLs
 
-	repos/collaborators/:user/:repo/add/:collaborator (DEPRECATED)
-	repos/collaborators/:user/:repo/remove/:collaborator (DEPRECATED)
+	repos/collaborators/:user/:repo/add/:collaborator
+	repos/collaborators/:user/:repo/remove/:collaborator
 	repos/collaborators/:repo/add/:collaborator (DEPRECATED)
 	repos/collaborators/:repo/remove/:collaborator (DEPRECATED)
 
