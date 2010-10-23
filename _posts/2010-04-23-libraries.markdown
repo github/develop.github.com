@@ -96,3 +96,9 @@ GitHub API v2. There's also [octopussy][op].
 
 [octopi]: http://github.com/fcoury/octopi/
 [op]: http://github.com/pengwynn/octopussy
+
+### Cocoa/Objective-C ###
+
+[UAGithubEngine][UAGithubEngine] is a Cocoa wrapper around version 2 of the Github API, written in Objective-C. It includes all functionality except the Network Graph and Gist APIs.
+
+[UAGithubEngine]: http://github.com/owainhunt/UAGithubEngine
