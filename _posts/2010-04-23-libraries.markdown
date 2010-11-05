@@ -96,3 +96,9 @@ GitHub API v2. There's also [octopussy][op].
 
 [octopi]: http://github.com/fcoury/octopi/
 [op]: http://github.com/pengwynn/octopussy
+
+### Objective-C ###
+
+[GitHubObjC][GitHubObjC] is an Objective-C library implementing most of the GET requests of v2 API.
+
+[GitHubObjC]: http://github.com/ernstsson/GitHubObjC
