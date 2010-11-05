@@ -92,7 +92,8 @@ The [github-party][gh-party] library is also using the v1 API.
 #### API Version 2 ####
 
 The [octopi][octopi] library is one of the first emerging for the
-GitHub API v2. There's also [octopussy][op].
+GitHub API v2. There's also [octopussy][op], and the small [hubruby][hubruby].
 
 [octopi]: http://github.com/fcoury/octopi/
 [op]: http://github.com/pengwynn/octopussy
+[hubruby]: http://github.com/diogenes/hubruby
