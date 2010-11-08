@@ -13,18 +13,6 @@ Libraries for accessing the GitHub API from your favorite language.
 
 [gs]: http://github.com/erikzaadi/GithubSharp
 
-### Java ###
-
-[ghapi][ghj] is a Java library implementing much of v2 API and is
-constantly being developed.
-
-[ghj]: http://github.com/eddieringle/ghapi
-
-[github-java-sdk][ghjsdk] is a type-safe Java implementation of the whole v2 API and has 
-some additional support for OAuth authentication and reading ATOM feeds. Its actively under development.
-
-[ghjsdk]: http://github.com/nabeelmukhtar/github-java-sdk
-
 ### Javascript ###
 
 [github-api][ghjs] is a Javascript library with no dependencies for interop
@@ -96,3 +84,7 @@ GitHub API v2. There's also [octopussy][op].
 
 [octopi]: http://github.com/fcoury/octopi/
 [op]: http://github.com/pengwynn/octopussy
+
+### Objective-C ###
+[Clint Shryock's fork of CocoaREST][CocoaREST] extended the base CocoaREST library, a set of Cocoa classes to interact with RESTful services, to support Github's v1 API
+[CocoaREST]: http://github.com/ctshryock/CocoaREST
