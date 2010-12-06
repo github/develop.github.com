@@ -3,7 +3,7 @@ Develop.GitHub.com
 
 This is the code and data behind <http://develop.github.com>.
 
-All content can be found in the _posts/ directory.
+All content can be found in the `_posts/` directory.
 
 
 Dependencies, Getting Started
@@ -39,3 +39,5 @@ your fork.  Then Pages will serve the site for you under:
 <http://schacon.github.com/develop.github.com>
 
 (Replace 'schacon' with your username)
+
+[jk]: https://github.com/mojombo/jekyll
