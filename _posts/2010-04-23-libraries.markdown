@@ -111,9 +111,12 @@ Based on a gist by [tekkub][tekkub].
 
 ### Cocoa/Objective-C ###
 
+[Clint Shryock's fork of CocoaREST][CocoaREST] extended the base CocoaREST library, a set of Cocoa classes to interact with RESTful services, to support Github's v1 API.
+
 [GitHubObjC][GitHubObjC] is an Objective-C library implementing most of the GET requests of v2 API.
 
 [UAGithubEngine][UAGithubEngine] is a Cocoa wrapper around version 2 of the Github API, written in Objective-C. It includes all functionality except the Network Graph and Gist APIs.
 
+[CocoaREST]: http://github.com/ctshryock/CocoaREST
 [GitHubObjC]: http://github.com/ernstsson/GitHubObjC
 [UAGithubEngine]: http://github.com/owainhunt/UAGithubEngine
