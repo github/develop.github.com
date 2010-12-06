@@ -34,6 +34,28 @@ You can get the full information on organizations by the screen name:
       }
     }
 
+Owners can update the organization with these fields:
+
+* `name`
+* `email`
+* `blog`
+* `company`
+* `location`
+* `billing_email`
+
+    /organizations/:org [PUT]
+
+You can send POST params:
+
+    $ curl -d "organization[name]=New%20Name" \
+      https://github.com/api/v2/json/organizations/github
+
+You can also send JSON:
+
+    $ curl -H "Content-Type: application/json"    \
+      -d '{"organization": {"name": "New Name"}}' \
+      https://github.com/api/v2/json/organizations/github
+
 ### Checking Organization Membership
 
 You can get all the public organizations that a user is part of: 
@@ -149,6 +171,35 @@ you are armed with the 'repo' scope.
         }
       ]
     }
+
+### Creating a Team
+
+    /organizations/:org/teams [POST]
+
+The applicable fields for Teams are:
+
+* name
+* permission (admin/push/pull)
+* repo_names (array)
+
+You can send this data as POST params:
+
+    $ curl -d "team[name]=my-team" -d "team[permission]=admin" \
+      -d "team[repo_names][]=:user/:repo" -d "team[repo_names][]=:user/:repo" \
+      https://github.com/api/v2/json/organizations/github/teams
+    {
+      "team": {
+        "name": "test",
+        "id": 123,
+        "permission": "pull"
+      }
+    }
+
+You can also send it as JSON:
+
+    $ curl -d '{"team":{"name":"my-team", "repo_names":[":user/:repo"]}}' \
+      -H "Content-Type: application/json" \
+      https://github.com/api/v2/json/organizations/github/teams
 
 ### Fetching and Updating Team Information
 

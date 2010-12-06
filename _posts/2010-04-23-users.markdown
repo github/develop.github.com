@@ -81,11 +81,11 @@ POSTing to it in a few different ways.
 
 Where the POST values are of:
 
-	name
-	email
-	blog
-	company
-	location
+* name
+* email
+* blog
+* company
+* location
 
 So, you could do this to update your email address:
 
