@@ -1,0 +1,128 @@
+---
+layout: default
+title: Organizations API
+---
+
+## Organizations API ##
+
+API for accessing and modifying organizations and teams.  
+
+### Getting Organization Information ##
+
+You can get the full information on organizations by the screen name:
+
+    /organizations/:org [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/github
+    {
+      "organization": {
+        "name": "GitHub",
+        "company": null,
+        "gravatar_id": "61024896f291303615bcd4f7a0dcfb74",
+        "location": "San Francisco, CA",
+        "created_at": "2008-05-10T21:37:31-07:00",
+        "blog": "http://github.com/blog",
+        "public_gist_count": 0,
+        "public_repo_count": 20,
+        "following_count": 0,
+        "id": 9919,
+        "permission": null,
+        "type": "Organization",
+        "followers_count": 532,
+        "login": "github",
+        "email": "support@github.com"
+      }
+    }
+
+### Checking Organization Membership ##
+
+You can get all the public organizations that a user is part of: 
+
+    /user/show/:user/organizations [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/technoweenie
+    {
+      "organizations": [
+        {
+          "name": "GitHub",
+          "company": null,
+          "gravatar_id": "61024896f291303615bcd4f7a0dcfb74",
+          "location": "San Francisco, CA",
+          "created_at": "2008-05-10T21:37:31-07:00",
+          "blog": "http://github.com/blog",
+          "public_gist_count": 0,
+          "public_repo_count": 20,
+          "following_count": 0,
+          "id": 9919,
+          "permission": null,
+          "type": "Organization",
+          "followers_count": 532,
+          "login": "github",
+          "email": "support@github.com"
+        }
+      ]
+    }
+
+You can get fetch a list of all of your organizations:
+
+    /organizations [GET]
+
+You can list all repositories across the organization that you can access:
+
+    /organizations/repositories [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/repositories
+    {
+      "repositories": [
+        {
+          "name": "gollum",
+          "has_wiki": true,
+          "created_at": "2010/03/29 11:30:53 -0700",
+          "watchers": 607,
+          "private": false,
+          "fork": false,
+          "url": "https://github.com/github/gollum",
+          "pushed_at": "2010/12/02 19:28:28 -0800",
+          "open_issues": 34,
+          "has_downloads": true,
+          "permission": "admin",
+          "homepage": "",
+          "has_issues": true,
+          "organization": "github",
+          "forks": 54,
+          "description": "A simple, Git-powered wiki with a sweet API and local frontend.",
+          "owner": "github"
+        }
+      ]
+    }
+
+You can also list all public repositories of any other organization:
+
+    /organizations/:org/public_repositories [GET]
+
+You can list all public members of any organization:
+
+    /organizations/:org/public_repositories [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/github/public_members
+    {
+      "users": [
+        {
+          "name": "Corey Donohoe",
+          "company": "GitHub",
+          "gravatar_id": "a86224d72ce21cd9f5bee6784d4b06c7",
+          "location": "Potrero, SF",
+          "created_at": "2008-01-22T01:14:11-08:00",
+          "blog": "http://www.atmos.org",
+          "public_gist_count": 140,
+          "public_repo_count": 80,
+          "following_count": 149,
+          "id": 38,
+          "permission": null,
+          "type": "User",
+          "followers_count": 244,
+          "login": "atmos",
+          "email": "atmos@atmos.org"
+        }
+      ]
+    }
