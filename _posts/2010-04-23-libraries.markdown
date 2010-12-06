@@ -97,6 +97,17 @@ GitHub API v2. There's also [octopussy][op].
 [octopi]: http://github.com/fcoury/octopi/
 [op]: http://github.com/pengwynn/octopussy
 
+#### Web scraping ####
+
+[halorgium][halorgium] built a wrapper around the current post-receive hooks UI.
+It is called [github-post-receive-hooks][github-post-receive-hooks]
+Based on a gist by [tekkub][tekkub].
+
+[halorgium]: http://github.com/halorgium
+[tekkub]: http://github.com/tekkub
+[github-post-receive-hooks]: http://github.com/halorgium/github-post-receive-hooks
+
+
 ### Cocoa/Objective-C ###
 
 [UAGithubEngine][UAGithubEngine] is a Cocoa wrapper around version 2 of the Github API, written in Objective-C. It includes all functionality except the Network Graph and Gist APIs.
