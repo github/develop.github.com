@@ -3,11 +3,11 @@ layout: default
 title: Organizations API
 ---
 
-## Organizations API ##
+## Organizations API
 
-API for accessing and modifying organizations and teams.  
+API for accessing and modifying organizations.  
 
-### Getting Organization Information ##
+### Getting Organization Information
 
 You can get the full information on organizations by the screen name:
 
@@ -34,7 +34,7 @@ You can get the full information on organizations by the screen name:
       }
     }
 
-### Checking Organization Membership ##
+### Checking Organization Membership
 
 You can get all the public organizations that a user is part of: 
 
@@ -66,6 +66,8 @@ You can get all the public organizations that a user is part of:
 You can get fetch a list of all of your organizations:
 
     /organizations [GET]
+
+### Listing Organization Memberships
 
 You can list all repositories across the organization that you can access:
 
@@ -126,3 +128,134 @@ You can list all public members of any organization:
         }
       ]
     }
+
+## Teams API
+
+API for accessing and modifying teams.  These actions all require you to have
+admin access for the Organization and/or the Team.  If using OAuth, make sure
+you are armed with the 'repo' scope.
+
+### Listing Organization Teams
+
+    /organizations/:org/teams [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/github/teams [GET]
+    {
+      "teams": [
+        {
+          "name": "Open Source",
+          "id": 10,
+          "permission": "admin"
+        }
+      ]
+    }
+
+### Fetching and Updating Team Information
+
+    /organizations/:org/teams/:team_id [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/github/teams/10 [GET]
+    {
+      "team": {
+        "name": "Open Source",
+        "id": 10,
+        "permission": "admin"
+      }
+    }
+
+You can update a Team by sending the following attributes (with the correct
+Content-Type):
+
+    /organizations/:org/teams/:team_id [PUT]
+
+    $ curl -X PUT -d '{"team": {"name": "OSS"}}' \
+      -H "Content-Type: application/json"        \
+      https://github.com/api/v2/json/organizations/github/teams/10
+    {
+      "team": {
+        "name": "OSS",
+        "id": 10,
+        "permission": "admin"
+      }
+    }
+
+You can also DELETE a Team:
+
+    /organizations/:org/teams/:team_id [DELETE]
+
+    $ curl -X DELETE \
+      https://github.com/api/v2/json/organizations/github/teams/10
+
+### Team Members
+
+To list users:
+
+    /organizations/:org/teams/:team_id/members [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/github/teams/10/members
+
+    {
+      "users": [
+        {
+          "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+          "company": "GitHub",
+          "name": "Chris Wanstrath",
+          "location": "San Francisco, CA",
+          "blog": "http://chriswanstrath.com/",
+          "type": "User",
+          "login": "defunkt",
+          "email": "chris@wanstrath.com"
+        }
+      ]
+    }
+
+To add a user to the team:
+
+    /organizations/:org/teams/:team_id/members?name=:user [POST]
+
+    $ curl -d "name=technoweenie" https://github.com/api/v2/json/organizations/github/teams/10/members
+
+To remove a user from the team:
+
+    /organizations/:org/teams/:team_id/members?name=:user [DELETE]
+
+### Team Repositories
+
+To list repositories:
+
+    /organizations/:org/teams/:team_id/repositories [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/github/teams/10/repositories
+
+    {
+      "repositories": [
+        {
+          "name": "albino",
+          "created_at": "2008-05-10T21:45:03-07:00",
+          "has_wiki": false,
+          "watchers": 59,
+          "private": false,
+          "fork": false,
+          "url": "https://github.com/github/albino",
+          "pushed_at": "2010-10-11T11:09:50-07:00",
+          "has_downloads": false,
+          "open_issues": 2,
+          "homepage": "",
+          "has_issues": true,
+          "organization": "github",
+          "forks": 6,
+          "description": "Ruby wrapper for the Pygments syntax highlighter.",
+          "owner": "github"
+        }
+      ]
+    }
+
+To add a repo to the team:
+
+    /organizations/:org/teams/:team_id/repositories?name=:user/:repo [POST]
+
+    $ curl -d "name=github/gollum" https://github.com/api/v2/json/organizations/github/teams/10/repositories
+
+To remove a repo from the team:
+
+    /organizations/:org/teams/:team_id/repositories?name=:user/:repo [DELETE]
