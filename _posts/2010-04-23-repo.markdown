@@ -190,10 +190,10 @@ To create a new repository, hit this url
 
 with at least 'name' but it will take any of these as POST args
 
-	name 		=> name of the repository
-	description 	=> repo description
-	homepage	=> homepage url
-	public		=> 1 for public, 0 for private
+	name        => name of the repository.  ex: "my-repo" or "other-user/my-repo"
+	description => repo description
+	homepage    => homepage url
+	public      => 1 for public, 0 for private
 
 You can also delete a repository with a POST to
 
