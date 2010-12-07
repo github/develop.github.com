@@ -85,7 +85,7 @@ You can get all the public organizations that a user is part of:
       ]
     }
 
-You can get fetch a list of all of your organizations:
+You can get a list of all of your organizations:
 
     /organizations [GET]
 
