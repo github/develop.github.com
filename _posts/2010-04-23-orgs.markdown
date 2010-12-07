@@ -91,7 +91,7 @@ You can get fetch a list of all of your organizations:
 
 ### Listing Organization Memberships
 
-You can list all repositories across the organization that you can access:
+You can list all repositories across all the organizations that you can access:
 
     /organizations/repositories [GET]
 
