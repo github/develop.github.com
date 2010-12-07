@@ -203,9 +203,9 @@ You can also send it as JSON:
 
 ### Fetching and Updating Team Information
 
-    /organizations/:org/teams/:team_id [GET]
+    /teams/:team_id [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/github/teams/10 [GET]
+    $ curl https://github.com/api/v2/json/teams/10 [GET]
     {
       "team": {
         "name": "Open Source",
@@ -217,11 +217,11 @@ You can also send it as JSON:
 You can update a Team by sending the following attributes (with the correct
 Content-Type):
 
-    /organizations/:org/teams/:team_id [PUT]
+    /teams/:team_id [PUT]
 
     $ curl -X PUT -d '{"team": {"name": "OSS"}}' \
       -H "Content-Type: application/json"        \
-      https://github.com/api/v2/json/organizations/github/teams/10
+      https://github.com/api/v2/json/teams/10
     {
       "team": {
         "name": "OSS",
@@ -232,18 +232,18 @@ Content-Type):
 
 You can also DELETE a Team:
 
-    /organizations/:org/teams/:team_id [DELETE]
+    /teams/:team_id [DELETE]
 
     $ curl -X DELETE \
-      https://github.com/api/v2/json/organizations/github/teams/10
+      https://github.com/api/v2/json/teams/10
 
 ### Team Members
 
 To list users:
 
-    /organizations/:org/teams/:team_id/members [GET]
+    /teams/:team_id/members [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/github/teams/10/members
+    $ curl https://github.com/api/v2/json/teams/10/members
 
     {
       "users": [
@@ -262,21 +262,21 @@ To list users:
 
 To add a user to the team:
 
-    /organizations/:org/teams/:team_id/members?name=:user [POST]
+    /teams/:team_id/members?name=:user [POST]
 
-    $ curl -d "name=technoweenie" https://github.com/api/v2/json/organizations/github/teams/10/members
+    $ curl -d "name=technoweenie" https://github.com/api/v2/json/teams/10/members
 
 To remove a user from the team:
 
-    /organizations/:org/teams/:team_id/members?name=:user [DELETE]
+    /teams/:team_id/members?name=:user [DELETE]
 
 ### Team Repositories
 
 To list repositories:
 
-    /organizations/:org/teams/:team_id/repositories [GET]
+    /teams/:team_id/repositories [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/github/teams/10/repositories
+    $ curl https://github.com/api/v2/json/teams/10/repositories
 
     {
       "repositories": [
@@ -303,10 +303,10 @@ To list repositories:
 
 To add a repo to the team:
 
-    /organizations/:org/teams/:team_id/repositories?name=:user/:repo [POST]
+    /teams/:team_id/repositories?name=:user/:repo [POST]
 
-    $ curl -d "name=github/gollum" https://github.com/api/v2/json/organizations/github/teams/10/repositories
+    $ curl -d "name=github/gollum" https://github.com/api/v2/json/teams/10/repositories
 
 To remove a repo from the team:
 
-    /organizations/:org/teams/:team_id/repositories?name=:user/:repo [DELETE]
+    /teams/:team_id/repositories?name=:user/:repo [DELETE]
