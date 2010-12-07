@@ -126,7 +126,7 @@ You can also list all public repositories of any other organization:
 
 You can list all public members of any organization:
 
-    /organizations/:org/public_repositories [GET]
+    /organizations/:org/public_members [GET]
 
     $ curl https://github.com/api/v2/json/organizations/github/public_members
     {
