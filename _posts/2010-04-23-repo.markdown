@@ -254,9 +254,12 @@ You will need to POST an 'id' variable with the key ID returned from the public 
 
 ### Collaborators ###
 
-To get a list of the collaborators on your project, GET
+To get a list of the collaborators on your project:
 
-	repos/show/:user/:repo/collaborators
+	repos/show/:user/:repo/collaborators [GET]
+
+Organization repositories will return the unique users across the repository's
+teams.
 
 To add or remove collaborators, POST to one of these URLs
 
@@ -265,9 +268,13 @@ To add or remove collaborators, POST to one of these URLs
 	repos/collaborators/:repo/add/:collaborator (DEPRECATED)
 	repos/collaborators/:repo/remove/:collaborator (DEPRECATED)
 
-To get a list of repos you can push to that are not your own, GET
+To get a list of repos you can push to that are not your own:
 
-	repos/pushable
+	repos/pushable [GET]
+
+To get a list of the Teams for this repository (if it is in an Organization):
+
+  repos/show/:user/:repo/teams [GET]
 
 ### Contributors ###
 
