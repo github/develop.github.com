@@ -15,14 +15,21 @@ domain is always **gist.github.com** and we're still on **v1**.
 
 Example:
 
-    $ curl http://gist.github.com/api/v1/yaml/374130
-    ---
-    gists:
-    - :description: List what ports are in use on OS X
-      :repo: "374130"
-      :public: true
-      :created_at: 2010-04-21 10:24:32 -07:00
-      :files: ["ports.sh"]
+    $ curl http://gist.github.com/api/v1/json/374130
+    {
+      "gists": [
+        {
+          "created_at": "2010/04/21 10:24:32 -0700",
+          "public": true,
+          "repo": "374130",
+          "files": [
+            "ports.sh"
+          ],
+          "owner": "defunkt",
+          "description": "List what ports are in use on OS X"
+        }
+      ]
+    }
 
 ### Get a Gist's Content ###
 
@@ -40,21 +47,22 @@ Example:
 
 Example:
 
-    $ curl http://gist.github.com/api/v1/yaml/gists/defunkt
-    ---
-    gists:
-    - :description: List what ports are in use on OS X
-      :repo: "374130"
-      :public: true
-      :created_at: 2010-04-21 10:24:32 -07:00
-    - :description: A list of Gist clients.
-      :repo: "370230"
-      :public: true
-      :created_at: 2010-04-18 07:09:27 -07:00
-    - :description: Awesome option parsing.
-      :repo: "359895"
-      :public: true
-      :created_at: 2010-04-08 01:09:29 -07:00
+    $ curl http://gist.github.com/api/v1/json/gists/defunkt
+    {
+      "gists": [
+        {
+          "created_at": "2010/11/19 03:39:35 -0800",
+          "public": true,
+          "repo": "706406",
+          "files": [
+            "after-spec-merge",
+            "before-spec-merge"
+          ],
+          "owner": "defunkt",
+          "description": ""
+        }
+      ]
+    }
 
 ### My Public & Private Gists ###
 

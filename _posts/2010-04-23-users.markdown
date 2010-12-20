@@ -30,22 +30,26 @@ You can then get extended information on users by their username.  The url forma
 
 so the following command
 
-	$ curl -i http://github.com/api/v2/yaml/user/show/defunkt
-
-will return the something like this:
-
-	user:
-	  id: 23
-	  login: defunkt
-	  name: Kristopher Walken Wanstrath
-	  company: LA
-	  location: SF
-	  email: me@email.com
-	  blog: http://myblog.com
-	  following_count: 13
-	  followers_count: 63
-	  public_gist_count: 0
-	  public_repo_count: 2
+    $ curl http://github.com/api/v2/json/user/show/defunkt
+    {
+      "user": {
+        "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+        "company": "GitHub",
+        "name": "Chris Wanstrath",
+        "created_at": "2007/10/19 22:24:19 -0700",
+        "location": "San Francisco, CA",
+        "public_repo_count": 98,
+        "public_gist_count": 270,
+        "blog": "http://chriswanstrath.com/",
+        "following_count": 196,
+        "id": 2,
+        "type": "User",
+        "permission": null,
+        "followers_count": 1692,
+        "login": "defunkt",
+        "email": "chris@wanstrath.com"
+      }
+    }
 
 If you authenticated as that user, you will also get this information:
 
@@ -66,7 +70,7 @@ If you authenticate, you can also get your own information by leaving your usern
 
 You can use the following command to get your information:
 
-    $ curl http://github.com/api/v2/yaml/user/show?login=defunkt&token=XXX
+    $ curl http://github.com/api/v2/json/user/show?login=defunkt&token=XXX
 
 `curl -F` issues a POST request, which won't work.
 
@@ -89,20 +93,20 @@ Where the POST values are of:
 
 So, you could do this to update your email address:
 
-	$ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/user/show/schacon -F 'values[email]=scott@geemail.com'
-	{
-	  "user": {
-	    "company": "Logical Awesome",
-	    "name": "Scott Chacon",
-	    "blog": "http:\/\/jointheconversation.org",
-	    "disk_usage": 89352,
-	    "collaborators": 3,
-	    ...
-	    "email": "scott@geemail.com",
-	    "location": "Redwood City, CA"
-	    "created_at": "2008-01-27T09:19:28-08:00",
-	  }
-	}
+    $ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/user/show/schacon -F 'values[email]=scott@geemail.com'
+    {
+      "user": {
+        "company": "Logical Awesome",
+        "name": "Scott Chacon",
+        "blog": "http:\/\/jointheconversation.org",
+        "disk_usage": 89352,
+        "collaborators": 3,
+        ...
+        "email": "scott@geemail.com",
+        "location": "Redwood City, CA"
+        "created_at": "2008-01-27T09:19:28-08:00",
+      }
+    }
 
 
 ### Following Network ###
@@ -118,7 +122,7 @@ or the users following a specific user with:
 
 For example, if you want to see which users are following 'defunkt', you can run this:
 
-	$ curl -i http://github.com/api/v2/yaml/user/show/defunkt/followers
+	$ curl -i http://github.com/api/v2/json/user/show/defunkt/followers
 
 If you are authenticated as a user, you can also follow or unfollow users with:
 
@@ -135,28 +139,28 @@ To see which repositories a user is watching, you can call:
 
 For example,
 
-	$ curl http://github.com/api/v2/yaml/repos/watched/schacon
-	repositories:
-	- :watchers: 42
-	  :owner: ddollar
-	  :name: git-db
-	  :description: CouchDB-based git server
-	  :private: false
-	  :url: http://github.com/ddollar/git-db
-	  :open_issues: 0
-	  :fork: false
-	  :homepage: http://github.com/ddollar/git-db
-	  :forks: 2
-	- :watchers: 2
-	  :owner: schacon
-	  :name: git-db
-	  :description: CouchDB-based git server
-	  :private: false
-	  :url: http://github.com/schacon/git-db
-	  :open_issues: 0
-	  :fork: true
-	  :homepage: http://github.com/ddollar/git-db
-	  :forks: 0
+    $ curl http://github.com/api/v2/json/repos/watched/schacon
+    {
+      "repositories": [
+        {
+          "url": "https://github.com/mojombo/grit",
+          "homepage": "http://grit.rubyforge.org/",
+          "watchers": 816,
+          "created_at": "2007/10/29 07:37:16 -0700",
+          "has_wiki": true,
+          "pushed_at": "2010/12/19 05:36:51 -0800",
+          "fork": false,
+          "open_issues": 32,
+          "private": false,
+          "name": "grit",
+          "description": "Grit gives you object oriented read/write access to Git repositories via Ruby.",
+          "owner": "mojombo",
+          "has_issues": true,
+          "forks": 119,
+          "has_downloads": true
+        }
+      ]
+    }
 
 #### Public Key Management ####
 

@@ -46,50 +46,54 @@ where :state is either 'open' or 'closed'.  You can also search with a label:
 
 For example, to see all the open issues I have on the schacon/simplegit project, we can run
 
-    $ curl http://github.com/api/v2/yaml/issues/list/schacon/simplegit/open
-    ---
-    issues:
-    - number: 1
-      votes: 0
-      created_at: 2009-04-17 14:55:33 -07:00
-      body: my sweet, sweet issue
-      title: new issue
-      updated_at: 2009-04-17 14:55:33 -07:00
-      user: schacon
-      gravatar_id: 9375a9529679f1b42b567a640d775e7d
-      position: 0.0
-      state: open
-    - number: 2
-      votes: 0
-      created_at: 2009-04-17 15:16:47 -07:00
-      body: the body of a second issue
-      title: another issue
-      updated_at: 2009-04-17 15:16:47 -07:00
-      user: schacon
-      gravatar_id: 9375a9529679f1b42b567a640d775e7d
-      position: 1.0
-      state: open
+    $ curl http://github.com/api/v2/json/issues/list/schacon/showoff/open
+    {
+      "issues": [
+        {
+          "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+          "position": 1.0,
+          "number": 8,
+          "votes": 3,
+          "created_at": "2010/01/22 17:56:29 -0800",
+          "comments": 10,
+          "body": "Maybe this? \r\n\r\n<http://www.htmldoc.org>",
+          "title": "PDF",
+          "updated_at": "2010/12/10 21:48:53 -0800",
+          "closed_at": null,
+          "user": "defunkt",
+          "labels": [
+            "feature"
+          ],
+          "state": "open"
+        }
+      ]
+    }
 
 Here's a sample query of all issues labeled "2.0" in defunkt/resque:
 
-    $ curl http://github.com/api/v2/yaml/issues/list/defunkt/resque/label/2.0
-    --- 
-    issues:
-      - gravatar_id: b8dbb1987e8e5318584865f880036796
-        position: 4.0
-        number: 5
-        votes: 1
-        created_at: 2009-11-03 11:58:19 -08:00
-        comments: 2
-        body: You know you want it.
-        title: ERB => Mustache
-        updated_at: 2010-05-13 13:57:53 -07:00
-        closed_at: 
-        user: defunkt
-        labels: 
-        - "2.0"
-        - feature
-        state: open
+    $ curl http://github.com/api/v2/json/issues/list/defunkt/resque/label/2.0
+    {
+      "issues": [
+        {
+          "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+          "position": 4.0,
+          "number": 5,
+          "votes": 1,
+          "created_at": "2009/11/03 11:58:19 -0800",
+          "comments": 2,
+          "body": "You know you want it.",
+          "title": "ERB => Mustache",
+          "updated_at": "2010/05/13 13:57:53 -0700",
+          "closed_at": null,
+          "user": "defunkt",
+          "labels": [
+            "2.0",
+            "feature"
+          ],
+          "state": "open"
+        }
+      ]
+    }
 
 ### View an Issue ###
 
@@ -99,21 +103,26 @@ To get data on an individual issue by number, run
 
 So to get all the data for a issue #1 in our repo, we can run something like this:
 
-    $ curl http://github.com/api/v2/yaml/issues/show/schacon/simplegit/1
-    ---
-    issue:
-      number: 1
-      position: 0.0
-      votes: 0
-      created_at: 2009-04-17 14:55:33 -07:00
-      body: my sweet, sweet issue
-      title: new issue
-      updated_at: 2009-04-17 14:55:33 -07:00
-      user: schacon
-      gravatar_id: 9375a9529679f1b42b567a640d775e7d
-      comments: 2
-      state: open
+    $ curl http://github.com/api/v2/json/issues/show/schacon/showoff/1
+    {
+      "issue": {
+        "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+        "position": 1.0,
+        "number": 1,
+        "votes": 0,
+        "created_at": "2010/01/21 13:45:59 -0800",
+        "comments": 0,
+        "body": "http://github.com/defunkt/showoff/commit/jquery14",
+        "title": "Upgrade to jQuery 1.4",
+        "updated_at": "2010/01/21 14:41:55 -0800",
+        "closed_at": "2010/01/21 14:41:55 -0800",
+        "user": "defunkt",
+        "labels": [
 
+        ],
+        "state": "closed"
+      }
+    }
 
 ### List an Issue's Comments ###
 
@@ -123,22 +132,19 @@ To get a list of comments made on an issue, run
 
 So to get all the comments for a issue #1 in our repo, we can run something like this:
 
-    $ curl http://github.com/api/v2/yaml/issues/comments/schacon/simplegit/open
-    ---
-    comments:
-    - created_at: 2010-02-08 12:54:54 -08:00
-      body: this is a really great idea
-      updated_at: 2010-02-08 12:54:54 -08:00
-      id: 1
-      user: defunkt
-      gravatar_id: b8dbb1987e8e5318584865f880036796
-    - created_at: 2010-02-08 12:55:05 -08:00
-      body: is it?
-      updated_at: 2010-02-08 12:55:05 -08:00
-      id: 2
-      user: schacon
-      gravatar_id: 9375a9529679f1b42b567a640d775e7d
-
+    $ curl http://github.com/api/v2/json/issues/comments/schacon/showoff/3
+    {
+      "comments": [
+        {
+          "gravatar_id": "8194993afda83d34c94928134b729276",
+          "created_at": "2010/05/05 15:15:53 -0700",
+          "body": "Showing off the issues app.",
+          "updated_at": "2010/05/05 15:15:53 -0700",
+          "id": 230935,
+          "user": "280north"
+        }
+      ]
+    }
 
 ### Open and Close Issues ###
 
@@ -156,16 +162,7 @@ It will return the data for the newly created ticket if it is successful.  You n
 For example, I could open a new issue on my simplegit project like this:
 
     $ curl -F 'login=schacon' -F 'token=XXX' -F 'title=new' -F 'body=my ticket' \
-      http://github.com/api/v2/yaml/issues/open/schacon/simplegit
-    ---
-    issue:
-      user: schacon
-      gravatar_id: 9375a9529679f1b42b567a640d775e7d
-      body: my ticket
-      title: new
-      number: 1
-      votes: 0
-      state: open
+      http://github.com/api/v2/json/issues/open/schacon/showoff
 
 To close or reopen an issue, you just need to supply the issue number
 
@@ -176,16 +173,7 @@ To close or reopen an issue, you just need to supply the issue number
 You need to be logged in via token as well.  Here is how I would close the ticket I opened earlier:
 
     $ curl -F 'login=schacon' -F 'token=XXX' \
-      http://github.com/api/v2/yaml/issues/close/schacon/simplegit/1
-    ---
-    issue:
-      user: schacon
-      gravatar_id: 9375a9529679f1b42b567a640d775e7d
-      body:
-      title: new
-      number: 1
-      votes: 0
-      state: closed
+      http://github.com/api/v2/json/issues/close/schacon/showoff/1
 
 ### Edit Existing Issues ###
 
@@ -210,11 +198,13 @@ You can list available labels for a projects issues with
 
 For example,
 
-    $ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/yaml/issues/labels/schacon/simplegit
-    ---
-    labels:
-    - label1
-    - label2
+    $ curl https://github.com/api/v2/json/issues/labels/schacon/showoff
+    {
+      "labels": [
+        "bug",
+        "feature"
+      ]
+    }
 
 ### Add and Remove Labels ###
 
@@ -226,12 +216,7 @@ This will return a list of the labels currently on that issue, your new one incl
 
 Here is how I would add the label 'testing' to my first ticket in my simplegit project:
 
-    $ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/yaml/issues/label/add/schacon/simplegit/testing/1
-    ---
-    labels:
-    - testing
-    - test_label
-
+    $ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/issues/label/add/schacon/simplegit/testing/1
 
 To remove a label, run:
 

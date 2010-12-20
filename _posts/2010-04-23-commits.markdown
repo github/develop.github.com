@@ -11,37 +11,34 @@ title: Commits API
 
 An example of getting a listing of commits for a branch, we will get the latest commits on the 'master' branch of the Grit project.
 
-	$ curl http://github.com/api/v2/yaml/commits/list/mojombo/grit/master
-	---
-	commits:
-	- message: Regenerated gemspec for version 1.1.1
-	  parents:
-	  - id: 5071bf9fbfb81778c456d62e111440fdc776f76c
-	  url: http://github.com/mojombo/grit/commit/4ac4acab7fd9c7fd4c0e0f4ff5794b0347baecde
-	  author:
-	    name: Tom Preston-Werner
-	    email: tom@mojombo.com
-	  id: 4ac4acab7fd9c7fd4c0e0f4ff5794b0347baecde
-	  committed_date: "2009-03-31T09:54:51-07:00"
-	  authored_date: "2009-03-31T09:54:51-07:00"
-	  tree: 94490563ebaf733cbb3de4ad659eb58178c2e574
-	  committer:
-	    name: Tom Preston-Werner
-	    email: tom@mojombo.com
-	- message: Version bump to 1.1.1
-	  parents:
-	  - id: 05372bffe2b60b0d1802f338551856221e0a89d2
-	  url: http://github.com/mojombo/grit/commit/5071bf9fbfb81778c456d62e111440fdc776f76c
-	  author:
-	    name: Tom Preston-Werner
-	    email: tom@mojombo.com
-	  id: 5071bf9fbfb81778c456d62e111440fdc776f76c
-	  committed_date: "2009-03-31T09:54:40-07:00"
-	  authored_date: "2009-03-31T09:54:40-07:00"
-	  tree: e5b860cb18c5c334e480993ca4549d13e0f8b1a8
-	  committer:
-	    name: Tom Preston-Werner
-	    email: tom@mojombo.com
+    $ curl http://github.com/api/v2/json/commits/list/mojombo/grit/master
+    {
+      "commits": [
+        {
+          "parents": [
+            {
+              "id": "e3be659a93ce0de359dd3e5c3b3b42ab53029065"
+            }
+          ],
+          "author": {
+            "name": "Ryan Tomayko",
+            "login": "rtomayko",
+            "email": "rtomayko@gmail.com"
+          },
+          "url": "/mojombo/grit/commit/6b7dff52aad33df4bfc0c0eaa88922fe1d1cd43b",
+          "id": "6b7dff52aad33df4bfc0c0eaa88922fe1d1cd43b",
+          "committed_date": "2010-12-09T13:50:17-08:00",
+          "authored_date": "2010-12-09T13:50:17-08:00",
+          "message": "update History.txt with bug fix merges",
+          "tree": "a6a09ebb4ca4b1461a0ce9ee1a5b2aefe0045d5f",
+          "committer": {
+            "name": "Ryan Tomayko",
+            "login": "rtomayko",
+            "email": "rtomayko@gmail.com"
+          }
+        }
+      ]
+    }
 
 ### Listing Commits for a File ###
 
@@ -49,37 +46,34 @@ An example of getting a listing of commits for a branch, we will get the latest 
 
 An example of using this to get all the commits that modified the gemspec file for the Grit project would be:
 
-	$ curl http://github.com/api/v2/yaml/commits/list/mojombo/grit/master/grit.gemspec
-	---
-	commits:
-	- message: Regenerated gemspec for version 1.1.1
-	  parents:
-	  - id: 5071bf9fbfb81778c456d62e111440fdc776f76c
-	  url: http://github.com/mojombo/grit/commit/4ac4acab7fd9c7fd4c0e0f4ff5794b0347baecde
-	  author:
-	    name: Tom Preston-Werner
-	    email: tom@mojombo.com
-	  id: 4ac4acab7fd9c7fd4c0e0f4ff5794b0347baecde
-	  committed_date: "2009-03-31T09:54:51-07:00"
-	  authored_date: "2009-03-31T09:54:51-07:00"
-	  tree: 94490563ebaf733cbb3de4ad659eb58178c2e574
-	  committer:
-	    name: Tom Preston-Werner
-	    email: tom@mojombo.com
-	- message: Regenerated gemspec for version 1.1.0
-	  parents:
-	  - id: 5bace1138462c9e40807ee542016fb4213eb49f8
-	  url: http://github.com/mojombo/grit/commit/ac8700fe97702bc13806a5bfea7a0e28f97b5f6b
-	  author:
-	    name: Tom Preston-Werner
-	    email: tom@mojombo.com
-	  id: ac8700fe97702bc13806a5bfea7a0e28f97b5f6b
-	  committed_date: "2009-03-29T21:07:22-07:00"
-	  authored_date: "2009-03-29T21:07:22-07:00"
-	  tree: 57504834bb2a0cfda808223b42460fb8f806515f
-	  committer:
-	    name: Tom Preston-Werner
-	    email: tom@mojombo.com
+    $ curl http://github.com/api/v2/json/commits/list/mojombo/grit/master/grit.gemspec
+    {
+    "commits": [
+      {
+        "parents": [
+          {
+            "id": "9f2d86b941c4aeccc1125fe2864e3aba126fd997"
+          }
+        ],
+        "author": {
+          "name": "Tom Preston-Werner",
+          "login": "mojombo",
+          "email": "tom@mojombo.com"
+        },
+        "url": "/mojombo/grit/commit/b8a3d3b374630ba94cd1efab13a2eceadf8d2bf4",
+        "id": "b8a3d3b374630ba94cd1efab13a2eceadf8d2bf4",
+        "committed_date": "2010-09-29T13:46:45-07:00",
+        "authored_date": "2010-09-29T13:46:45-07:00",
+        "message": "Release 2.3.0",
+        "tree": "bd73ef982d782d06f5ae19b5276eaa535e18c1a3",
+        "committer": {
+          "name": "Tom Preston-Werner",
+          "login": "mojombo",
+          "email": "tom@mojombo.com"
+        }
+      }
+    ]
+    }
 
 ### Showing a Specific Commit ###
 

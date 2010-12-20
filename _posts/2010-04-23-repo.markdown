@@ -11,42 +11,32 @@ title: Repositories API
 
 To search for repositories that have to do with testing ruby, you could do this:
 
-	$ curl http://github.com/api/v2/yaml/repos/search/ruby+testing
-	---
-	repositories:
-	- score: 0.32255203
-	  name: synthesis
-	  actions: 4653
-	  size: 2048
-	  language: Ruby
-	  followers: 27
-	  username: gmalamid
-	  type: repo
-	  id: repo-3555
-	  forks: 1
-	  fork: false
-	  description: Ruby test code analysis tool employing a "Synthesized ....
-	  pushed: "2009-01-08T13:45:06Z"
-	  created: "2008-03-11T23:38:04Z"
-	- score: 0.56515217
-	  name: flexmock
-	  actions: 210
-	  size: 928
-	  language: Ruby
-	  followers: 7
-	  username: jimweirich
-	  type: repo
-	  id: repo-41100
-	  forks: 0
-	  fork: false
-	  description: Flexible mocking for Ruby testing
-	  pushed: "2009-04-01T16:23:58Z"
-	  created: "2008-08-08T18:52:54Z"
+    $ curl http://github.com/api/v2/json/repos/search/ruby+testing
+    {
+      "repositories": [
+        {
+          "name": "ruby-plsql",
+          "size": 296,
+          "followers": 35,
+          "language": "Ruby",
+          "username": "rsim",
+          "fork": false,
+          "id": "repo-11137",
+          "type": "repo",
+          "pushed": "2010-12-10T12:05:40Z",
+          "repo_id": 11137,
+          "forks": 3,
+          "description": "ruby-plsql gem provides simple Ruby API for calling Oracle PL/SQL procedures. It could be used both for accessing Oracle PL/SQL API procedures in legacy applications as well as it could be used to create PL/SQL unit tests using Ruby testing libraries.",
+          "score": 0.28626403,
+          "created": "2008-04-19T14:49:12Z"
+        }
+      ]
+    }
 
 You can pass a custom page number and/or a language to narrow the search:
 
-    $ curl http://github.com/api/v2/yaml/repos/search/ruby+testing?start_page=2
-    $ curl http://github.com/api/v2/yaml/repos/search/ruby+testing?language=Ruby
+    $ curl http://github.com/api/v2/json/repos/search/ruby+testing?start_page=2
+    $ curl http://github.com/api/v2/json/repos/search/ruby+testing?language=Ruby
 
 Language searching is done with the capitalized format of the name: "Ruby", not "ruby".
 It takes the same values as the language drop down on [http://github.com/search](http://github.com/search).
@@ -59,25 +49,28 @@ To look at more in-depth information for a repository, GET this
 
 For example, to see the information for Grit
 
-	$ curl http://github.com/api/v2/yaml/repos/show/schacon/grit
-    ---
-    repository:
-      :name: grit
-      :owner: schacon
-      :source: mojombo/grit # The original repo at top of the pyramid
-      :parent: defunkt/grit # This repo's direct parent
-      :description: Grit is a Ruby library for extracting information from a
-      git repository in an object oriented manner - this fork tries to
-      intergrate as much pure-ruby functionality as possible
-      :forks: 4
-      :watchers: 67
-      :private: false
-      :url: http://github.com/schacon/grit
-      :fork: true
-      :homepage: http://grit.rubyforge.org/
-      :has_wiki: true
-      :has_issues: false
-      :has_downloads: true
+    $ curl http://github.com/api/v2/json/repos/show/schacon/grit
+    {
+      "repository": {
+        "url": "https://github.com/schacon/grit",
+        "has_issues": true,
+        "homepage": "http://grit.rubyforge.org/",
+        "watchers": 106,
+        "source": "mojombo/grit",
+        "parent": "mojombo/grit",
+        "has_downloads": true,
+        "created_at": "2008/04/18 16:14:24 -0700",
+        "forks": 11,
+        "fork": true,
+        "has_wiki": true,
+        "private": false,
+        "pushed_at": "2010/05/05 15:28:38 -0700",
+        "name": "grit",
+        "description": "Grit is a Ruby library for extracting information from a git repository in an object oriented manner - this fork tries to intergrate as much pure-ruby functionality as possible",
+        "owner": "schacon",
+        "open_issues": 0
+      }
+    }
 
 Some keys, such as `source` and `parent` are only available on the show repo
 action.  They won't show up on repo lists or searches.
@@ -102,22 +95,6 @@ Where the POST values are of:
 So, you could do this to update your repo's homepage:
 
     $ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/repos/show/schacon/grit -F 'values[homepage]=http://schacon.github.com/grit'
-    ---
-    repository:
-        :description: Grit is a Ruby library for extracting information from a
-        git repository in an object oriented manner - this fork tries to
-        intergrate as much pure-ruby functionality as possible
-        :forks: 4
-        :name: grit
-        :watchers: 67
-        :private: false
-        :url: http://github.com/schacon/grit
-        :fork: true
-        :owner: schacon
-        :homepage: http://schacon.github.com/grit
-        :has_wiki: true
-        :has_issues: false
-        :has_downloads: true
 
 
 ### List All Repositories ###
@@ -128,29 +105,28 @@ You can list out all the repositories for a user with
 
 For example, to see all of schacons public repos, we can GET
 
-	$ curl http://github.com/api/v2/yaml/repos/show/schacon
-	---
-	repositories:
-	- :description: Ruby/Git is a Ruby library that can be used to
-	create, read and manipulate Git repositories by wrapping system
-	calls to the git binary.
-	  :forks: 30
-	  :name: ruby-git
-	  :watchers: 132
-	  :private: false
-	  :url: http://github.com/schacon/ruby-git
-	  :fork: false
-	  :owner: schacon
-	  :homepage: http://jointheconversation.org/rubygit/
-	- :description: A quick & dirty git-powered Sinatra wiki
-	  :forks: 1
-	  :name: git-wiki
-	  :watchers: 15
-	  :private: false
-	  :url: http://github.com/schacon/git-wiki
-	  :fork: true
-	  :owner: schacon
-	  :homepage: http://atonie.org/2008/02/git-wiki
+    $ curl http://github.com/api/v2/json/repos/show/schacon
+    {
+      "repositories": [
+        {
+          "url": "https://github.com/schacon/ruby-git",
+          "homepage": "",
+          "watchers": 290,
+          "open_issues": 14,
+          "created_at": "2008/01/27 09:23:23 -0800",
+          "pushed_at": "2009/10/17 08:00:28 -0700",
+          "has_issues": true,
+          "fork": false,
+          "has_downloads": true,
+          "private": false,
+          "name": "ruby-git",
+          "description": "Ruby/Git is a Ruby library that can be used to create, read and manipulate Git repositories by wrapping system calls to the git binary.",
+          "forks": 64,
+          "owner": "schacon",
+          "has_wiki": true
+        }
+      ]
+    }
 
 If you are authenticated as that user, you can see all the private repositories as well.
 
@@ -169,18 +145,7 @@ You can also fork a repository with
 
 Which will return data about your newly forked repository.
 
-	curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/yaml/repos/fork/dim/retrospectiva
-	---
-	repository:
-	  :description: Retrospectiva is an open source, web-based, project management and bug-tracking tool. It is intended to assist the collaborative aspect of work carried out by software development teams.
-	  :forks: 0
-	  :name: retrospectiva
-	  :watchers: 1
-	  :private: false
-	  :url: http://github.com/schacon/retrospectiva
-	  :fork: true
-	  :owner: schacon
-	  :homepage: http://www.retrospectiva.org
+	curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/json/repos/fork/dim/retrospectiva
 
 ### Creating and Deleting Repositories ###
 
@@ -223,17 +188,16 @@ You can use the API to list, add and remove your deploy keys.  To see which depl
 
 It will give you a listing of your public keys, like so
 
-	$ curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/yaml/repos/keys/bob/retrospectiva
-	---
-	public_keys:
-	- title: my deploy key
-	  id: 98748
-	  key: ssh-rsa AAAAB3NzaC1cy3EAAAABIwAAAQEAqxtaIQhX9ICzxJw2ct+MuEEo8T6w
-	6woAwOHGuz9tZVZ1ncIa641O+z9hHJ68g61OK508M4Z6mkVNL68bW7TCPcTEXcCmkGTbB9F
-	5wCWD5uYExRgDaywamaREkEzaP0wl3CFvGADfrxUUvEzp4eKsAneCHD07FQiBXDFApqfJEm
-	IcsXPaJKfl8NpyIAMLr9ge2ToKH7hDOQG5Q6UcYIfYZH0kIZFfhnf8tBp+6oIHNFkXriTRB
-	OxFKoCuyauVCnX12N7GUR29L//MWmbL+bDdEg/HHnmZWkwpaZhC/rsqqylZobpZsUcAKZ7f
-	0Daq6H8C1CHf1RB6JriP7CCja8pl+w==
+    $ curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/json/repos/keys/bob/retrospectiva
+    {
+      "public_keys": [
+        {
+          "title": "my deploy key",
+          "id": 553719,
+          "key": "ssh-rsa ....."
+        }
+      ]
+    }
 
 You can also add new keys by POSTing to
 
@@ -284,38 +248,43 @@ To get a list of the contributors on your project, GET
 
 The data comes back as an array of [login, count], sorted by the biggest contributors to the repository.
 
-    $ curl http://github.com/api/v2/yaml/repos/show/mxcl/homebrew/contributors
-    --- 
-    contributors: 
-    - :location: London, UK
-      :blog: http://www.methylblue.com
-      :company: TweetDeck
-      :login: mxcl
-      :contributions: 742
-      :name: Max Howell
-      :email: max@methylblue.com
-    - :location: Issaquah, WA
-      :blog: http://adamv.com/
-      :login: adamv
-      :contributions: 607
-      :name: Adam Vandenberg
-      :email: flangy@gmail.com
+    $ curl http://github.com/api/v2/json/repos/show/mxcl/homebrew/contributors
+    {
+      "contributors": [
+        {
+          "name": "Adam Vandenberg",
+          "gravatar_id": "7ea0cc75793eb2b1ada4abc953a41592",
+          "contributions": 1367,
+          "location": "Issaquah, WA",
+          "blog": "http://adamv.com/",
+          "type": "User",
+          "login": "adamv",
+          "email": "flangy@gmail.com"
+        }
+      ]
+    }
 
 By default, the list only shows GitHub users.  You can include non-users too:
 
-    $ curl http://github.com/api/v2/yaml/repos/show/mxcl/homebrew/contributors/anon
-    --- 
-    contributors: 
-    - :location: London, UK
-      :blog: http://www.methylblue.com
-      :company: TweetDeck
-      :login: mxcl
-      :contributions: 742
-      :name: Max Howell
-      :email: max@methylblue.com
-    - :contributions: 1
-      :name: Bart Janssen
-
+    $ curl http://github.com/api/v2/json/repos/show/mxcl/homebrew/contributors/anon
+    {
+      "contributors": [
+        {
+          "name": "Adam Vandenberg",
+          "gravatar_id": "7ea0cc75793eb2b1ada4abc953a41592",
+          "contributions": 1367,
+          "location": "Issaquah, WA",
+          "blog": "http://adamv.com/",
+          "type": "User",
+          "login": "adamv",
+          "email": "flangy@gmail.com"
+        },
+        {
+          "name": "minusfive",
+          "contributions": 1
+        }
+      ]
+    }
 
 ### Watchers ###
 
@@ -325,20 +294,31 @@ To get a list of the watchers on your project, GET
 
 The data comes back as an array of watchers, sorted by the date they started watching the repository.
 
-    $ curl http://github.com/api/v2/yaml/repos/show/claudiob/csswaxer/watchers
-    --- 
-    watchers: 
-    - claudiob
-    - vlex
+    $ curl http://github.com/api/v2/json/repos/show/claudiob/csswaxer/watchers
+    {
+      "watchers": [
+        "claudiob",
+        "handrus"
+      ]
+    }
 
 You can receive the full public user profile by adding `?full=1` to requests:
 
-    $ curl http://github.com/api/v2/yaml/repos/show/claudiob/csswaxer/watchers?full=1
-    --- 
-    watchers: 
-    - :type: User
-      :login: claudiob
-    ...
+    $ curl http://github.com/api/v2/json/repos/show/claudiob/csswaxer/watchers?full=1
+    {
+      "watchers": [
+        {
+          "name": "Claudio B.",
+          "company": "",
+          "gravatar_id": "4dea5cf83d2d6c1228750b76e579b38d",
+          "location": "Barcelona, Spain",
+          "blog": "http://claudiob.github.com",
+          "type": "User",
+          "login": "claudiob",
+          "email": ""
+        }
+      ]
+    }
 
 ### Network ###
 
@@ -348,31 +328,28 @@ We can also look at the full network with
 
 For example, to see all the forks of the ruby-git project, we can GET
 
-	$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/network
-	---
-	network:
-	- :description: Ruby/Git is a Ruby library that can be used to create,
-	 read and manipulate Git repositories by wrapping system calls to the
-	 git binary.
-	  :forks: 30
-	  :name: ruby-git
-	  :watchers: 132
-	  :private: false
-	  :url: http://github.com/schacon/ruby-git
-	  :fork: false
-	  :owner: schacon
-	  :homepage: http://jointheconversation.org/rubygit/
-	- :description: Ruby/Git is a Ruby library that can be used to create,
-	 read and manipulate Git repositories.
-	  :forks: 0
-	  :name: ruby-git
-	  :watchers: 2
-	  :private: false
-	  :url: http://github.com/ericgoodwin/ruby-git
-	  :fork: true
-	  :owner: ericgoodwin
-	  :homepage: http://jointheconversation.org/rubygit/
-	...
+    $ curl http://github.com/api/v2/json/repos/show/schacon/ruby-git/network
+    {
+      "network": [
+        {
+          "url": "https://github.com/schacon/ruby-git",
+          "has_wiki": true,
+          "homepage": "",
+          "pushed_at": "2009/10/17 08:00:28 -0700",
+          "watchers": 290,
+          "created_at": "2008/01/27 09:23:23 -0800",
+          "forks": 64,
+          "open_issues": 14,
+          "fork": false,
+          "has_issues": true,
+          "private": false,
+          "has_downloads": true,
+          "name": "ruby-git",
+          "description": "Ruby/Git is a Ruby library that can be used to create, read and manipulate Git repositories by wrapping system calls to the git binary.",
+          "owner": "schacon"
+        }
+      ]
+    }
 
 ### Language Breakdown ###
 
@@ -383,10 +360,8 @@ the language breakdown API.  Values are in bytes calculated.
 
 You can get the language breakdown for mojombo/grit like this:
 
-	$ curl http://github.com/api/v2/yaml/repos/show/mojombo/grit/languages
-	---
-	languages:
-	  Ruby: 35097
+    $ curl http://github.com/api/v2/json/repos/show/mojombo/grit/languages
+    {"languages":{"Ruby":223245}}
 
 Note that this is based on a very simple algorithm and is not perfect.  Common
 large libraries are removed and languages are solely identified by file
@@ -400,13 +375,21 @@ To get a list of tags on your repo
 
 For example
 
-	$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/tags
-	---
-	tags:
-	  1.0.3: be47ad8aea4f854fc2d6773456fb28f3e9f519e7
-	  1.0.5: 6c4af60f5fc5193b956a4698b604ad96ef3c51c6
-	  1.0.5.1: ae106e2a3569e5ea874852c613ed060d8e232109
-	  v1.0.7: 1adc5b8136c2cd6c694629947e1dbc49c8bffe6a
+    $ curl http://github.com/api/v2/json/repos/show/schacon/ruby-git/tags
+    {
+      "tags": {
+        "v1.2.0": "cfad76700b3d38eb3be97e2d5ef75cc0a398f818",
+        "1.0.3": "be47ad8aea4f854fc2d6773456fb28f3e9f519e7",
+        "v1.2.1": "f85cef0b1916f09ceb38f778ada98b23c8610da7",
+        "v1.2.2": "85fa6ec3a68b6ff8acfa69c59fbdede1385f63bb",
+        "1.0.5": "6c4af60f5fc5193b956a4698b604ad96ef3c51c6",
+        "v1.2.3": "2962356828cc0ce07674b1c1fa39fde893732344",
+        "v1.2.4": "1987b5010ed1abff915bd87146753323754bfb13",
+        "1.0.5.1": "ae106e2a3569e5ea874852c613ed060d8e232109",
+        "v1.2.5": "94f389bf5d9af4511597d035e69d1be9510b50c7",
+        "v1.0.7": "1adc5b8136c2cd6c694629947e1dbc49c8bffe6a"
+      }
+    }
 
 To get a list of remote branches
 
@@ -414,11 +397,12 @@ To get a list of remote branches
 
 For example
 
-	$ curl http://github.com/api/v2/yaml/repos/show/schacon/ruby-git/branches
-	---
-	branches:
-	  master: ee90922f3da3f67ef19853a0759c1d09860fe3b3
-	  internals: 6a9db968e8563bc27b8f56f9d413159a2e14cf67
-	  test: 2d749e3aa69d7bfedf814f59618f964fdbc300d5
-	  integrate: 10b880b418879e662feb91ce7af98560adeaa8bb
-
+    $ curl http://github.com/api/v2/json/repos/show/schacon/ruby-git/branches
+    {
+      "branches": {
+        "master": "94f389bf5d9af4511597d035e69d1be9510b50c7",
+        "internals": "6a9db968e8563bc27b8f56f9d413159a2e14cf67",
+        "integrate": "10b880b418879e662feb91ce7af98560adeaa8bb",
+        "test": "2d749e3aa69d7bfedf814f59618f964fdbc300d5"
+      }
+    }
