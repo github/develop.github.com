@@ -11,10 +11,13 @@ All API access is over HTTP and starts with
 
     http://github.com/api/v2/:format
 
-where `:format` is one of 'yaml', 'json' or 'xml', specifying what the
+where `:format` is one of 'json', 'xml' or 'yaml', specifying what the
 response data should be formatted in.  For all of the rest of this
 documentation, we will be leaving off that part, since it is the same
 for every API call.
+
+**Note:** XML and YAML support is currently deprecated.  Existing API calls 
+will continue to support it, but new API features will only support JSON.
 
 ### Authentication ###
 
