@@ -5,7 +5,8 @@ title: Pull Request API
 
 ## Pull Request API
 
-API for accessing Pull Requests.
+API for accessing Pull Requests.  This API is considered **BETA**, file any 
+feedback in the [API forum](http://support.github.com/discussions/api).
 
 ### Creating a Pull Request
 
@@ -153,4 +154,10 @@ The Pull Request API uses a lot of fields from the Issue.  Fields like `title`, 
 
 Some Issue fields names that clash with Pull Request field names are prefixed
 with `issue_`.  The `discussion` key lists all of the Commits, Issue Comments, and Commit Comments for this Pull Request.  The `discussion` key is only available when fetching a single Pull Request.
-    
+
+### Updating Pull Requests
+
+Pull Requests themselves don't update, they merely track changes to Issues and
+Commits.  See the [Issues API](/p/issues.html) for info on commenting on or
+closing Pull Requests.  Issues and Pull Requests use the same identification
+numbers.
