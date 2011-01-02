@@ -94,9 +94,12 @@ The [github-party][gh-party] library is also using the v1 API.
 The [octopi][octopi] library is one of the first emerging for the
 GitHub API v2. There's also [octopussy][op], and the small [hubruby][hubruby].
 
+However, if you want to save GitHub's bandwith and cache things locally, there is (under development) [github-api-client].
+
 [octopi]: http://github.com/fcoury/octopi/
 [op]: http://github.com/pengwynn/octopussy
 [hubruby]: http://github.com/diogenes/hubruby
+[github-api-client]: http://github.com/farnoy/github-api-client
 
 #### Web scraping ####
 
