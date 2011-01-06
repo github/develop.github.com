@@ -15,20 +15,29 @@ To search for repositories that have to do with testing ruby, you could do this:
     {
       "repositories": [
         {
-          "name": "ruby-plsql",
-          "size": 296,
-          "watchers": 35,
-          "language": "Ruby",
-          "owner": "rsim",
-          "fork": false,
-          "id": "repo-11137",
           "type": "repo",
-          "pushed_at": "2010-12-10T12:05:40Z",
-          "repo_id": 11137,
-          "forks": 3,
-          "description": "ruby-plsql gem provides simple Ruby API for calling Oracle PL/SQL procedures. It could be used both for accessing Oracle PL/SQL API procedures in legacy applications as well as it could be used to create PL/SQL unit tests using Ruby testing libraries.",
-          "score": 0.28626403,
-          "created_at": "2008-04-19T14:49:12Z"
+          "language": "Ruby",
+          "has_downloads": true,
+          "url": "https://github.com/geemus/fog",
+          "homepage": "",
+          "pushed_at": "2011/01/05 11:24:06 -0800",
+          "created_at": "2009/05/18 00:14:04 -0700",
+          "fork": false,
+          "has_wiki": true,
+          "score": 0.45233846,
+          "size": 5732,
+          "private": false,
+          "name": "fog",
+          "watchers": 807,
+          "owner": "geemus",
+          "open_issues": 13,
+          "description": "The Ruby cloud computing library.",
+          "forks": 95,
+          "has_issues": true,
+          "followers": 807,                       // deprecated
+          "pushed": "2011/01/05 11:24:06 -0800",  // deprecated
+          "created": "2009/05/18 00:14:04 -0700", // deprecated
+          "username": "geemus"                    // deprecated
         }
       ]
     }
