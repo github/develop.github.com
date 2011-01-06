@@ -7,7 +7,7 @@ title: Repositories API
 
 ### Searching Repositories ###
 
-	repos/search/:q
+  repos/search/:q
 
 To search for repositories that have to do with testing ruby, you could do this:
 
@@ -17,21 +17,28 @@ To search for repositories that have to do with testing ruby, you could do this:
         {
           "name": "ruby-plsql",
           "size": 296,
-          "followers": 35,
+          "watchers": 35,
           "language": "Ruby",
-          "username": "rsim",
+          "owner": "rsim",
           "fork": false,
           "id": "repo-11137",
           "type": "repo",
-          "pushed": "2010-12-10T12:05:40Z",
+          "pushed_at": "2010-12-10T12:05:40Z",
           "repo_id": 11137,
           "forks": 3,
           "description": "ruby-plsql gem provides simple Ruby API for calling Oracle PL/SQL procedures. It could be used both for accessing Oracle PL/SQL API procedures in legacy applications as well as it could be used to create PL/SQL unit tests using Ruby testing libraries.",
           "score": 0.28626403,
-          "created": "2008-04-19T14:49:12Z"
+          "created_at": "2008-04-19T14:49:12Z"
         }
       ]
     }
+
+Note: The API has been updated to return the values with the same key names as the regular Repository API.  As a result, some keys may have similarly named keys to keep compatibility with older scripts.  If you're writing a new app, favor the new keys over the old ones:
+
+* <del>`followers`</del> `=>` `watchers`
+* <del>`username`</del> `=>` `owner`
+* <del>`pushed`</del> `=>` `pushed_at`
+* <del>`created`</del> `=>` `created_at`
 
 You can pass a custom page number and/or a language to narrow the search:
 
@@ -45,7 +52,7 @@ It takes the same values as the language drop down on [http://github.com/search]
 
 To look at more in-depth information for a repository, GET this
 
-	repos/show/:user/:repo
+  repos/show/:user/:repo
 
 For example, to see the information for Grit
 
@@ -101,7 +108,7 @@ So, you could do this to update your repo's homepage:
 
 You can list out all the repositories for a user with
 
-	repos/show/:user
+  repos/show/:user
 
 For example, to see all of schacons public repos, we can GET
 
@@ -134,36 +141,36 @@ If you are authenticated as that user, you can see all the private repositories 
 
 You have to be authenticated for this, but you can watch and unwatch repositories with calls to
 
-	repos/unwatch/:user/:repo
-	repos/watch/:user/:repo
+  repos/unwatch/:user/:repo
+  repos/watch/:user/:repo
 
 ### Forking Repositories ###
 
 You can also fork a repository with
 
-	repos/fork/:user/:repo
+  repos/fork/:user/:repo
 
 Which will return data about your newly forked repository.
 
-	curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/json/repos/fork/dim/retrospectiva
+  curl -F 'login=schacon' -F 'token=XXX' http://github.com/api/v2/json/repos/fork/dim/retrospectiva
 
 ### Creating and Deleting Repositories ###
 
 To create a new repository, hit this url
 
-	repos/create
+  repos/create
 
 with at least 'name' but it will take any of these as POST args
 
-	name        => name of the repository.  ex: "my-repo" or "other-user/my-repo"
-	description => repo description
-	homepage    => homepage url
-	public      => 1 for public, 0 for private
+  name        => name of the repository.  ex: "my-repo" or "other-user/my-repo"
+  description => repo description
+  homepage    => homepage url
+  public      => 1 for public, 0 for private
 
 You can also delete a repository with a POST to
 
-	repos/delete/:user/:repo
-	repos/delete/:repo (DEPRECATED)
+  repos/delete/:user/:repo
+  repos/delete/:repo (DEPRECATED)
 
 which will give you back a token in the 'delete\_token' field of the response, which you then have to post back to the same url again (in the 'delete\_token' POST var) to complete the deletion.
 
@@ -171,20 +178,20 @@ which will give you back a token in the 'delete\_token' field of the response, w
 
 To set a public repository private, you can POST while authenticated to
 
-	repos/set/private/:user/:repo
-	repos/set/private/:repo (DEPRECATED)
+  repos/set/private/:user/:repo
+  repos/set/private/:repo (DEPRECATED)
 
 To make a private repo public, POST while authenticated to
 
-	repos/set/public/:user/:repo
-	repos/set/public/:repo (DEPRECATED)
+  repos/set/public/:user/:repo
+  repos/set/public/:repo (DEPRECATED)
 
 ### Deploy Keys ###
 
 You can use the API to list, add and remove your deploy keys.  To see which deploy keys you have setup for a specific repository, GET this URL
 
-	repos/keys/:user/:repo
-	repos/keys/:repo (DEPRECATED)
+  repos/keys/:user/:repo
+  repos/keys/:repo (DEPRECATED)
 
 It will give you a listing of your public keys, like so
 
@@ -201,18 +208,18 @@ It will give you a listing of your public keys, like so
 
 You can also add new keys by POSTing to
 
-	repos/key/:user/:repo/add
-	repos/key/:repo/add (DEPRECATED)
+  repos/key/:user/:repo/add
+  repos/key/:repo/add (DEPRECATED)
 
 which takes the following POST variables
 
-	title 	=> title of the key
-	key	=> public key data
+  title   => title of the key
+  key  => public key data
 
 You can also POST to this removal URL to remove a key
 
-	repos/key/:user/:repo/remove
-	repos/key/:repo/remove (DEPRECATED)
+  repos/key/:user/:repo/remove
+  repos/key/:repo/remove (DEPRECATED)
 
 You will need to POST an 'id' variable with the key ID returned from the public listing or key creation.
 
@@ -220,21 +227,21 @@ You will need to POST an 'id' variable with the key ID returned from the public 
 
 To get a list of the collaborators on your project:
 
-	repos/show/:user/:repo/collaborators [GET]
+  repos/show/:user/:repo/collaborators [GET]
 
 Organization repositories will return the unique users across the repository's
 teams.
 
 To add or remove collaborators, POST to one of these URLs
 
-	repos/collaborators/:user/:repo/add/:collaborator
-	repos/collaborators/:user/:repo/remove/:collaborator
-	repos/collaborators/:repo/add/:collaborator (DEPRECATED)
-	repos/collaborators/:repo/remove/:collaborator (DEPRECATED)
+  repos/collaborators/:user/:repo/add/:collaborator
+  repos/collaborators/:user/:repo/remove/:collaborator
+  repos/collaborators/:repo/add/:collaborator (DEPRECATED)
+  repos/collaborators/:repo/remove/:collaborator (DEPRECATED)
 
 To get a list of repos you can push to that are not your own:
 
-	repos/pushable [GET]
+  repos/pushable [GET]
 
 To get a list of the Teams for this repository (if it is in an Organization):
 
@@ -324,7 +331,7 @@ You can receive the full public user profile by adding `?full=1` to requests:
 
 We can also look at the full network with
 
-	repos/show/:user/:repo/network
+  repos/show/:user/:repo/network
 
 For example, to see all the forks of the ruby-git project, we can GET
 
@@ -356,7 +363,7 @@ For example, to see all the forks of the ruby-git project, we can GET
 To see a list of the languages used in a particular repository, you can call
 the language breakdown API.  Values are in bytes calculated.
 
-	/repos/show/:user/:repo/languages
+  /repos/show/:user/:repo/languages
 
 You can get the language breakdown for mojombo/grit like this:
 
@@ -371,7 +378,7 @@ extension.
 
 To get a list of tags on your repo
 
-	repos/show/:user/:repo/tags
+  repos/show/:user/:repo/tags
 
 For example
 
@@ -393,7 +400,7 @@ For example
 
 To get a list of remote branches
 
-	repos/show/:user/:repo/branches
+  repos/show/:user/:repo/branches
 
 For example
 
