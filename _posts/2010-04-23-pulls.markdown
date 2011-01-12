@@ -5,7 +5,7 @@ title: Pull Request API
 
 ## Pull Request API
 
-API for accessing Pull Requests.  This API is considered **BETA**, file any 
+API for accessing Pull Requests.  This API is considered **BETA**, file any
 feedback in the [API forum](http://support.github.com/discussions/api).
 
 ### Creating a Pull Request
@@ -14,20 +14,20 @@ feedback in the [API forum](http://support.github.com/discussions/api).
 
 You can create a Pull Request by posting these attributes:
 
-* `base` - A String of the branch or commit SHA that you want your changes to be pulled to.  
-* `head` - A String of the branch or commit SHA of your changes.  Typically this will be a branch.  If the branch is in a fork of the original repository, specify the username first: "my-user:some-branch".
-* `title` - The String title of the Pull Request (and the related Issue).
-* `body` - The String body of the Pull Request.
+* `pull[base]` - A String of the branch or commit SHA that you want your changes to be pulled to.
+* `pull[head]` - A String of the branch or commit SHA of your changes.  Typically this will be a branch.  If the branch is in a fork of the original repository, specify the username first: "my-user:some-branch".
+* `pull[title]` - The String title of the Pull Request (and the related Issue).
+* `pull[body]` - The String body of the Pull Request.
 
 Example: The user "smparkes" forks "technoweenie/faraday", and adds a new
-feature to the "synchrony" branch.  This is how he could create the Pull 
+feature to the "synchrony" branch.  This is how he could create the Pull
 Request through the API:
 
     $ curl -d "pull[base]=master" -d "pull[head]=smparkes:synchrony" \
       -d "pull[title]=..." -d "pull[body]=..." \
       https://github.com/api/v2/json/pulls/technoweenie/faraday
 
-You can replace `title` and `body` with `issue` to specify an existing Issue on the source repository:
+You can replace `pull[title]` and `pull[body]` with `pull[issue]` to specify an existing Issue number on the source repository:
 
     $ curl -d "pull[base]=master" -d "pull[head]=smparkes:synchrony" \
       -d "pull[issue]=15" \
