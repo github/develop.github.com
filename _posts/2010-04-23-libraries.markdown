@@ -99,7 +99,7 @@ However, if you want to save GitHub's bandwith and cache things locally, there i
 [octopi]: http://github.com/fcoury/octopi/
 [op]: http://github.com/pengwynn/octopussy
 [hubruby]: http://github.com/diogenes/hubruby
-[github-api-client]: http://github.com/farnoy/github-api-client
+[github-api-client]: http://github.com/okonski/github-api-client
 
 #### Web scraping ####
 
