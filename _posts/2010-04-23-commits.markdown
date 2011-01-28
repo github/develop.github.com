@@ -40,6 +40,13 @@ An example of getting a listing of commits for a branch, we will get the latest 
       ]
     }
 
+Usually commits are a lot. That's why the API call doesn't return them all at once, but rather page by page. If you are after the whole list and not just the latest commits, you should add a ?page=N at the end of the API call incrementing the page number until you get no results. For example:
+
+    $ curl http://github.com/api/v2/json/commits/list/mojombo/grit/master?page=1
+    $ curl http://github.com/api/v2/json/commits/list/mojombo/grit/master?page=2
+    ...
+    $ curl http://github.com/api/v2/json/commits/list/mojombo/grit/master?page=N
+
 ### Listing Commits for a File ###
 
 	commits/list/:user_id/:repository/:branch/*path
