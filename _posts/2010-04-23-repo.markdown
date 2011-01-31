@@ -144,7 +144,9 @@ For example, to see all of schacons public repos, we can GET
       ]
     }
 
-If you are authenticated as that user, you can see all the private repositories as well.
+If you are authenticated as that user, you can see all the private repositories as well.  This API call will return 30 results per page.  You can specify pages with the `?page` parameter:
+
+    $ curl http://github.com/api/v2/json/repos/show/schacon?page=2
 
 ### Watching Repositories ###
 
