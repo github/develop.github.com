@@ -11,11 +11,14 @@ All developers need to [register their application](http://github.com/account/ap
 
 This is a description of the OAuth flow from 3rd party web sites.
 
-1. Redirect users to a this link to request GitHub access.
+* Redirect users to a this link to request GitHub access.
+
     https://github.com/login/oauth/authorize?
       client_id=...&
       redirect_uri=http://www.example.com/oauth_redirect
-2. If the user accepts your request, GitHub redirects back to your site with a temporary code in a code parameter. Exchange this for an access token:
+
+* If the user accepts your request, GitHub redirects back to your site with a temporary code in a code parameter. Exchange this for an access token:
+
     POST https://github.com/login/oauth/access_token?
       client_id=...&
       redirect_uri=http://www.example.com/oauth_redirect&
@@ -24,7 +27,8 @@ This is a description of the OAuth flow from 3rd party web sites.
 
     RESPONSE:
     access_token=...
-3. You have the access token, so now you can make requests on the user's behalf:
+
+* You have the access token, so now you can make requests on the user's behalf:
     GET https://github.com/api/v2/json/user/show?
       access_token=...
 
