@@ -21,6 +21,10 @@ will continue to support it, but new API features will only support JSON.
 
 ### Authentication ###
 
+[OAuth](/p/oauth.html) is the preferred authentication method because tokens can be
+limited to specific types of data, and can be revoked by users at any
+time.
+
 You can use HTTP Basic Auth to authenticate as a GitHub user.  If you want to pass your API token instead, add "/token" to the Basic Auth username.
 
 You may also pass `login` and `token` to any URL. Note that this method
