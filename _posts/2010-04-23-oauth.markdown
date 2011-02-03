@@ -11,26 +11,27 @@ All developers need to [register their application](http://github.com/account/ap
 
 This is a description of the OAuth flow from 3rd party web sites.
 
-* Redirect users to a this link to request GitHub access.
+1. Redirect users to a this link to request GitHub access.
 
-    https://github.com/login/oauth/authorize?
-      client_id=...&
-      redirect_uri=http://www.example.com/oauth_redirect
+      GET https://github.com/login/oauth/authorize?
+        client_id=...&
+        redirect_uri=http://www.example.com/oauth_redirect
 
-* If the user accepts your request, GitHub redirects back to your site with a temporary code in a code parameter. Exchange this for an access token:
+2. If the user accepts your request, GitHub redirects back to your site with a temporary code in a code parameter. Exchange this for an access token:
 
-    POST https://github.com/login/oauth/access_token?
-      client_id=...&
-      redirect_uri=http://www.example.com/oauth_redirect&
-      client_secret=...&
-      code=...
+      POST https://github.com/login/oauth/access_token?
+        client_id=...&
+        redirect_uri=http://www.example.com/oauth_redirect&
+        client_secret=...&
+        code=...
 
-    RESPONSE:
-    access_token=...
-
-* You have the access token, so now you can make requests on the user's behalf:
-    GET https://github.com/api/v2/json/user/show?
+      RESPONSE:
       access_token=...
+
+3. You have the access token, so now you can make requests on the user's behalf:
+
+      GET https://github.com/api/v2/json/user/show?
+        access_token=...
 
 ## Javascript/Desktop Flow
 
