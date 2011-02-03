@@ -3,10 +3,9 @@ layout: default
 title: OAuth
 ---
 
-OAuth2 is a protocol that lets external apps request authorization to private details in your GitHub account without getting your password. All developers need to [register their application](http://github.com/account/applications/new) before getting started.
+OAuth2 is a protocol that lets external apps request authorization to private details in a user's GitHub account without getting their password.  This is preferred over Basic Authentication because tokens can be limited to specific types of data, and can be revoked by users at any time.
 
-A registered OAuth application is assigned a unique Client ID and Client
-Secret.  The Client Secret should not be shared.
+All developers need to [register their application](http://github.com/account/applications/new) before getting started. A registered OAuth application is assigned a unique Client ID and Client Secret.  The Client Secret should not be shared.
 
 ## Web Application Flow
 
@@ -64,3 +63,14 @@ can specify multiple scopes by separating them by a comma.
       client_id=...&
       scope=user,public_repo
 
+## References
+
+* [OAuth 2 spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-07)
+* [Facebook API](http://developers.facebook.com/docs/authentication/)
+* [Ruby OAuth2 lib](https://github.com/intridea/oauth2)
+* [simple ruby/sinatra example](https://gist.github.com/9fd1a6199da0465ec87c)
+* [simple python example](https://gist.github.com/e3fbd47fbb7ee3c626bb) using [python-oauth2](http://github.com/dgouldin/python-oauth2)
+* [Ruby OmniAuth example](http://github.com/intridea/omniauth)
+* [Ruby Sinatra extension](http://github.com/atmos/sinatra_auth_github)
+* [Ruby Warden strategy](http://github.com/atmos/warden-github)
+* [Node.js demo using Nozzle](http://github.com/fictorial/nozzle/blob/master/demo/08-github-oauth2.js)
