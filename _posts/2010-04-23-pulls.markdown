@@ -133,6 +133,18 @@ You can list a single Pull Request by supplying the number:
               "user": {...}, // GitHub user info with gravatar_id
               "tree": "101492b4af83d1298225e573bbe7478952ba9f0a",
               "parents": [{"id": "0a0b888d8eabded106a30e8a9cddc47e6cacbf37"}]
+            },
+            {
+              "type": "PullRequestReviewComment",
+              "diff_hunk": "@@ -1,12 +1,12 @@\n Aquaman is a comic book superhero who appears in DC Comics....",
+              "body": "some comment about the change",
+              "path": "aquaman.txt",
+              "position": 19,
+              "commit_id": "54bb654c9e6025347f57900a4a5c2313a96b8035",
+              "original_commit_id": "54bb654c9e6025347f57900a4a5c2313a96b8035",
+              "user": {...},
+              "created_at": "2011-02-07T14:39:03-05:00",
+              "updated_at": "2011-02-07T14:39:03-05:00"
             }
           ],
           "issue_user": {...},
