@@ -25,7 +25,7 @@ will continue to support it, but new API features will only support JSON.
 limited to specific types of data, and can be revoked by users at any
 time.
 
-You can use HTTP Basic Auth to authenticate as a GitHub user.  If you want to pass your API token instead, add "/token" to the Basic Auth username.
+You can use HTTP Basic Auth to authenticate as a GitHub user.  If you want to pass your API token instead, add "/token" to the Basic Auth username.  Note that all requests that need authentication should include the Authentication header.  Unauthenticated requests will return 404 to prevent any sort of private information leakage.
 
 You may also pass `login` and `token` to any URL. Note that this method
 of authentication is deprecated.
