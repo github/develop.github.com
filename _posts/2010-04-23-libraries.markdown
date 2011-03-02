@@ -91,11 +91,11 @@ The [github-party][gh-party] library is also using the v1 API.
 
 #### API Version 2 ####
 
-The [octopi][octopi] library is one of the first emerging for the
-GitHub API v2. There's also [octokit][op], and the small [hubruby][hubruby].
+There are several active GitHub API v2 wrappers for Ruby: [octokit][ok], 
+[octopi][octopi], and [hubruby][hubruby].
 
 [octopi]: http://github.com/fcoury/octopi/
-[op]: http://github.com/pengwynn/octokit
+[ok]: http://github.com/pengwynn/octokit
 [hubruby]: http://github.com/diogenes/hubruby
 
 #### Web scraping ####
