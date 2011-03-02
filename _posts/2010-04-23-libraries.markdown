@@ -94,9 +94,12 @@ The [github-party][gh-party] library is also using the v1 API.
 There are several active GitHub API v2 wrappers for Ruby: [octokit][ok], 
 [octopi][octopi], and [hubruby][hubruby].
 
+However, if you want to save GitHub's bandwith and cache things locally, there is (under development) [github-api-client].
+
 [octopi]: http://github.com/fcoury/octopi/
 [ok]: http://github.com/pengwynn/octokit
 [hubruby]: http://github.com/diogenes/hubruby
+[github-api-client]: http://github.com/okonski/github-api-client
 
 #### Web scraping ####
 
