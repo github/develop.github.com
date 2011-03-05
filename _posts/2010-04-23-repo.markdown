@@ -148,6 +148,14 @@ If you are authenticated as that user, you can see all the private repositories 
 
     $ curl http://github.com/api/v2/json/repos/show/schacon?page=2
 
+You can check for `X-Next` and `X-Last` headers to determine if there
+are more pages to fetch.
+
+    $ curl -i http://github.com/api/v2/yaml/repos/show/schacon
+    HTTP/1.1 200 OK
+    X-Next: http://github.com/api/v2/yaml/repos/show/schacon?page=2
+    X-Last: http://github.com/api/v2/yaml/repos/show/schacon?page=3
+
 ### Watching Repositories ###
 
 You have to be authenticated for this, but you can watch and unwatch repositories with calls to
