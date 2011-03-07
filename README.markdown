@@ -25,7 +25,7 @@ Contributing
 
 To contribute to the develop.github site, you can fork the repository,
 push your changes into it and create an Issue:
-<http://github.com/develop/develop.github.com/issues>
+<http://github.com/github/develop.github.com/issues>
 
 If you want to run the site on GitHub pages for testing you can push your
 changes into the 'gh-pages' branch, rather than the 'master' branch of
