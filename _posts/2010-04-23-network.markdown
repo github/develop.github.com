@@ -43,6 +43,8 @@ This API is sort of an outlier.  It is only available in JSON and does not follo
 	  ]
 	}
 
+**Note:** all dates and times are in Pacific Time (GMT - 8:00).
+
 ### Network Data ###
 
 To get network data, you'll need to provide the 'nethash' parameter that you get from the network\_meta call so the data is always consistent.  To get network data, call the network\_data\_chunk URI with the given nethash to get the first 100 commits by branch.
