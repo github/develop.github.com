@@ -226,7 +226,7 @@ Again, it will return a list of the labels currently on the issue.
 
 You can also add and remove labels generally by leaving off the Issue number.
 That will add a label to the system but not attach it to an issue, or remove
-an issue from all labels.
+a label from all issues.
 
 ### Comment on Issues ###
 
