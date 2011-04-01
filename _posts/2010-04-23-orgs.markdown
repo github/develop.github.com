@@ -91,7 +91,7 @@ You can get a list of all of your organizations:
 
 ### Listing Organization Memberships
 
-You can list all repositories across all the organizations that you can access:
+List all repositories across all the organizations that you can access:
 
     /organizations/repositories [GET]
 
@@ -120,11 +120,26 @@ You can list all repositories across all the organizations that you can access:
       ]
     }
 
-You can also list all public repositories of any other organization:
+List all members of the organization's Owners team:
+
+    /organizations/:org/owners [GET]
+
+    $ curl https://github.com/api/v2/json/organizations/github/owners
+    {
+      "users": [
+        {
+          "name": "Corey Donohoe",
+          "company": "GitHub",
+          ...
+        }
+      ]
+    }
+
+List all public repositories of any other organization:
 
     /organizations/:org/public_repositories [GET]
 
-You can list all public members of any organization:
+List all public members of any organization:
 
     /organizations/:org/public_members [GET]
 
@@ -134,19 +149,7 @@ You can list all public members of any organization:
         {
           "name": "Corey Donohoe",
           "company": "GitHub",
-          "gravatar_id": "a86224d72ce21cd9f5bee6784d4b06c7",
-          "location": "Potrero, SF",
-          "created_at": "2008-01-22T01:14:11-08:00",
-          "blog": "http://www.atmos.org",
-          "public_gist_count": 140,
-          "public_repo_count": 80,
-          "following_count": 149,
-          "id": 38,
-          "permission": null,
-          "type": "User",
-          "followers_count": 244,
-          "login": "atmos",
-          "email": "atmos@atmos.org"
+          ...
         }
       ]
     }
