@@ -45,14 +45,14 @@ Owners can update the organization with these fields:
 
     /organizations/:org [PUT]
 
-You can send POST params:
+You can send PUT params:
 
-    $ curl -d "organization[name]=New%20Name" \
+    $ curl -X PUT -d "organization[name]=New%20Name" \
       https://github.com/api/v2/json/organizations/github
 
 You can also send JSON:
 
-    $ curl -H "Content-Type: application/json"    \
+    $ curl -X PUT -H "Content-Type: application/json"    \
       -d '{"organization": {"name": "New Name"}}' \
       https://github.com/api/v2/json/organizations/github
 
