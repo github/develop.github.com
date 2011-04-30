@@ -13,6 +13,12 @@ Libraries for accessing the GitHub API from your favorite language.
 
 [gs]: http://github.com/erikzaadi/GithubSharp
 
+### Clojure ###
+
+[clj-github][clj-gh] Github API bindings for Clojure. Supports the entire (documented) Github API.
+
+[clj-gh]: https://github.com/Raynes/clj-github
+
 ### Java ###
 
 [ghapi][ghj] is a Java library implementing much of v2 API and is
