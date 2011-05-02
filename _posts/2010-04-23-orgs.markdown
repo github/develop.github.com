@@ -120,6 +120,17 @@ List all repositories across all the organizations that you can access:
       ]
     }
 
+By default, this only shows repos that you have explicit access to
+through a non Owner's Team.  You can include all repos from
+Organizations that you own:
+
+    $ curl https://github.com/api/v2/json/organizations/repositories?owned=1
+
+You can also add public repos from Organizations that you don't have
+explicit access to.
+
+    $ curl https://github.com/api/v2/json/organizations/repositories?public=1
+
 List all members of the organization's Owners team:
 
     /organizations/:org/owners [GET]
