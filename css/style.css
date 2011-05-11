@@ -178,7 +178,7 @@ a.logo {
 }
 
 #bottom-nav {
-  padding-top: 0.9em;
+  padding-top: 0.7em;
   position: relative;
   float: left;
   display: block;
@@ -231,6 +231,16 @@ a.logo {
   border: solid #CACACA;
   border-width: 1px 1px 0px 1px;
   margin: 0px;
+}
+
+.sidebar-module > p {
+  background: #fafafb;
+  border: solid #CACACA;
+  border-width: 1px;
+  padding: 8px 10px;
+  margin: 0px;
+  display: block;
+  line-height: 1.4em;
 }
 
 .sidebar-module li {
