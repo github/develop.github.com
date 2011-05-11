@@ -3,11 +3,13 @@ layout: default
 title: OAuth
 ---
 
+## OAuth
+
 OAuth2 is a protocol that lets external apps request authorization to private details in a user's GitHub account without getting their password.  This is preferred over Basic Authentication because tokens can be limited to specific types of data, and can be revoked by users at any time.
 
 All developers need to [register their application](http://github.com/account/applications/new) before getting started. A registered OAuth application is assigned a unique Client ID and Client Secret.  The Client Secret should not be shared.
 
-## Web Application Flow
+### Web Application Flow
 
 This is a description of the OAuth flow from 3rd party web sites.
 
@@ -33,7 +35,7 @@ This is a description of the OAuth flow from 3rd party web sites.
         GET https://github.com/api/v2/json/user/show?
           access_token=...
 
-## Javascript/Desktop Flow
+### Javascript/Desktop Flow
 
 These flows are disabled for now...
 
@@ -50,7 +52,7 @@ callback URL's host.
     BAD:  http://foo:com:8080
     BAD:  http://bar.com
 
-## Scopes
+### Scopes
 
 Scopes let you specify exactly what type of access you need.  This will
 be displayed to the user on the authorize form.
@@ -68,7 +70,7 @@ can specify multiple scopes by separating them by a comma.
       client_id=...&
       scope=user,public_repo
 
-## References
+### References
 
 * [OAuth 2 spec](http://tools.ietf.org/html/draft-ietf-oauth-v2-07)
 * [Facebook API](http://developers.facebook.com/docs/authentication/)
