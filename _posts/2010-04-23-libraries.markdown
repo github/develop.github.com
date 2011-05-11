@@ -3,7 +3,7 @@ layout: default
 title: API Libraries
 ---
 
-## API Implementations ##
+## API Libraries ##
 
 Libraries for accessing the GitHub API from your favorite language.
 
