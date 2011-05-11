@@ -20,41 +20,43 @@
 
 <body>
 
-  <div id="header-wrapper">
-    <div id="header">
-      <div>
-        <a class="logo" href="/"><img src="/images/logo.png" /></a>
-        <ul class="nav">
-          <li><a href="/v3/">API v3</a></li>
-          <li><a href="http://develop.github.com">API v2</a></li>
-          <li><a
-            href="http://support.github.com/discussions/api">Support</a></li>
-        </ul>
+  <div id="not-footer">
+    <div id="header-wrapper">
+      <div id="header">
+        <div>
+          <a class="logo" href="/"><img src="/images/logo.png" /></a>
+          <ul class="nav">
+            <li><a href="/v3/">API v3</a></li>
+            <li><a href="http://develop.github.com">API v2</a></li>
+            <li><a
+              href="http://support.github.com/discussions/api">Support</a></li>
+          </ul>
+        </div>
+      </div><!-- #header -->
+    </div><!-- #header-wrapper -->
+  
+    <div id="wrapper">
+      <div id="content">
+        {{ content }}
       </div>
-    </div><!-- #header -->
-  </div><!-- #header-wrapper -->
-
-<div id="wrapper">
-  <div id="content">
-    {{ content }}
-  </div>
-
-  <div class="sidebar-shell">
-    <div class="sidebar-module">
-      <ul>
-        {% for post in site.posts reversed %}
-          <li>
-            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-            <span class="spacer"></span>
-          </li>
-        {% endfor %}
-    </div> <!-- /sidebar-module -->
-    <div class="sidebar-module">
-      <p>This website is <a href="http://github.com/github/develop.github.com" target="_blank">open source</a>. Please help us by forking the project and adding to it.</p>
-    </div>
-  </div><!-- /sidebar-shell -->
-
-</div><!-- #wrapper -->
+    
+      <div class="sidebar-shell">
+        <div class="sidebar-module">
+          <ul>
+            {% for post in site.posts reversed %}
+              <li>
+                <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                <span class="spacer"></span>
+              </li>
+            {% endfor %}
+        </div> <!-- /sidebar-module -->
+        <div class="sidebar-module">
+          <p>This website is <a href="http://github.com/github/develop.github.com" target="_blank">open source</a>. Please help us by forking the project and adding to it.</p>
+        </div>
+      </div><!-- /sidebar-shell -->
+    
+    </div><!-- #wrapper -->
+  </div><!-- /not-footer -->
 
   <div id="footer-wrapper">
     <div id="footer" class="container_12">
