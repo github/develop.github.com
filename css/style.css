@@ -21,6 +21,16 @@ h1, h2, h3, h4, h5, h6 {font-weight:bold;}
 .content { font-size: 1.2em; }
 .content h3 { background: #dfd; font-size: 1.7em; padding: 6px 2px; }
 
+.nav li:first-child {
+  padding-left: 0;
+  background-image: none;
+}
+
+.nav li {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
 pre {
   background-color: #444;
   color: #fff;
@@ -38,6 +48,7 @@ pre {
   text-shadow: none;
   background-image: none;
   filter: none;
+  overflow: auto;
 }
 
 #links { padding: 10px; }
