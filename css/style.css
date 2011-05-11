@@ -1,3 +1,10 @@
+body {
+  font: 13px helvetica,arial,freesans,clean,sans-serif;
+  line-height: 175%;
+  background-color: #fff;
+  color: #000;
+}
+
 a {
   color: #4183C4;
   text-decoration: none;
@@ -8,22 +15,30 @@ a:active, a:hover {
   text-decoration:underline;
 }
 
-#welcome h1 {
-  padding: 20px; 
-  text-align: center; 
-  background: #447e40; 
-  color: #fff;
-  }
-  
-h2 { background: #ddd; text-align: center; padding: 4px; }
-
-#welcome p { font-size: 1.3em; color: #444; text-align:center;}
+h1, h2, h3, h4, h5, h6 {font-weight:bold;}
 
 .info, .fork { padding: 10px; }
 .content { font-size: 1.2em; }
 .content h3 { background: #dfd; font-size: 1.7em; padding: 6px 2px; }
 
-pre { padding: 20px; background: #ffd; font-size: 0.9em; }
+pre {
+  background-color: #444;
+  color: #fff;
+  font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace !important;
+  display: block;
+    -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 2px solid #DEDEDE;
+  position: relative;
+  padding: 10px;
+  text-shadow: none;
+  background-image: none;
+  filter: none;
+}
 
 #links { padding: 10px; }
 
@@ -361,20 +376,21 @@ a.logo {
   color: #666;
 }
 
-#content h1 {
+#content h2 {
   font-size: 20px;
   border-bottom: 1px solid #cccccc;
   padding: .5em 0;
   margin: 0 0 1em;
+  color: #333;
 }
 
-#content h2 {
+#content h3 {
   font-size: 16px;
   color: #666;
   margin: 2em auto 1em;
 }
 
-#content h3 {
+#content h4 {
   font-size: 14px;
   color: #333;
   margin: 1.5em 0 .5em;

@@ -42,55 +42,12 @@
   <div class="sidebar-shell">
     <div class="sidebar-module">
       <ul>
-        <li>
-          <h3><a href="p/general.html">General API Info</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/users.html">User API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/orgs.html">Organization API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/pulls.html">Pull Request API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/issues.html">Issues API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/gist.html">Gist API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/oauth.html">OAuth Info</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/repo.html">Repository API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/commits.html">Commit API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/object.html">Object API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/network.html">Network API</a></h3>
-          <span class="spacer"></span>
-        </li>
-        <li>
-          <h3><a href="p/libraries.html">GitHub Libraries</a></h3>
-          <span class="spacer"></span>
-        </li>
-      </ul>
+        {% for post in site.posts reversed %}
+          <li>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <span class="spacer"></span>
+          </li>
+        {% endfor %}
     </div> <!-- /sidebar-module -->
   </div><!-- /sidebar-shell -->
 
