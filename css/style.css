@@ -75,7 +75,6 @@ html, body, .not-footer {
 #not-footer {
   height: auto;
   min-height: 100%;
-  margin-bottom: 88px;
 }
 
 /*------------------------------------------------------------------------------
@@ -110,7 +109,7 @@ a.logo {
   font-weight: bold;
   text-shadow: white 1px 1px 0px;
   font-size: 12px;
-  margin-top: 18px;
+  margin: 18px 0 0 0;
 }
 
 #header ul.nav {
@@ -150,7 +149,7 @@ a.logo {
 /* end */
 
 /*------------------------------------------------------------------------------
-@group Help Sidebar
+@group Help Footer
 ------------------------------------------------------------------------------*/
 
 #footer-wrapper {
@@ -402,6 +401,7 @@ a.logo {
   position: relative;
   float: left;
   color: #393939;
+  padding-bottom: 88px;
 }
 
 #content em {
