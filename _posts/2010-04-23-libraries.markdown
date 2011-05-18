@@ -3,17 +3,17 @@ layout: default
 title: API Libraries
 ---
 
-## API Implementations ##
+# API Libraries #
 
 Libraries for accessing the GitHub API from your favorite language.
 
-### C Sharp ###
+## C Sharp ##
 
 [GitHubSharp][gs] looks pretty slick - hot off the press.
 
 [gs]: http://github.com/erikzaadi/GithubSharp
 
-### Java ###
+## Java ##
 
 [ghapi][ghj] is a Java library implementing much of v2 API and is
 constantly being developed.
@@ -25,7 +25,7 @@ some additional support for OAuth authentication and reading ATOM feeds. Its act
 
 [ghjsdk]: http://github.com/nabeelmukhtar/github-java-sdk
 
-### Javascript ###
+## Javascript ##
 
 [github-api][ghjs] is a Javascript library with no dependencies for interop
 with the github API. Currently supports a large portion of V2, with more to
@@ -38,7 +38,7 @@ The [node-github][ng] library is a port of [php-github-api][pga] to JavaScript f
 [ng]: http://github.com/ajaxorg/node-github
 [node]: http://nodejs.org/
 
-### Perl ###
+## Perl ##
 
 The [Net::GitHub][net-perl-github] library for Perl encapsulates much
 of the functionality of the GitHub v2 API.  You can also download it
@@ -48,13 +48,13 @@ from [CPAN][net-perl-cpan].
 [net-perl-github]: http://github.com/fayland/perl-net-github/tree/master
 
 
-### PHP5 ###
+## PHP5 ##
 
 The [php-github-api][pga] is fully tested and documented.
 
 [pga]: http://github.com/ornicar/php-github-api
 
-### Python ###
+## Python ##
 
 [Dustin Sallings'][dustin] [py-github][py-github] project was the
 first third-party implementation of the v1 API and is tracking the v2
@@ -73,9 +73,9 @@ list.
 [python-github2]: http://github.com/ask/python-github2
 [gistapi]: http://github.com/kennethreitz/gistapi.py
 
-### Ruby ###
+## Ruby ##
 
-#### API Version 1 ####
+## API Version 1 ##
 
 The [github-control][github-control] library is currently doing work
 using the v1 API. The aim is to build a library which others can build
@@ -89,7 +89,7 @@ The [github-party][gh-party] library is also using the v1 API.
 [github-control]: http://github.com/halorgium/github-control
 [gh-party]: http://github.com/technicalpickles/github-party
 
-#### API Version 2 ####
+## API Version 2 ##
 
 There are several active GitHub API v2 wrappers for Ruby: [octokit][ok], 
 [octopi][octopi], and [hubruby][hubruby].
@@ -101,7 +101,7 @@ However, if you want to save GitHub's bandwith and cache things locally, there i
 [hubruby]: http://github.com/diogenes/hubruby
 [github-api-client]: http://github.com/okonski/github-api-client
 
-#### Web scraping ####
+## Web scraping ##
 
 [halorgium][halorgium] built a wrapper around the current post-receive hooks UI.
 It is called [github-post-receive-hooks][github-post-receive-hooks]
@@ -112,7 +112,7 @@ Based on a gist by [tekkub][tekkub].
 [github-post-receive-hooks]: http://github.com/halorgium/github-post-receive-hooks
 
 
-### Cocoa/Objective-C ###
+## Cocoa/Objective-C ##
 
 [Clint Shryock's fork of CocoaREST][CocoaREST] extended the base CocoaREST library, a set of Cocoa classes to interact with RESTful services, to support Github's v1 API.
 

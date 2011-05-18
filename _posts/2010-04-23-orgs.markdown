@@ -3,36 +3,38 @@ layout: default
 title: Organizations API
 ---
 
-## Organizations API
+# Organizations API
 
 API for accessing and modifying organizations.  
 
-### Getting Organization Information
+## Getting Organization Information
 
 You can get the full information on organizations by the screen name:
 
     /organizations/:org [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/github
-    {
-      "organization": {
-        "name": "GitHub",
-        "company": null,
-        "gravatar_id": "61024896f291303615bcd4f7a0dcfb74",
-        "location": "San Francisco, CA",
-        "created_at": "2008-05-10T21:37:31-07:00",
-        "blog": "http://github.com/blog",
-        "public_gist_count": 0,
-        "public_repo_count": 20,
-        "following_count": 0,
-        "id": 9919,
-        "permission": null,
-        "type": "Organization",
-        "followers_count": 532,
-        "login": "github",
-        "email": "support@github.com"
-      }
-    }
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/organizations/github
+{
+  "organization": {
+    "name": "GitHub",
+    "company": null,
+    "gravatar_id": "61024896f291303615bcd4f7a0dcfb74",
+    "location": "San Francisco, CA",
+    "created_at": "2008-05-10T21:37:31-07:00",
+    "blog": "http://github.com/blog",
+    "public_gist_count": 0,
+    "public_repo_count": 20,
+    "following_count": 0,
+    "id": 9919,
+    "permission": null,
+    "type": "Organization",
+    "followers_count": 532,
+    "login": "github",
+    "email": "support@github.com"
+  }
+}
+</pre>
 
 Owners can update the organization with these fields:
 
@@ -43,108 +45,124 @@ Owners can update the organization with these fields:
 * `location`
 * `billing_email`
 
+<pre>
     /organizations/:org [PUT]
+</pre>
 
 You can send POST params:
 
-    $ curl -d "organization[name]=New%20Name" \
-      https://github.com/api/v2/json/organizations/github
+<pre class="terminal">
+$ curl -d "organization[name]=New%20Name" \
+  https://github.com/api/v2/json/organizations/github
+</pre>
 
 You can also send JSON:
 
-    $ curl -H "Content-Type: application/json"    \
-      -d '{"organization": {"name": "New Name"}}' \
-      https://github.com/api/v2/json/organizations/github
+<pre class="terminal">
+$ curl -H "Content-Type: application/json"    \
+  -d '{"organization": {"name": "New Name"}}' \
+  https://github.com/api/v2/json/organizations/github
+</pre>
 
-### Checking Organization Membership
+## Checking Organization Membership
 
 You can get all the public organizations that a user is part of: 
 
     /user/show/:user/organizations [GET]
 
-    $ curl https://github.com/api/v2/json/user/show/technoweenie/organizations
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/user/show/technoweenie/organizations
+{
+  "organizations": [
     {
-      "organizations": [
-        {
-          "name": "GitHub",
-          "company": null,
-          "gravatar_id": "61024896f291303615bcd4f7a0dcfb74",
-          "location": "San Francisco, CA",
-          "created_at": "2008-05-10T21:37:31-07:00",
-          "blog": "http://github.com/blog",
-          "public_gist_count": 0,
-          "public_repo_count": 20,
-          "following_count": 0,
-          "id": 9919,
-          "permission": null,
-          "type": "Organization",
-          "followers_count": 532,
-          "login": "github",
-          "email": "support@github.com"
-        }
-      ]
+      "name": "GitHub",
+      "company": null,
+      "gravatar_id": "61024896f291303615bcd4f7a0dcfb74",
+      "location": "San Francisco, CA",
+      "created_at": "2008-05-10T21:37:31-07:00",
+      "blog": "http://github.com/blog",
+      "public_gist_count": 0,
+      "public_repo_count": 20,
+      "following_count": 0,
+      "id": 9919,
+      "permission": null,
+      "type": "Organization",
+      "followers_count": 532,
+      "login": "github",
+      "email": "support@github.com"
     }
+  ]
+}
+</pre>
 
 You can get a list of all of your organizations:
 
     /organizations [GET]
 
-### Listing Organization Memberships
+## Listing Organization Memberships
 
 List all repositories across all the organizations that you can access:
 
     /organizations/repositories [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/repositories
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/organizations/repositories
+{
+  "repositories": [
     {
-      "repositories": [
-        {
-          "name": "gollum",
-          "has_wiki": true,
-          "created_at": "2010/03/29 11:30:53 -0700",
-          "watchers": 607,
-          "private": false,
-          "fork": false,
-          "url": "https://github.com/github/gollum",
-          "pushed_at": "2010/12/02 19:28:28 -0800",
-          "open_issues": 34,
-          "has_downloads": true,
-          "permission": "admin",
-          "homepage": "",
-          "has_issues": true,
-          "organization": "github",
-          "forks": 54,
-          "description": "A simple, Git-powered wiki with a sweet API and local frontend.",
-          "owner": "github"
-        }
-      ]
+      "name": "gollum",
+      "has_wiki": true,
+      "created_at": "2010/03/29 11:30:53 -0700",
+      "watchers": 607,
+      "private": false,
+      "fork": false,
+      "url": "https://github.com/github/gollum",
+      "pushed_at": "2010/12/02 19:28:28 -0800",
+      "open_issues": 34,
+      "has_downloads": true,
+      "permission": "admin",
+      "homepage": "",
+      "has_issues": true,
+      "organization": "github",
+      "forks": 54,
+      "description": "A simple, Git-powered wiki with a sweet API and local frontend.",
+      "owner": "github"
     }
+  ]
+}
+</pre>
 
 By default, this only shows repos that you have explicit access to
 through a non Owner's Team.  You can include all repos from
 Organizations that you own:
 
-    $ curl https://github.com/api/v2/json/organizations/repositories?owned=1
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/organizations/repositories?owned=1
+</pre>
 
 You can also add public repos from Organizations that you don't have
 explicit access to.
 
-    $ curl https://github.com/api/v2/json/organizations/repositories?public=1
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/organizations/repositories?public=1
+</pre>
 
 List all members of the organization's Owners team:
 
     /organizations/:org/owners [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/github/owners
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/organizations/github/owners
+{
+  "users": [
     {
-      "users": [
-        {
-          "name": "Corey Donohoe",
-          "company": "GitHub",
-          ...
-        }
-      ]
+      "name": "Corey Donohoe",
+      "company": "GitHub",
+      ...
     }
+  ]
+}
+</pre>
 
 List all public repositories of any other organization:
 
@@ -154,39 +172,43 @@ List all public members of any organization:
 
     /organizations/:org/public_members [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/github/public_members
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/organizations/github/public_members
+{
+  "users": [
     {
-      "users": [
-        {
-          "name": "Corey Donohoe",
-          "company": "GitHub",
-          ...
-        }
-      ]
+      "name": "Corey Donohoe",
+      "company": "GitHub",
+      ...
     }
+  ]
+}
+</pre>
 
-## Teams API
+# Teams API
 
 API for accessing and modifying teams.  These actions all require you to have
 admin access for the Organization and/or the Team.  If using OAuth, make sure
 you are armed with the 'repo' scope.
 
-### Listing Organization Teams
+## Listing Organization Teams
 
     /organizations/:org/teams [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/github/teams [GET]
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/organizations/github/teams [GET]
+{
+  "teams": [
     {
-      "teams": [
-        {
-          "name": "Open Source",
-          "id": 10,
-          "permission": "admin"
-        }
-      ]
+      "name": "Open Source",
+      "id": 10,
+      "permission": "admin"
     }
+  ]
+}
+</pre>
 
-### Creating a Team
+## Creating a Team
 
     /organizations/:org/teams [POST]
 
@@ -198,128 +220,146 @@ The applicable fields for Teams are:
 
 You can send this data as POST params:
 
-    $ curl -d "team[name]=my-team" -d "team[permission]=admin" \
-      -d "team[repo_names][]=:user/:repo" -d "team[repo_names][]=:user/:repo" \
-      https://github.com/api/v2/json/organizations/github/teams
-    {
-      "team": {
-        "name": "test",
-        "id": 123,
-        "permission": "pull"
-      }
-    }
+<pre class="terminal">
+$ curl -d "team[name]=my-team" -d "team[permission]=admin" \
+  -d "team[repo_names][]=:user/:repo" -d "team[repo_names][]=:user/:repo" \
+  https://github.com/api/v2/json/organizations/github/teams
+{
+  "team": {
+    "name": "test",
+    "id": 123,
+    "permission": "pull"
+  }
+}
+</pre>
 
 You can also send it as JSON:
 
-    $ curl -d '{"team":{"name":"my-team", "repo_names":[":user/:repo"]}}' \
-      -H "Content-Type: application/json" \
-      https://github.com/api/v2/json/organizations/github/teams
+<pre class="terminal">
+$ curl -d '{"team":{"name":"my-team", "repo_names":[":user/:repo"]}}' \
+  -H "Content-Type: application/json" \
+  https://github.com/api/v2/json/organizations/github/teams
+</pre>
 
-### Fetching and Updating Team Information
+## Fetching and Updating Team Information
 
     /teams/:team_id [GET]
 
-    $ curl https://github.com/api/v2/json/teams/10 [GET]
-    {
-      "team": {
-        "name": "Open Source",
-        "id": 10,
-        "permission": "admin"
-      }
-    }
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/teams/10 [GET]
+{
+  "team": {
+    "name": "Open Source",
+    "id": 10,
+    "permission": "admin"
+  }
+}
+</pre>
 
 You can update a Team by sending the following attributes (with the correct
 Content-Type):
 
     /teams/:team_id [PUT]
 
-    $ curl -X PUT -d '{"team": {"name": "OSS"}}' \
-      -H "Content-Type: application/json"        \
-      https://github.com/api/v2/json/teams/10
-    {
-      "team": {
-        "name": "OSS",
-        "id": 10,
-        "permission": "admin"
-      }
-    }
+<pre class="terminal">
+$ curl -X PUT -d '{"team": {"name": "OSS"}}' \
+  -H "Content-Type: application/json"        \
+  https://github.com/api/v2/json/teams/10
+{
+  "team": {
+    "name": "OSS",
+    "id": 10,
+    "permission": "admin"
+  }
+}
+</pre>
 
 You can also DELETE a Team:
 
     /teams/:team_id [DELETE]
 
-    $ curl -X DELETE \
-      https://github.com/api/v2/json/teams/10
+<pre class="terminal">
+$ curl -X DELETE \
+  https://github.com/api/v2/json/teams/10
+</pre>
 
-### Team Members
+## Team Members
 
 To list users:
 
     /teams/:team_id/members [GET]
 
-    $ curl https://github.com/api/v2/json/teams/10/members
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/teams/10/members
 
+{
+  "users": [
     {
-      "users": [
-        {
-          "gravatar_id": "b8dbb1987e8e5318584865f880036796",
-          "company": "GitHub",
-          "name": "Chris Wanstrath",
-          "location": "San Francisco, CA",
-          "blog": "http://chriswanstrath.com/",
-          "type": "User",
-          "login": "defunkt",
-          "email": "chris@wanstrath.com"
-        }
-      ]
+      "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+      "company": "GitHub",
+      "name": "Chris Wanstrath",
+      "location": "San Francisco, CA",
+      "blog": "http://chriswanstrath.com/",
+      "type": "User",
+      "login": "defunkt",
+      "email": "chris@wanstrath.com"
     }
+  ]
+}
+</pre>
 
 To add a user to the team:
 
     /teams/:team_id/members?name=:user [POST]
 
-    $ curl -d "name=technoweenie" https://github.com/api/v2/json/teams/10/members
+<pre class="terminal">
+$ curl -d "name=technoweenie" https://github.com/api/v2/json/teams/10/members
+</pre>
 
 To remove a user from the team:
 
     /teams/:team_id/members?name=:user [DELETE]
 
-### Team Repositories
+## Team Repositories
 
 To list repositories:
 
     /teams/:team_id/repositories [GET]
 
-    $ curl https://github.com/api/v2/json/teams/10/repositories
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/teams/10/repositories
 
+{
+  "repositories": [
     {
-      "repositories": [
-        {
-          "name": "albino",
-          "created_at": "2008-05-10T21:45:03-07:00",
-          "has_wiki": false,
-          "watchers": 59,
-          "private": false,
-          "fork": false,
-          "url": "https://github.com/github/albino",
-          "pushed_at": "2010-10-11T11:09:50-07:00",
-          "has_downloads": false,
-          "open_issues": 2,
-          "homepage": "",
-          "has_issues": true,
-          "organization": "github",
-          "forks": 6,
-          "description": "Ruby wrapper for the Pygments syntax highlighter.",
-          "owner": "github"
-        }
-      ]
+      "name": "albino",
+      "created_at": "2008-05-10T21:45:03-07:00",
+      "has_wiki": false,
+      "watchers": 59,
+      "private": false,
+      "fork": false,
+      "url": "https://github.com/github/albino",
+      "pushed_at": "2010-10-11T11:09:50-07:00",
+      "has_downloads": false,
+      "open_issues": 2,
+      "homepage": "",
+      "has_issues": true,
+      "organization": "github",
+      "forks": 6,
+      "description": "Ruby wrapper for the Pygments syntax highlighter.",
+      "owner": "github"
     }
+  ]
+}
+</pre>
 
 To add a repo to the team:
 
     /teams/:team_id/repositories?name=:user/:repo [POST]
 
-    $ curl -d "name=github/gollum" https://github.com/api/v2/json/teams/10/repositories
+<pre class="terminal">
+$ curl -d "name=github/gollum" https://github.com/api/v2/json/teams/10/repositories
+</pre>
 
 To remove a repo from the team:
 

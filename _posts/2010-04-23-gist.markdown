@@ -1,95 +1,100 @@
 ---
 layout: default
-title: Commits API
+title: Gist API
 ---
 
-## Gist API ##
+# Gist API #
 
 API for the [Gist](http://gist.github.com) code paste
 service. Gist's API is a bit different from GitHub proper's - the
 domain is always **gist.github.com** and we're still on **v1**.
 
-### Get a Gist's Metadata ###
+## Get a Gist's Metadata ##
 
     GET http://gist.github.com/api/v1/:format/:gist_id
 
 Example:
 
-    $ curl http://gist.github.com/api/v1/json/823475
+<pre class="terminal">
+$ curl http://gist.github.com/api/v1/json/823475
+{
+  "gists": [
     {
-        "gists": [
-            {
-                "comments": [
-                    {
-                        "body": "Great stuff.",
-                        "created_at": "2011/03/31 00:19:46 -0700",
-                        "gravatar_id": "b8dbb1987e8e5318584865f880036796",
-                        "id": 25573,
-                        "updated_at": "2011/03/31 00:19:46 -0700",
-                        "user": "defunkt"
-                    }
-                ],
-                "created_at": "2011/02/11 19:39:21 -0800",
-                "description": "I can't be bothered with all of these fancy…",
-                "files": [
-                    "deploy.rake"
-                ],
-                "owner": "peterc",
-                "public": true,
-                "repo": "823475"
-            }
-        ]
+      "comments": [
+        {
+          "body": "Great stuff.",
+          "created_at": "2011/03/31 00:19:46 -0700",
+          "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+          "id": 25573,
+          "updated_at": "2011/03/31 00:19:46 -0700",
+          "user": "defunkt"
+        }
+      ],
+      "created_at": "2011/02/11 19:39:21 -0800",
+      "description": "I can't be bothered with all of these fancy…",
+      "files": [
+        "deploy.rake"
+      ],
+      "owner": "peterc",
+      "public": true,
+      "repo": "823475"
     }
+  ]
+}
+</pre>
 
-### Get a Gist's Content ###
+## Get a Gist's Content ##
 
     GET http://gist.github.com/raw/:gist_id/:filename
 
 Example:
 
-    $ curl http://gist.github.com/raw/374130/ports.sh
-    # List what ports are in use on OS X
-    sudo lsof -iTCP -sTCP:LISTEN -P
+<pre class="terminal">
+$ curl http://gist.github.com/raw/374130/ports.sh
+# List what ports are in use on OS X
+sudo lsof -iTCP -sTCP:LISTEN -P
+</pre>
 
-### Another User's Public Gists ###
+## Another User's Public Gists ##
 
     GET http://gist.github.com/api/v1/:format/gists/:login
 
 Example:
 
-    $ curl http://gist.github.com/api/v1/json/gists/defunkt
+<pre class="terminal">
+$ curl http://gist.github.com/api/v1/json/gists/defunkt
+{
+  "gists": [
     {
-      "gists": [
-        {
-          "created_at": "2010/11/19 03:39:35 -0800",
-          "public": true,
-          "repo": "706406",
-          "files": [
-            "after-spec-merge",
-            "before-spec-merge"
-          ],
-          "owner": "defunkt",
-          "description": ""
-        }
-      ]
+      "created_at": "2010/11/19 03:39:35 -0800",
+      "public": true,
+      "repo": "706406",
+      "files": [
+        "after-spec-merge",
+        "before-spec-merge"
+      ],
+      "owner": "defunkt",
+      "description": ""
     }
-
-### My Public & Private Gists ###
+  ]
+}
+</pre>
+## My Public & Private Gists ##
 
 Coming soon
 
-### Create a New Gist ###
+## Create a New Gist ##
 
 Coming soon.
 
-### Fork a Gist ###
+## Fork a Gist ##
 
 Coming soon.
 
-### Delete a Gist ###
+## Delete a Gist ##
 
 Coming soon.
 
-### Edit a Gist ###
+## Edit a Gist ##
 
 Coming soon.

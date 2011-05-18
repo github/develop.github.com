@@ -3,6 +3,8 @@ layout: default
 title: OAuth
 ---
 
+# OAuth
+
 OAuth2 is a protocol that lets external apps request authorization to private details in a user's GitHub account without getting their password.  This is preferred over Basic Authentication because tokens can be limited to specific types of data, and can be revoked by users at any time.
 
 All developers need to [register their application](http://github.com/account/applications/new) before getting started. A registered OAuth application is assigned a unique Client ID and Client Secret.  The Client Secret should not be shared.
@@ -37,7 +39,7 @@ This is a description of the OAuth flow from 3rd party web sites.
 
 These flows are disabled for now...
 
-## Redirect URLs
+# Redirect URLs
 
 The `redirect_uri` parameter is optional.  If left out, GitHub will
 redirect users to the callback URL configured in the OAuth
