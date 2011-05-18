@@ -199,14 +199,21 @@ div.sidebar-module li {
 
 div.sidebar-module > ul > li {
   border-bottom: 1px solid #CACACA;
+  text-decoration: none;
 }
+
+div.sidebar-module > ul > li:hover {
+  text-decoration: none;
+}
+
 
 div.sidebar-module > ul h3 {
   margin: 0px;
   color: #666;
   text-shadow: 1px 1px 0px #fff; 
-  background-color: #f1f1f1;
   border-bottom: 1px solid #CACACA;
+  font-size: 14px;
+  background-color: #e1e1e1;
   background-image: -moz-linear-gradient(top, #f1f1f1, #e1e1e1); 
   background-image: -ms-linear-gradient(top, #f1f1f1, #e1e1e1); 
   background-image: -o-linear-gradient(top, #f1f1f1, #e1e1e1); 
@@ -214,11 +221,10 @@ div.sidebar-module > ul h3 {
   background-image: -webkit-linear-gradient(top, #f1f1f1, #e1e1e1); 
   background-image: linear-gradient(top, #f1f1f1, #e1e1e1);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f1f1f1', EndColorStr='#e1e1e1');
-  font-size: 14px;
 }
 
-div.sidebar-module > ul h3:hover {
-  text-decoration: none;
+div.sidebar-module > ul li:hover h3,
+div.sidebar-module > ul h3.disable {
   background-color: #e1e1e1;
   background-image: -moz-linear-gradient(top, #e1e1e1, #d1d1d1);
   background-image: -ms-linear-gradient(top, #e1e1e1, #d1d1d1);
@@ -230,13 +236,21 @@ div.sidebar-module > ul h3:hover {
 }
 
 
-div.sidebar-module > ul h3 a {
+div.sidebar-module > ul h3 a,
+div.sidebar-module > ul h3.disable span {
   padding: 8px 0px 8px 10px;
   color: #666;
   display: block;
   text-decoration: none;
 }
 
+div.sidebar-module > ul h3.disable span {
+  padding-left: 20px;
+  background-image: url(/shared/images/active-arrow.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: default;
+}
 div.sidebar-module > ul h3:hover a {
   text-decoration: none;
 }
@@ -244,8 +258,8 @@ div.sidebar-module > ul h3:hover a {
 div.sidebar-module ul ul,
 div.sidebar-module .spacer {
   display: block;
-  margin-bottom: 2px;
-  padding: 0px;
+  height: 2px;
+  background-color: #FAFAFB;
 }
 
 div.sidebar-module ul ul li {
