@@ -3,9 +3,9 @@ layout: default
 title: Object API
 ---
 
-## Git Object API ##
+# Git Object API #
 
-### Trees ###
+## Trees ##
 
 Can get the contents of a tree by tree SHA
 
@@ -13,31 +13,33 @@ Can get the contents of a tree by tree SHA
 
 To get a listing of the root tree for the facebox project from our commit listing, we can call this:
 
-    $ curl http://github.com/api/v2/json/tree/show/defunkt/facebox/a47803c9ba26213ff194f042ab686a7749b17476
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/tree/show/defunkt/facebox/a47803c9ba26213ff194f042ab686a7749b17476
+{
+  "tree": [
     {
-      "tree": [
-        {
-          "name": ".gitignore",
-          "size": 10,
-          "sha": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
-          "mode": "100644",
-          "mime_type": "text/plain",
-          "type": "blob"
-        },
-        {
-          "name": "screenshots",
-          "size": 0,
-          "sha": "bbf747873075ac28667d246491ffdefbd314fe4f",
-          "mode": "040000",
-          "mime_type": "text/plain",
-          "type": "tree"
-        }
-      ]
+      "name": ".gitignore",
+      "size": 10,
+      "sha": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
+      "mode": "100644",
+      "mime_type": "text/plain",
+      "type": "blob"
+    },
+    {
+      "name": "screenshots",
+      "size": 0,
+      "sha": "bbf747873075ac28667d246491ffdefbd314fe4f",
+      "mode": "040000",
+      "mime_type": "text/plain",
+      "type": "tree"
     }
+  ]
+}
+</pre>
 
 (Output truncated for display purposes).
 
-### Blobs ###
+## Blobs ##
 
 Can get the data about a blob by tree SHA and path
 
@@ -45,41 +47,46 @@ Can get the data about a blob by tree SHA and path
 
 For example, to get the README.txt metadata from a specific tree in Facebox:
 
-    $ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31/README.txt
-    {
-      "blob": {
-        "name": "README.txt",
-        "data": "Please visit http://famspam.com/facebox/ or open index.html in your favorite browser.\n\nNeed help?  Join our Google Groups mailing list:\n  http://groups.google.com/group/facebox/\n",
-        "size": 178,
-        "sha": "d4fc2d5e810d9b4bc1ce67702603080e3086a4ed",
-        "mode": "100644",
-        "mime_type": "text/plain"
-      }
-    }
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31/README.txt
+{
+  "blob": {
+    "name": "README.txt",
+    "data": "Please visit http://famspam.com/facebox/ or open index.html in your favorite browser.\n\nNeed help?  Join our Google Groups mailing list:\n  http://groups.google.com/group/facebox/\n",
+    "size": 178,
+    "sha": "d4fc2d5e810d9b4bc1ce67702603080e3086a4ed",
+    "mode": "100644",
+    "mime_type": "text/plain"
+  }
+}
+</pre>
 
 If you want just the meta data and not the blob data, pass a `?meta` parameter:
 
-    $ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31/README.txt?meta=1
-    {
-      "blob": {
-        "name": "README.txt",
-        "size": 178,
-        "sha": "d4fc2d5e810d9b4bc1ce67702603080e3086a4ed",
-        "mode": "100644",
-        "mime_type": "text/plain"
-      }
-    }
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31/README.txt?meta=1
+{
+  "blob": {
+    "name": "README.txt",
+    "size": 178,
+    "sha": "d4fc2d5e810d9b4bc1ce67702603080e3086a4ed",
+    "mode": "100644",
+    "mime_type": "text/plain"
+  }
+}
+</pre>
 
 You can also make a HEAD request and get this information from the headers:
 
-  $ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31/README.txt -I
-  HTTP/1.1 200 OK
-  Status: 200 OK
-  X-GitHub-Blob-Type: text/plain
-  X-GitHub-Blob-Size: 178
-  X-GitHub-Blob-Sha: d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
-  X-GitHub-Blob-Mode: 100644
-
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31/README.txt -I
+HTTP/1.1 200 OK
+Status: 200 OK
+X-GitHub-Blob-Type: text/plain
+X-GitHub-Blob-Size: 178
+X-GitHub-Blob-Sha: d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
+X-GitHub-Blob-Mode: 100644
+</pre>
 
 You can also get a list of all blobs (their names and shas) for a
 specific SHA:
@@ -88,72 +95,77 @@ specific SHA:
 
 For example, to get all blobs for Facebox:
 
-    $ curl http://github.com/api/v2/json/blob/all/defunkt/facebox/master
-    {
-      "blobs": {
-        "src/loading.gif": "f864d5fd38b7466c76b5a36dc0e3e9455c0126e2",
-        "src/facebox.js": "459278b408566142b6e89560cec000996ad31d6b",
-        ".gitignore": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
-        "examples/images/logo.png": "e41cfe5c654e8e05ad46f15af1c462a1360e9764",
-        "LICENSE": "539b867ebec178676e954d10857114472fd07973",
-        "src/closelabel.png": "c339e59333e4c3b5bc5fd910796fda5469a2515f",
-        "examples/remote.html": "98d3e92373d1bc541e7f516e5e73b645a991ddc2",
-        "examples/index.html": "c8c243c6078ee02514224c7b7c316d690c74c1df",
-        "examples/test.html": "0a279c66167d358e40682186864935d0f856c4c4",
-        "examples/images/stairs.jpg": "63459bb418f5f6d896a8eb925c01f45024933ed6",
-        "README.md": "f3f5e9720d2a8c1ffbcae4a2bdea42bfb5ea113e",
-        "src/facebox.css": "3f33b9f470389f6f2a3a62e9eb1c4187f0d2b3de",
-        "examples/css/example.css": "172b5a8e3e1fe3ce9a5ed2f1de2899fd2ffc9fff",
-        "lib/jquery.js": "7c243080233761859937d52195b670602731a379",
-        "examples/test_programmatic.html": "0249382efbdc7412a67976d19154ef07ac51437f"
-      }
-    }
-
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/blob/all/defunkt/facebox/master
+{
+  "blobs": {
+    "src/loading.gif": "f864d5fd38b7466c76b5a36dc0e3e9455c0126e2",
+    "src/facebox.js": "459278b408566142b6e89560cec000996ad31d6b",
+    ".gitignore": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
+    "examples/images/logo.png": "e41cfe5c654e8e05ad46f15af1c462a1360e9764",
+    "LICENSE": "539b867ebec178676e954d10857114472fd07973",
+    "src/closelabel.png": "c339e59333e4c3b5bc5fd910796fda5469a2515f",
+    "examples/remote.html": "98d3e92373d1bc541e7f516e5e73b645a991ddc2",
+    "examples/index.html": "c8c243c6078ee02514224c7b7c316d690c74c1df",
+    "examples/test.html": "0a279c66167d358e40682186864935d0f856c4c4",
+    "examples/images/stairs.jpg": "63459bb418f5f6d896a8eb925c01f45024933ed6",
+    "README.md": "f3f5e9720d2a8c1ffbcae4a2bdea42bfb5ea113e",
+    "src/facebox.css": "3f33b9f470389f6f2a3a62e9eb1c4187f0d2b3de",
+    "examples/css/example.css": "172b5a8e3e1fe3ce9a5ed2f1de2899fd2ffc9fff",
+    "lib/jquery.js": "7c243080233761859937d52195b670602731a379",
+    "examples/test_programmatic.html": "0249382efbdc7412a67976d19154ef07ac51437f"
+  }
+}
+</pre>
 If you want to get the metadata of each blob (including sha, name, and mime type), use:
 
   blob/full/:user/:repo/:tree_sha
 
-    $ curl http://github.com/api/v2/json/blob/full/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/blob/full/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31
+{
+  "blobs": [
     {
-      "blobs": [
-        {
-          "name": ".gitignore",
-          "size": 10,
-          "sha": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
-          "mode": "100644",
-          "mime_type": "text/plain",
-          "type": "blob"
-        }
-      ]
+      "name": ".gitignore",
+      "size": 10,
+      "sha": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
+      "mode": "100644",
+      "mime_type": "text/plain",
+      "type": "blob"
     }
+  ]
+}
+</pre>
 
 You can also get the metadata of each tree and blob object:
 
   tree/full/:user/:repo/:tree_sha
 
-    $ curl http://github.com/api/v2/json/tree/full/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/tree/full/defunkt/facebox/365b84e0fd92c47ecdada91da47f2d67500b8e31
+{
+  "tree": [
     {
-      "tree": [
-        {
-          "name": ".gitignore",
-          "size": 10,
-          "sha": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
-          "mode": "100644",
-          "mime_type": "text/plain",
-          "type": "blob"
-        },
-        {
-          "name": "releases",
-          "size": 0,
-          "sha": "82e3a754b6a0fcb238b03c0e47d05219fbf9cf89",
-          "mode": "040000",
-          "mime_type": "text/plain",
-          "type": "tree"
-        }
-      ]
+      "name": ".gitignore",
+      "size": 10,
+      "sha": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
+      "mode": "100644",
+      "mime_type": "text/plain",
+      "type": "blob"
+    },
+    {
+      "name": "releases",
+      "size": 0,
+      "sha": "82e3a754b6a0fcb238b03c0e47d05219fbf9cf89",
+      "mode": "040000",
+      "mime_type": "text/plain",
+      "type": "tree"
     }
+  ]
+}
+</pre>
 
-### Raw Git Data ###
+## Raw Git Data ##
 
 You can get the contents of a blob with the blob's SHA via:
 
@@ -163,47 +175,51 @@ It is important to note that it doesn't matter which type you specify (yaml, xml
 
 Here is an example of getting a README file from Facebox:
 
-	$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
-	Please visit http://famspam.com/facebox/ or open index.html in your favorite browser.
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/d4fc2d5e810d9b4bc1ce67702603080e3086a4ed
+Please visit http://famspam.com/facebox/ or open index.html in your favorite browser.
 
-	Need help?  Join our Google Groups mailing list:
-	  http://groups.google.com/group/facebox/
-
+Need help?  Join our Google Groups mailing list:
+  http://groups.google.com/group/facebox/
+</pre>
 You can actually get raw trees and commits this way, too.  If you give it a tree SHA instead, you'll get this:
 
-	$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/73afb1ed4d16d084eee5696fcf25cd4b03b9201e
-	100644 blob e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf  .gitignore
-	100644 blob d4fc2d5e810d9b4bc1ce67702603080e3086a4ed  README.txt
-	100644 blob f184e6269b343014f58694093b55558dd5dde193  b.png
-	100644 blob f6271859d51654b6fb2719df5fe192c8398ecefc  bl.png
-	100644 blob 31f204fc451cd9dd5cfdadfad2d86ed0e1104882  br.png
-	100755 blob 08f6f1fce2f6a02dcb15b6c66244470794587bb0  build_tar.sh
-	100755 blob 87b4f8bd699386e3a6fcc2e50d7c61bfc4aabb8d  closelabel.gif
-	100644 blob 97ebe3cab3eab76253f9cc5fc894b339456da86e  facebox.css
-	100644 blob 932664fafa412478a06b86de0fe8eefe00441289  facebox.js
-	100644 blob dc61a86c3f342b930f0a0447cae33fee812e27d3  faceplant.css
-	100644 blob a9d1c235d08ae383e4d9dedf5e2cc0236defdaa6  index.html
-	100644 blob ebe02bdd357c337e0e817fcbce2a034a54a13287  jquery.js
-	100755 blob f864d5fd38b7466c76b5a36dc0e3e9455c0126e2  loading.gif
-	100644 blob e41cfe5c654e8e05ad46f15af1c462a1360e9764  logo.png
-	040000 tree 82e3a754b6a0fcb238b03c0e47d05219fbf9cf89  releases
-	100644 blob 98d3e92373d1bc541e7f516e5e73b645a991ddc2  remote.html
-	040000 tree bbf747873075ac28667d246491ffdefbd314fe4f  screenshots
-	100644 blob e58b35b362ce5347bb5064e91a3bf8e4fed4f6ef  shadow.gif
-	100644 blob 63459bb418f5f6d896a8eb925c01f45024933ed6  stairs.jpg
-	100644 blob 0a279c66167d358e40682186864935d0f856c4c4  test.html
-	100644 blob 0249382efbdc7412a67976d19154ef07ac51437f  test_programmatic.html
-	100644 blob d99c8f6c6eaa12d7b49a20f41f08a5006f3ea8b7  tl.png
-	100644 blob e99b6ec8310e859fd27519694f04e1babf2ab2c4  tr.png
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/73afb1ed4d16d084eee5696fcf25cd4b03b9201e
+100644 blob e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf  .gitignore
+100644 blob d4fc2d5e810d9b4bc1ce67702603080e3086a4ed  README.txt
+100644 blob f184e6269b343014f58694093b55558dd5dde193  b.png
+100644 blob f6271859d51654b6fb2719df5fe192c8398ecefc  bl.png
+100644 blob 31f204fc451cd9dd5cfdadfad2d86ed0e1104882  br.png
+100755 blob 08f6f1fce2f6a02dcb15b6c66244470794587bb0  build_tar.sh
+100755 blob 87b4f8bd699386e3a6fcc2e50d7c61bfc4aabb8d  closelabel.gif
+100644 blob 97ebe3cab3eab76253f9cc5fc894b339456da86e  facebox.css
+100644 blob 932664fafa412478a06b86de0fe8eefe00441289  facebox.js
+100644 blob dc61a86c3f342b930f0a0447cae33fee812e27d3  faceplant.css
+100644 blob a9d1c235d08ae383e4d9dedf5e2cc0236defdaa6  index.html
+100644 blob ebe02bdd357c337e0e817fcbce2a034a54a13287  jquery.js
+100755 blob f864d5fd38b7466c76b5a36dc0e3e9455c0126e2  loading.gif
+100644 blob e41cfe5c654e8e05ad46f15af1c462a1360e9764  logo.png
+040000 tree 82e3a754b6a0fcb238b03c0e47d05219fbf9cf89  releases
+100644 blob 98d3e92373d1bc541e7f516e5e73b645a991ddc2  remote.html
+040000 tree bbf747873075ac28667d246491ffdefbd314fe4f  screenshots
+100644 blob e58b35b362ce5347bb5064e91a3bf8e4fed4f6ef  shadow.gif
+100644 blob 63459bb418f5f6d896a8eb925c01f45024933ed6  stairs.jpg
+100644 blob 0a279c66167d358e40682186864935d0f856c4c4  test.html
+100644 blob 0249382efbdc7412a67976d19154ef07ac51437f  test_programmatic.html
+100644 blob d99c8f6c6eaa12d7b49a20f41f08a5006f3ea8b7  tl.png
+100644 blob e99b6ec8310e859fd27519694f04e1babf2ab2c4  tr.png
+</pre>
 
 Here is an example of a commit:
 
-	$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/4bf7a39e8c4ec54f8b4cd594a3616d69004aba69
-	tree f7a5de2e224ec94182a3c2c081f4e7f35f70da4d
-	parent cd13d9a61288dceb0a7aa73b55ed2fd019f4f1f7
-	parent 3211367cab73233af66dac2710c94682f3f3b9b2
-	author Chris Wanstrath <chris@ozmm.org> 1213837237 -0700
-	committer Chris Wanstrath <chris@ozmm.org> 1213837237 -0700
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/blob/show/defunkt/facebox/4bf7a39e8c4ec54f8b4cd594a3616d69004aba69
+tree f7a5de2e224ec94182a3c2c081f4e7f35f70da4d
+parent cd13d9a61288dceb0a7aa73b55ed2fd019f4f1f7
+parent 3211367cab73233af66dac2710c94682f3f3b9b2
+author Chris Wanstrath <chris@ozmm.org> 1213837237 -0700
+committer Chris Wanstrath <chris@ozmm.org> 1213837237 -0700
 
-	Merge branch 'master' of git://github.com/webweaver/facebox into webweaver/master
-
+Merge branch 'master' of git://github.com/webweaver/facebox into webweaver/master
+</pre>

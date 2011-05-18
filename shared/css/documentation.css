@@ -13,13 +13,17 @@ body {
 }
 
 p {
-  margin-bottom: 1em;
+  margin: 1em 0;
 }
 
 h1 {
   font-size: 20px;
   border-bottom: 1px solid #cccccc;
   padding: .5em 0;
+  margin: 2em 0 1em;
+}
+
+h1:first-child {
   margin: 0 0 1em;
 }
 
@@ -258,6 +262,12 @@ div.sidebar-module li.disable {
   background-color: #f0f0f3;
 }
 
+div.sidebar-module li.disable {
+  background-image: url(/shared/images/active-arrow.png);
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
 div.sidebar-module ul ul li a,
 div.sidebar-module ul ul li span {
   padding: 6px 0px 6px 10px;
@@ -367,6 +377,7 @@ div.sidebar-module ul ul li span {
   position: relative;
   float: left;
   color: #393939;
+  z-index: 2;
 }
 
 .content dl {
@@ -446,8 +457,7 @@ pre {
   border: 1px solid #cacaca;
   line-height: 1.2em;
   font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
-  margin-bottom: 1em;
-  padding: 1em;
+  padding: 10px;
   overflow:auto;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -457,9 +467,16 @@ pre {
   background-clip: padding-box;
   background-color: #FAFAFB;
   color: #393939;
+  margin: 0px;
+}
+
+pre + pre,
+ul + pre {
+  margin-top: 1em;
 }
 
 pre code {white-space: pre;}
+
 pre span.comment {color: #aaa;}
 
 pre.headers {
@@ -503,7 +520,6 @@ pre.highlight {
 pre.terminal {
   background-color: #444;
   color: #fff;
-  display: block;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -576,7 +592,6 @@ span.codeline:hover em {
 pre.bootcamp {
   white-space: normal;
   margin-left: -10px;
-  margin-bottom: 1.5em;
   background-image: none;
 }
 
