@@ -61,9 +61,10 @@ first third-party implementation of the v1 API and is tracking the v2
 API in a branch as new API endpoints are published. [Fork
 it][py-github] it and help keep it awesome.
 
-There is alo a new Python library for the GitHub v2 API called
-[python-github2][python-github2].  It has nearly the full API feature
-list.
+There is an alternative Python library for the GitHub v2 API called
+[python-github2][python-github2], with almost complete API coverage.
+It is compatible with Python v2.4-3.2, and supports caching data
+locally.
 
 [Kenneth Reitz's][kennethreitz] [GistAPI.py][gistapi] is a Python wrapper for the Gist API. New Gist API features will be introduced as the API endpoints are published.
 
