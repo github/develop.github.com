@@ -47,6 +47,10 @@ from [CPAN][net-perl-cpan].
 [net-perl-cpan]: http://search.cpan.org/dist/Net-GitHub/
 [net-perl-github]: http://github.com/fayland/perl-net-github/tree/master
 
+There's a 2nd library called [Pithub][pithub-github] which implements 99% of the GitHub v3 API. It's also available via [CPAN][pithub-cpan].
+
+[pithub-github]: https://github.com/plu/Pithub
+[pithub-cpan]: http://metacpan.org/module/Pithub
 
 ## PHP5 ##
 
