@@ -62,23 +62,76 @@
     </div><!-- #wrapper -->
   </div><!-- /not-footer -->
 
-  <div id="footer-wrapper">
-    <div id="footer">
-      <div class="left-col">
-        <h2 class="logo"><a href="http://github.com">Brought to you by GitHub</a></h2>
-        <ul class="github-nav">
-          <li><a href="http://github.com/blog" class="blog">The GitHub Blog</a></li>
-          <li><a href="http://support.github.com">Support</a></li>
-          <li><a href="http://github.com/contact">Contact</a></li>
-          <li><a href="http://developer.github.com">API</a></li>
+  <!--**************
+     FOOTER
+     **************-->
+    <div id="footer" >
+      <div class="upper_footer">
+        <div class="footer_inner" class="clearfix">
+
+        <!--[if IE]><h4 id="blacktocat_ie">GitHub Links</h4><![endif]-->
+        <![if !IE]><h4 id="blacktocat">GitHub Links</h4><![endif]>
+
+        <ul class="footer_nav">
+          <h4>GitHub</h4>
+          <li><a href="https://github.com/about">About</a></li>
+          <li><a href="https://github.com/blog">Blog</a></li>
+          <li><a href="https://github.com/contact">Contact &amp; Support</a></li>
+          <li><a href="https://github.com/training">Training</a></li>
+          <li><a href="http://status.github.com/">Site Status</a></li>
         </ul>
-        <p class="copyline">© 2011 GitHub Inc. All rights reserved</p>
-      </div>
-      <div class="right-col">
-        <p class="rackspace">Powered by the <a href="http://rackspace.com" target="_blank">Dedicated Servers</a> and <a href="http://rackspacecloud.com" target="_blank">Cloud Computing</a> of Rackspace Hosting®</p>
-      </div>
-    </div><!-- #footer -->
-  </div><!-- #footer-wrapper -->
+
+        <ul class="footer_nav">
+          <h4>Tools</h4>
+          <li><a href="http://mac.github.com/">GitHub for Mac</a></li>
+          <li><a href="<%= GitHub.gist_url %>">Gist</a></li>
+          <li><a href="http://fi.github.com/">Enterprise Install</a></li>
+          <li><a href="http://jobs.github.com/">Job Board</a></li>
+        </ul>
+
+        <ul class="footer_nav">
+          <h4>Extras</h4>
+          <li><a href="http://shop.github.com/">Shop</a></li>
+          <li><a href="http://octodex.github.com/">The Octodex</a></li>
+        </ul>
+
+        <ul class="footer_nav">
+          <h4>Documentation</h4>
+          <li><a href="http://help.github.com/">GitHub Help</a></li>
+          <li><a href="http://developer.github.com/">Developer API</a></li>
+          <li><a href="http://github.github.com/github-flavored-markdown/">GitHub Flavored Markdown</a></li>
+          <li><a href="http://pages.github.com/">GitHub Pages</a></li>
+        </ul>
+
+        </div><!-- /.site -->
+      </div><!-- /.upper_footer -->
+
+      <div class="lower_footer">
+        <div class="footer_inner" class="clearfix">
+
+        <!--[if IE]><div id="legal_ie"><![endif]-->
+        <![if !IE]><div id="legal"><![endif]>
+              <ul>
+                <li><a href="http://help.github.com/terms-of-service/">Terms of Service</a></li>
+                <li><a href="http://help.github.com/privacy-policy/">Privacy</a></li>
+                <li><a href="http://help.github.com/security/">Security</a></li>
+              </ul>
+
+              <p>&copy; 2011 Inc. All rights reserved.</p>
+            </div><!-- /#legal or /#legal_ie-->
+
+            <div class="sponsor">
+              <a href="http://www.rackspace.com" class="logo">
+                <img src="/shared/images/rackspace_logo.png" alt="Dedicated Server" width="38" height="36">
+              </a>
+              Powered by the <a href="http://www.rackspace.com ">Dedicated
+              Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
+              Computing</a> of Rackspace Hosting<span>&reg;</span>
+          </div>
+        </div><!-- /.site -->
+      </div><!-- /.lower_footer -->
+    </div><!-- /#footer -->
+
 
   <script type="text/javascript">
     var _gaq = _gaq || [];
