@@ -322,7 +322,7 @@ div.sidebar-module ul ul li span {
   bottom:0;
   font-size:13px;
   color: #636363;
-  margin: 20px 0 0 0;
+  margin: 60px 0 0 0;
 }
 
 #footer a:hover {
@@ -349,7 +349,7 @@ div.sidebar-module ul ul li span {
   height:130px;
   width:164px;
   float:left;
-  background: url(../images/blacktocat.svg) top left no-repeat;
+  background: url(../images/blacktocat.png) top left no-repeat;
   text-indent: -5000px;
   margin: 15px 20px 0 0;
 }
@@ -383,24 +383,34 @@ div.sidebar-module ul ul li span {
   clear:both;
 }
 
+#footer .lower_footer .home {
+  display: block;
+  position: absolute;
+  background: url(../images/footer-logo.png) top left no-repeat; 
+  width: 100px;
+  height: 50px;
+  text-indent: -5000px;
+}
+
+#footer .lower_footer .home_ie {
+  display: block;
+  position: absolute;
+  background: url(../images/footer-logo.png) top left no-repeat; 
+  width: 100px;
+  height: 50px;
+  text-indent: -5000px;
+}
+
 #footer .lower_footer #legal {
   float: left;
-  width:350px;
+  width: 500px;
   height: 50px;
   line-height: 8px;
   margin: 25px 0 0 17px;
-  padding-left: 177px;
-  background: url(../images/footer-logo.svg) top left no-repeat; 
 }
 
-#footer .lower_footer #legal_ie {
-  float: left;
-  width:350px;
-  height: 50px;
-  line-height: 8px;
-  margin: 25px 0 0 18px;
-  padding-left: 180px;
-  background: url(../images/footer-logo.png) top left no-repeat; 
+#footer .lower_footer #legal #legal_links {
+  margin-left: 177px;
 }
 
 #footer .lower_footer div ul {
@@ -421,7 +431,7 @@ div.sidebar-module ul ul li span {
   display:inline;
   float:left;
   clear: both;
-  margin-top: 10px;
+  margin: 10px 0 0 177px;
 }
 
 #footer .lower_footer .sponsor {

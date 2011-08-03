@@ -11,9 +11,7 @@
   <link href="/shared/css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="/shared/css/pygments.css" media="screen" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/print.css" type="text/css" media="print">
-  <!--[if IE]>
-    <link rel="stylesheet" href="../css/ie.css" type="text/css" media="screen, projection">
-  <![endif]-->
+ 
 
   <link rel="stylesheet" href="../css/thickbox.css" type="text/css" media="screen"/>
 </head>
@@ -27,8 +25,7 @@
           <ul class="nav">
             <li><a href="http://developer.github.com/v3/">API v3</a></li>
             <li><a href="http://develop.github.com">API v2</a></li>
-            <li><a
-              href="http://support.github.com/discussions/api">Support</a></li>
+            <li><a href="http://support.github.com/discussions/api">Support</a></li>
           </ul>
         </div>
       </div><!-- #header -->
@@ -65,7 +62,7 @@
      **************-->
     <div id="footer" >
       <div class="upper_footer">
-        <div class="footer_inner" class="clearfix">
+        <div class="footer_inner clearfix">
 
         <!--[if IE]><h4 id="blacktocat_ie">GitHub Links</h4><![endif]-->
         <![if !IE]><h4 id="blacktocat">GitHub Links</h4><![endif]>
@@ -82,7 +79,7 @@
         <ul class="footer_nav">
           <h4>Tools</h4>
           <li><a href="http://mac.github.com/">GitHub for Mac</a></li>
-          <li><a href="<%= GitHub.gist_url %>">Gist</a></li>
+          <li><a href="gist.github.com">Gist</a></li>
           <li><a href="http://fi.github.com/">Enterprise Install</a></li>
           <li><a href="http://jobs.github.com/">Job Board</a></li>
         </ul>
@@ -105,11 +102,12 @@
       </div><!-- /.upper_footer -->
 
       <div class="lower_footer">
-        <div class="footer_inner" class="clearfix">
-
-        <!--[if IE]><div id="legal_ie"><![endif]-->
-        <![if !IE]><div id="legal"><![endif]>
-              <ul>
+        <div class="footer_inner clearfix">
+            <div id="legal"> 
+              <!--[if IE]><a class="home_ie" href="http://github.com">Home</a><![endif]-->
+              <![if !IE]><a class="home" href="http://github.com">Home</a><![endif]>
+              
+              <ul id="legal_links">
                 <li><a href="http://help.github.com/terms-of-service/">Terms of Service</a></li>
                 <li><a href="http://help.github.com/privacy-policy/">Privacy</a></li>
                 <li><a href="http://help.github.com/security/">Security</a></li>
