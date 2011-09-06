@@ -9,7 +9,7 @@ All content can be found in the `_posts/` directory.
 Dependencies, Getting Started
 -----------------------------
 
-Install [Jekyll][jk] an rake (both require Ruby):
+Install [Jekyll][jk] and rake (both require Ruby):
 
     gem install jekyll rake
 
