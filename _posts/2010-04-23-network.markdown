@@ -5,7 +5,7 @@ title: Network API
 
 # Secret Network API #
 
-This API is sort of an outlier.  It is only available in JSON and does not follow the rest of the routing rules.  It is the API used by our Network Graph and provides a lot of useful information that may be useful.
+This API is sort of an outlier.  It is only available in JSON and does not follow the rest of the routing rules.  It is the API used by our Network Graph and provides a lot of information that may be useful.
 
 ## Network Meta ##
 
