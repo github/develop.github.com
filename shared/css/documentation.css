@@ -24,7 +24,7 @@ h1 {
   font-size: 20px;
   border-bottom: 1px solid #cccccc;
   padding: .5em 0;
-  margin: 2em 0 1em;
+  margin: 1em 0 1em;
 }
 
 h1:first-child {
@@ -497,6 +497,11 @@ div.sidebar-module ul ul li span {
   box-shadow: 1px 1px 3px #ddd;
 }
 
+.content .deprecated {
+  border: 1px solid #dfdfdf;
+  font-weight: bold;
+  padding: 10px;
+}
 
 .content .description {
   margin-left: 20px;
