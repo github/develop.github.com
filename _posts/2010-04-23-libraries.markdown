@@ -61,7 +61,7 @@ first third-party implementation of the v1 API and is tracking the v2
 API in a branch as new API endpoints are published. [Fork
 it][py-github] it and help keep it awesome.
 
-There is alo a new Python library for the GitHub v2 API called
+There is also a new Python library for the GitHub v2 API called
 [python-github2][python-github2].  It has nearly the full API feature
 list.
 
@@ -94,7 +94,7 @@ The [github-party][gh-party] library is also using the v1 API.
 There are several active GitHub API v2 wrappers for Ruby: [octokit][ok], 
 [octopi][octopi], and [hubruby][hubruby].
 
-However, if you want to save GitHub's bandwith and cache things locally, there is (under development) [github-api-client].
+However, if you want to save GitHub's bandwidth and cache things locally, there is (under development) [github-api-client].
 
 [octopi]: http://github.com/fcoury/octopi/
 [ok]: http://github.com/pengwynn/octokit
