@@ -247,7 +247,7 @@ a label from all issues.
 
 You can comment on issues at
 
-    /issues/comment/:user/:repo/:id
+    /issues/comment/:user/:repo/:number
 
 Simply send it a 'comment' POST variable with the comment you'd like to make.  It will attribute the comment to the user that is authenticated.  Here is an example:
 
