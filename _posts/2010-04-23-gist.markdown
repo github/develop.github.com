@@ -45,7 +45,7 @@ $ curl http://gist.github.com/api/v1/json/823475
 
 ## Get a Gist's Content ##
 
-    GET http://gist.github.com/raw/:gist_id/:filename
+    GET http://raw.github.com/gist/:gist_id/:filename
 
 Example:
 
