@@ -62,7 +62,7 @@ You can get all the public organizations that a user is part of:
 
     /user/show/:user/organizations [GET]
 
-    $ curl https://github.com/api/v2/json/organizations/technoweenie
+    $ curl https://github.com/api/v2/json/technoweenie/organizations
     {
       "organizations": [
         {
