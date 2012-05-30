@@ -45,12 +45,12 @@ $ curl http://gist.github.com/api/v1/json/823475
 
 ## Get a Gist's Content ##
 
-    GET http://gist.github.com/raw/:gist_id/:filename
+    GET https://raw.github.com/gist/:gist_id/:filename
 
 Example:
 
 <pre class="terminal">
-$ curl http://gist.github.com/raw/374130/ports.sh
+$ curl https://raw.github.com/gist/374130/ports.sh
 # List what ports are in use on OS X
 sudo lsof -iTCP -sTCP:LISTEN -P
 </pre>
