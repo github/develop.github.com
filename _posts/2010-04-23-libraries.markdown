@@ -25,6 +25,10 @@ some additional support for OAuth authentication and reading ATOM feeds. Its act
 
 [ghjsdk]: http://github.com/nabeelmukhtar/github-java-sdk
 
+[github-api][ghjapi] is a Java library that models GitHub API in an object-oriented fashion.
+
+[ghjapi]: https://github.com/kohsuke/github-api
+
 ## Javascript ##
 
 [github-api][ghjs] is a Javascript library with no dependencies for interop
