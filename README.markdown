@@ -1,3 +1,5 @@
+**NOTE: This repository is no longer supported or updated by GitHub. See http://developer.github.com/.**
+
 Develop.GitHub.com
 ==================
 
@@ -9,7 +11,7 @@ All content can be found in the `_posts/` directory.
 Dependencies, Getting Started
 -----------------------------
 
-Install [Jekyll][jk] an rake (both require Ruby):
+Install [Jekyll][jk] and rake (both require Ruby):
 
     gem install jekyll rake
 

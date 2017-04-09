@@ -3,11 +3,11 @@ layout: default
 title: Issues API
 ---
 
-## Issues API ##
+# Issues API #
 
 The API for GitHub Issues.
 
-### Search Issues ###
+## Search Issues ##
 
     /issues/search/:user/:repo/:state/:search_term
 
@@ -15,26 +15,27 @@ Where 'state' is either 'open' or 'closed'.
 
 For example, to search for 'test' in the open issues for defunkt/github-issues repo, you can do this:
 
-    $ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/issues/search/defunkt/github-issues/open/test
+{
+  "issues": [
     {
-      "issues": [
-        {
-          "user": "kfl",
-          "gravatar_id": "ad670e0aee0491aaa0a2d201486064b2",
-          "updated_at": "2009\/04\/20 03:34:48 -0700",
-          "votes": 3,
-          "number": 102,
-          "position": 1.0,
-          "title": "Pressing question-mark does not show help",
-          "body": "Pressing the '?'-key does not open the help lightbox.\r\n\r\nHowever, at least the 'j', 'k', and 'c' works (the only ones I've tested).\r\n\r\n* **OS:** Linux, ubuntu 8.04.1\r\n* **Browser:** Firefox 3.08",
-          "state": "open",
-          "created_at": "2009\/04\/17 12:57:52 -0700"
-        }
-      ]
+      "user": "kfl",
+      "gravatar_id": "ad670e0aee0491aaa0a2d201486064b2",
+      "updated_at": "2009\/04\/20 03:34:48 -0700",
+      "votes": 3,
+      "number": 102,
+      "position": 1.0,
+      "title": "Pressing question-mark does not show help",
+      "body": "Pressing the '?'-key does not open the help lightbox.\r\n\r\nHowever, at least the 'j', 'k', and 'c' works (the only ones I've tested).\r\n\r\n* **OS:** Linux, ubuntu 8.04.1\r\n* **Browser:** Firefox 3.08",
+      "state": "open",
+      "created_at": "2009\/04\/17 12:57:52 -0700"
     }
+  ]
+}
+</pre>
 
-
-### List a Project's Issues ###
+## List a Project's Issues ##
 
 To see a list of issues for a project,
 
@@ -46,56 +47,60 @@ where :state is either 'open' or 'closed'.  You can also search with a label:
 
 For example, to see all the open issues I have on the schacon/simplegit project, we can run
 
-    $ curl http://github.com/api/v2/json/issues/list/schacon/showoff/open
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/issues/list/schacon/showoff/open
+{
+  "issues": [
     {
-      "issues": [
-        {
-          "gravatar_id": "b8dbb1987e8e5318584865f880036796",
-          "position": 1.0,
-          "number": 8,
-          "votes": 3,
-          "created_at": "2010/01/22 17:56:29 -0800",
-          "comments": 10,
-          "body": "Maybe this? \r\n\r\n<http://www.htmldoc.org>",
-          "title": "PDF",
-          "updated_at": "2010/12/10 21:48:53 -0800",
-          "closed_at": null,
-          "user": "defunkt",
-          "labels": [
-            "feature"
-          ],
-          "state": "open"
-        }
-      ]
+      "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+      "position": 1.0,
+      "number": 8,
+      "votes": 3,
+      "created_at": "2010/01/22 17:56:29 -0800",
+      "comments": 10,
+      "body": "Maybe this? \r\n\r\n<http://www.htmldoc.org>",
+      "title": "PDF",
+      "updated_at": "2010/12/10 21:48:53 -0800",
+      "closed_at": null,
+      "user": "defunkt",
+      "labels": [
+        "feature"
+      ],
+      "state": "open"
     }
+  ]
+}
+</pre>
 
 Here's a sample query of all issues labeled "2.0" in defunkt/resque:
 
-    $ curl http://github.com/api/v2/json/issues/list/defunkt/resque/label/2.0
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/issues/list/defunkt/resque/label/2.0
+{
+  "issues": [
     {
-      "issues": [
-        {
-          "gravatar_id": "b8dbb1987e8e5318584865f880036796",
-          "position": 4.0,
-          "number": 5,
-          "votes": 1,
-          "created_at": "2009/11/03 11:58:19 -0800",
-          "comments": 2,
-          "body": "You know you want it.",
-          "title": "ERB => Mustache",
-          "updated_at": "2010/05/13 13:57:53 -0700",
-          "closed_at": null,
-          "user": "defunkt",
-          "labels": [
-            "2.0",
-            "feature"
-          ],
-          "state": "open"
-        }
-      ]
+      "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+      "position": 4.0,
+      "number": 5,
+      "votes": 1,
+      "created_at": "2009/11/03 11:58:19 -0800",
+      "comments": 2,
+      "body": "You know you want it.",
+      "title": "ERB => Mustache",
+      "updated_at": "2010/05/13 13:57:53 -0700",
+      "closed_at": null,
+      "user": "defunkt",
+      "labels": [
+        "2.0",
+        "feature"
+      ],
+      "state": "open"
     }
+  ]
+}
+</pre>
 
-### View an Issue ###
+## View an Issue ##
 
 To get data on an individual issue by number, run
 
@@ -103,28 +108,30 @@ To get data on an individual issue by number, run
 
 So to get all the data for a issue #1 in our repo, we can run something like this:
 
-    $ curl http://github.com/api/v2/json/issues/show/schacon/showoff/1
-    {
-      "issue": {
-        "gravatar_id": "b8dbb1987e8e5318584865f880036796",
-        "position": 1.0,
-        "number": 1,
-        "votes": 0,
-        "created_at": "2010/01/21 13:45:59 -0800",
-        "comments": 0,
-        "body": "http://github.com/defunkt/showoff/commit/jquery14",
-        "title": "Upgrade to jQuery 1.4",
-        "updated_at": "2010/01/21 14:41:55 -0800",
-        "closed_at": "2010/01/21 14:41:55 -0800",
-        "user": "defunkt",
-        "labels": [
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/issues/show/schacon/showoff/1
+{
+  "issue": {
+    "gravatar_id": "b8dbb1987e8e5318584865f880036796",
+    "position": 1.0,
+    "number": 1,
+    "votes": 0,
+    "created_at": "2010/01/21 13:45:59 -0800",
+    "comments": 0,
+    "body": "http://github.com/defunkt/showoff/commit/jquery14",
+    "title": "Upgrade to jQuery 1.4",
+    "updated_at": "2010/01/21 14:41:55 -0800",
+    "closed_at": "2010/01/21 14:41:55 -0800",
+    "user": "defunkt",
+    "labels": [
 
-        ],
-        "state": "closed"
-      }
-    }
+    ],
+    "state": "closed"
+  }
+}
+</pre>
 
-### List an Issue's Comments ###
+## List an Issue's Comments ##
 
 To get a list of comments made on an issue, run
 
@@ -132,21 +139,23 @@ To get a list of comments made on an issue, run
 
 So to get all the comments for a issue #1 in our repo, we can run something like this:
 
-    $ curl http://github.com/api/v2/json/issues/comments/schacon/showoff/3
+<pre class="terminal">
+$ curl http://github.com/api/v2/json/issues/comments/schacon/showoff/3
+{
+  "comments": [
     {
-      "comments": [
-        {
-          "gravatar_id": "8194993afda83d34c94928134b729276",
-          "created_at": "2010/05/05 15:15:53 -0700",
-          "body": "Showing off the issues app.",
-          "updated_at": "2010/05/05 15:15:53 -0700",
-          "id": 230935,
-          "user": "280north"
-        }
-      ]
+      "gravatar_id": "8194993afda83d34c94928134b729276",
+      "created_at": "2010/05/05 15:15:53 -0700",
+      "body": "Showing off the issues app.",
+      "updated_at": "2010/05/05 15:15:53 -0700",
+      "id": 230935,
+      "user": "280north"
     }
+  ]
+}
+</pre>
 
-### Open and Close Issues ###
+## Open and Close Issues ##
 
 To open a new issue on a project, make a authorized POST to
 
@@ -161,9 +170,10 @@ It will return the data for the newly created ticket if it is successful.  You n
 
 For example, I could open a new issue on my simplegit project like this:
 
-    $ curl -F 'login=schacon' -F 'token=XXX' -F 'title=new' -F 'body=my ticket' \
-      http://github.com/api/v2/json/issues/open/schacon/showoff
-
+<pre class="terminal">
+$ curl -F 'login=schacon' -F 'token=XXX' -F 'title=new' -F 'body=my ticket' \
+  http://github.com/api/v2/json/issues/open/schacon/showoff
+</pre>
 To close or reopen an issue, you just need to supply the issue number
 
     issues/close/:user/:repo/:number
@@ -172,10 +182,12 @@ To close or reopen an issue, you just need to supply the issue number
 
 You need to be logged in via token as well.  Here is how I would close the ticket I opened earlier:
 
-    $ curl -F 'login=schacon' -F 'token=XXX' \
-      http://github.com/api/v2/json/issues/close/schacon/showoff/1
+<pre class="terminal">
+$ curl -F 'login=schacon' -F 'token=XXX' \
+  http://github.com/api/v2/json/issues/close/schacon/showoff/1
+</pre>
 
-### Edit Existing Issues ###
+## Edit Existing Issues ##
 
 For the final three calls (edit, label add and label delete) you have to be authorized a collaborator on the project.
 
@@ -190,7 +202,7 @@ Where you can provide POST variables:
 
 This will overwrite the title or body of the issue, if you are authorized member of the project.
 
-### Listing Labels ###
+## Listing Labels ##
 
 You can list available labels for a projects issues with
 
@@ -198,15 +210,17 @@ You can list available labels for a projects issues with
 
 For example,
 
-    $ curl https://github.com/api/v2/json/issues/labels/schacon/showoff
-    {
-      "labels": [
-        "bug",
-        "feature"
-      ]
-    }
+<pre class="terminal">
+$ curl https://github.com/api/v2/json/issues/labels/schacon/showoff
+{
+  "labels": [
+    "bug",
+    "feature"
+  ]
+}
+</pre>
 
-### Add and Remove Labels ###
+## Add and Remove Labels ##
 
 To add a label, run
 
@@ -216,8 +230,9 @@ This will return a list of the labels currently on that issue, your new one incl
 
 Here is how I would add the label 'testing' to my first ticket in my simplegit project:
 
-    $ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/issues/label/add/schacon/simplegit/testing/1
-
+<pre class="terminal">
+$ curl -F 'login=schacon' -F 'token=XXX' https://github.com/api/v2/json/issues/label/add/schacon/simplegit/testing/1
+</pre>
 To remove a label, run:
 
     issues/label/remove/:user/:repo/:label/:number
@@ -228,7 +243,7 @@ You can also add and remove labels generally by leaving off the Issue number.
 That will add a label to the system but not attach it to an issue, or remove
 a label from all issues.
 
-### Comment on Issues ###
+## Comment on Issues ##
 
 You can comment on issues at
 
@@ -236,8 +251,10 @@ You can comment on issues at
 
 Simply send it a 'comment' POST variable with the comment you'd like to make.  It will attribute the comment to the user that is authenticated.  Here is an example:
 
-    $ curl -F 'login=schacon' -F 'token=XXX' -F 'comment=this is amazing' \
-    https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1
-    {"comment": {"gravatar_id": "9375a9529679f1b42b567a640d775e7d",
-    "user": "schacon", "body": "this is amazing", id: 17,
-    created_at: TIMESTAMP, updated_at: TIMESTAMP}
+<pre class="terminal">
+$ curl -F 'login=schacon' -F 'token=XXX' -F 'comment=this is amazing' \
+https://github.com/api/v2/json/issues/comment/defunkt/dunder-mifflin/1
+{"comment": {"gravatar_id": "9375a9529679f1b42b567a640d775e7d",
+"user": "schacon", "body": "this is amazing", id: 17,
+created_at: TIMESTAMP, updated_at: TIMESTAMP}
+</pre>
